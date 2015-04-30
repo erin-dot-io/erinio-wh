@@ -30,7 +30,7 @@ module.exports = function(grunt) {
           // Files in the /sass/ directory will go to /static/css/ when processed.
           expand: true,
           cwd: 'sass',
-          src: ['*.sass'],
+          src: ['*.scss'],
           dest: 'static/css',
           ext: '.css'
         }]
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
     // WHEN FILES CHANGE, RUN THE ABOVE TASKS ALONG WITH BUILD
     watch: {
       sass : {
-        files: ['sass/**/*.sass'],
+        files: ['sass/**/*.scss'],
         tasks: ['sass', 'build']
       },
       less : {
