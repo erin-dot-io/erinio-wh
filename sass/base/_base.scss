@@ -1,0 +1,46 @@
+/* Bitters 0.10.0
+ * http://bitters.bourbon.io
+ * Copyright 2013–2014 thoughtbot, inc.
+ * MIT License */
+
+@import "../bourbon/bourbon";
+
+// Variables
+@import "variables";
+
+// Neat Settings -- uncomment if using Neat -- must be imported before Neat
+@import "grid-settings";
+
+// Disable global box-sizing here and add it to
+// _layout.scss insteadso that it does not apply the
+// rule multiple times for every scss partial in main.scss
+$border-box-sizing : false !global;
+
+// Show the visual grid
+// NOTE: Grid may appear slightly off due to the fact that it is
+// created using a gradient with fraction pixel values.
+// Appears least accurate in Chrome 40.
+// Looks best in Safari & Firefox (Apr 2015).
+// $visual-grid: true !global; // Uncomment/comment this line to enable/disable
+$visual-grid-color: red !global;
+$visual-grid-opacity: 0.1 !global;
+$visual-grid-index: front !global;
+
+@import "../neat/neat";
+
+// Extends
+@import "extends/extends";
+
+// Mixins
+@import "mixins";
+
+// Normalize
+@import "normalize";
+@import "normalize-opentype";
+
+// Typography and Elements
+@import "typography";
+@import "forms";
+@import "tables";
+@import "lists";
+@import "buttons";

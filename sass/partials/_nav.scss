@@ -1,0 +1,239 @@
+.cd-nav-trigger {
+  @include position(fixed, $nav-padding-desktop null null $nav-padding-desktop);
+  height: $nav-logo-size-desktop;
+  width: $nav-logo-size-desktop;
+  z-index: 5;
+  // image replacement
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  cursor: pointer;
+  @include tap-highlight;
+  @include transition-duration(300ms);
+  &:before, &:after {
+
+  }
+  // &:before {
+  //   background-color: $nav-color-dark;
+  //   @include transform(scale(1));
+  //   @include transition-duration(400ms);
+  //   @include transition-delay(200ms);
+  // }
+  &:after {
+    content: " ";
+    @include position(absolute, $nav-close-position null null $nav-close-position);
+    border-radius: 50%;
+    height: $nav-close-size-desktop;
+    width: $nav-close-size-desktop;
+    @include transition-property(transform);
+    background-color: $base-bg-color;
+    @include transform(scale(0));
+    @include transition-duration(0ms);
+    @include transition-delay(200ms);
+  }
+  &.close-nav {
+    // user clicks on the .cd-nav-trigger element - 1st rounded background disappears
+    // &:before {
+    //   @include transform(scale(0.9));
+    //   @include transition-duration(100ms);
+    //   @include transition-delay(0ms);
+    //   @include transition-timing-function($easeInOutQuint);
+    // }
+    // user clicks on the .cd-nav-trigger element - 2nd rounded background appears
+    &:after {
+      @include transform(scale(1));
+      @include transition-duration(300ms);
+      @include transition-delay(100ms);
+    }
+    &:active {
+      @include transform(scale(0.9) rotate(10deg));
+    }
+  }
+  &:active {
+    @include transform(scale(0.9) rotate(-10deg));
+    @include transition-duration(70ms);
+    @include transition-delay(0ms);
+    @include transition-timing-function($easeInOutQuint);
+  }
+}
+
+$nav-trigger-icon-color       : shade($nav-color-dark, 40%);
+$nav-trigger-icon-color-open  : tint($nav-color-dark, 80%);
+$nav-trigger-icon-color-close : $nav-trigger-icon-color;
+
+.cd-icon--open, .cd-icon--close {
+  display: inline-block;
+  z-index: 10;
+  &:before, &:after {
+    content: " ";
+    @include position(absolute, 0 0 null null);
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+  }
+}
+
+$nav-trigger-icon-rotate        : 180deg;
+$nav-trigger-icon-rotate-speed  : 500ms;
+$nav-trigger-icon-fade-speed    : 300ms;
+$nav-trigger-icon-fade-delay    : 80ms;
+
+
+.cd-icon--open {
+  @include position( absolute, 0px 0 0 0px );
+  // background-color: $nav-trigger-icon-color-open;
+  @include transform(rotate(0deg));
+  &:before {@include transform(translateY(-6px) rotate(0deg));}
+  &:after {@include transform(translateY(6px) rotate(0deg));}
+  @include transition(transform $nav-trigger-icon-rotate-speed $spinCurve, opacity $nav-trigger-icon-fade-speed ease $nav-trigger-icon-fade-delay);
+  .close-nav & {
+    opacity: 0;
+    @include transform(rotate($nav-trigger-icon-rotate));
+    @include transition(transform $nav-trigger-icon-rotate-speed $spinCurve, opacity $nav-trigger-icon-fade-speed ease 0ms);
+  }
+  > svg {
+    @include position( absolute, 0px 0 0 0px );
+  }
+}
+
+.cd-icon--close {
+  @include position(absolute, 50% auto auto 50%);
+  width: 18px;
+  height: 2px;
+  background-color: rgba($nav-color-dark, 0);
+  @include transform(translate(-50%, -50%) rotate(-($nav-trigger-icon-rotate)));
+  &:before, &:after {background-color: $nav-trigger-icon-color;}
+  &:before {@include transform(translateY(0) rotate(45deg));}
+  &:after {@include transform(translateY(0) rotate(-45deg));}
+  opacity: 0;
+  @include transition(transform $nav-trigger-icon-rotate-speed $spinCurve, opacity $nav-trigger-icon-fade-speed ease 0ms);
+  .close-nav & {
+    opacity: 1;
+    @include transform(translate(-50%, -50%) rotate(0deg));
+    @include transition(transform $nav-trigger-icon-rotate-speed $spinCurve, opacity $nav-trigger-icon-fade-speed ease $nav-trigger-icon-fade-delay);
+  }
+}
+
+$content-fade-timing : 300ms;
+$content-fade-delay  : 50ms;
+
+// containers of the 2 main rounded backgrounds
+// - these containers are used to position the rounded bgs behind the menu icon
+.cd-overlay-nav, .cd-overlay-content {
+  @include position(fixed, $nav-padding-desktop null null $nav-padding-desktop);
+  height: $nav-overlay-init-size;
+  width: $nav-overlay-init-size;
+  @include transform(translate($nav-overlay-pos-desktop, $nav-overlay-pos-desktop));
+  &.is-hidden {
+    @include transition(
+      visibility 0ms ($content-fade-timing + $content-fade-delay),
+      opacity $content-fade-timing $content-fade-delay
+    );
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.cd-overlay-nav {
+  z-index: 2;
+}
+
+.cd-overlay-content {
+  z-index: 4;
+}
+
+.overlay-mask {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  @include transform(scale(0));
+  .cd-overlay-nav & {
+    background-color: rgba($nav-color-dark, 1);
+  }
+  .cd-overlay-content & {
+    background-color: rgba($base-bg-color, 1);
+  }
+}
+
+.cd-primary-nav {
+  @include position(fixed, 0 0 0 0);
+  padding: 10%;
+  background-color: $nav-color-dark;
+  z-index: 3;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+  visibility: hidden;
+  @include transition(visibility 0ms linear 400ms);
+  &.fade-in {
+    @include transition(visibility 0ms linear 0ms);
+    visibility: visible;
+  }
+}
+
+.primary-nav__inner {
+  // animate
+  @include transition(opacity 400ms, transform 300ms $easeInExpo);
+  @include transform(translate(-20px, -20px) scale(0.95));
+  opacity: 0;
+  > ul {
+    > li {
+      > a {
+        display: block;
+        padding: 3%;
+        color: $base-bg-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: $sans-serif;
+        border-bottom: 1px solid rgba($base-bg-color, 0.2);
+        &:hover {background-color: rgba($base-bg-color, 0.1);}
+      }
+      &:last-child {
+        > a {
+          border-bottom-width: 0;
+        }
+      }
+    }
+  }
+  .fade-in & {
+    @include transition(opacity 300ms, transform 500ms $spinCurve);
+    @include transform(translate(0px, 0px) scale(1));
+    opacity: 1;
+  }
+  @include media($phone-wide) {
+    @include transform(translate(-10px, -10px) scale(0.95));
+  }
+}
+
+// NAV TITLE
+
+.nav-title {
+  font-family: $title-font-family;
+  font-size: $base-font-size * 1.875; // 30px
+  line-height: 1;
+  color: $nav-color-dark;
+  @include position(absolute, ($nav-padding-desktop + ($nav-logo-size-desktop / 2) - 15px) null null 50%);
+  width: 200px;
+  margin-left: -100px;
+  text-align: center;
+  z-index: 10;
+  &:hover {
+    color: $nav-link-color-dark;
+  }
+  .overlay-light & {
+    color: $base-bg-color;
+  }
+}
+
+// SVG LOGO
+.svg-logo {
+  .svg-logo-fill {
+    fill: $nav-color-dark;
+    .overlay-light & {
+      fill: $base-bg-color;
+    }
+  }
+}
+
+

@@ -1,0 +1,72 @@
+@mixin tap-highlight() {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+@mixin background-cover($pos-y: center, $pos-x: center, $size: cover) {
+  background-repeat: no-repeat;
+  background-position: $pos-y $pos-x;
+  background-size: $size;
+}
+
+@mixin fill($width: 100%) {
+  @include box-sizing(border-box);
+  width: $width;
+}
+
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else if $value == off {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+$font-load-transform        : 15px;
+$font-load-fade-timing      : 400ms;
+$font-load-transform-timing : 750ms;
+
+@mixin font-loading($style: 'fade-in') {
+  @include backface-visibility(hidden);
+  @if $style == 'fade-in' {
+    @include transition(opacity $font-load-fade-timing ease);
+    .wf-loading & {opacity: 0;}
+  }
+  @else if $style == 'fade-up-in' {
+    @include transition(opacity $font-load-fade-timing ease,
+                        transform $font-load-transform-timing ease);
+    .wf-loading & {
+      opacity: 0;
+      @include transform(translate3d(0, $font-load-transform, 0));
+    }
+  }
+  @else if $style == 'fade-down-in' {
+    @include transition(opacity $font-load-fade-timing ease,
+                        transform $font-load-transform-timing ease);
+    .wf-loading & {
+      opacity: 0;
+      @include transform(translate3d(0, -$font-load-transform, 0));
+    }
+  }
+  @else if $style == 'fade-right-in' {
+    @include transition(opacity $font-load-fade-timing ease,
+                        transform $font-load-transform-timing ease);
+    .wf-loading & {
+      opacity: 0;
+      @include transform(translate3d($font-load-transform, 0, 0));
+    }
+  }
+  @else if $style == 'fade-left-in' {
+    @include transition(opacity $font-load-fade-timing ease,
+                        transform $font-load-transform-timing ease);
+    .wf-loading & {
+      opacity: 0;
+      @include transform(translate3d(-$font-load-transform, 0, 0));
+    }
+    .wf-loading & {
+      @include transition(none);
+    }
+  }
+}
