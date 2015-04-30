@@ -1,13 +1,22 @@
 // Typography
+///////////////////////////////////////////////////////////////////////////////
 $sans-serif: $helvetica;
 $serif: 'freight-text-pro', $georgia;
 $mono: 'Courier New', Courier, monospace;
-$condensed: 'nimbus-sans-condensed', 'Impact', $sans-serif;
-$freight-display: 'freight-display-pro', $serif;
 
-$base-font-family: $serif;
-$header-font-family: $freight-display;
-$title-font-family: $condensed;
+$base-font-family: 'nimbus-sans', $serif;
+$header-font-family: 'freight-display-pro', $helvetica;
+$title-font-family: 'ff-meta-serif-web-pro', $serif;
+
+// Sizes
+///////////////////////////////////////////////////////////////////////////////
+$base-font-size: 1em;
+$base-line-height: 1.5;
+$base-border-radius: em(3);
+
+$grid-padding-desktop: 40px;
+$grid-padding-tablet: 20px;
+$grid-padding-phone: 14px;
 
 // Font Sizes
 $base-font-size    : 1em;
@@ -28,42 +37,43 @@ $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $base-z-index: 0;
 
-// Defualt Colors
+// Colors
+///////////////////////////////////////////////////////////////////////////////
+
 $blue: #477DCA;
+$blue-white: #e6f2ff;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
-
-// Brand colors
 $off-gray: #d7d2d3;
-$off-white: #f3f3ef;
 $warm-gray: #564d58;
 
+// Body Color
+$base-body-color: white;
 // Background Color
 $base-bg-color: white;
 
-// Font Colors
+//  Font Colors
 $base-font-color: $warm-gray;
 $base-accent-color: $blue;
 $overlay-text-color: white;
 
-// Link Colors
+//  Text Link Colors
 $base-link-color: $base-accent-color;
 $hover-link-color: darken($base-accent-color, 15);
 $base-button-color: $base-link-color;
 $hover-button-color: $hover-link-color;
 
-// Logo colors
-$nav-color-dark : $warm-gray;
-$nav-link-color-dark : tint($warm-gray, 10%);
+// Border color
+$base-border-color: $light-gray;
 
 // Flash Colors
 $alert-color: $light-yellow;
 $error-color: $light-red;
-$notice-color: lighten($base-accent-color, 40);
+$notice-color: $light-yellow;
 $success-color: $light-green;
 
 // Border color
@@ -79,6 +89,34 @@ $form-box-shadow: inset 0 1px 3px rgba(black,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
+
+// animation
+$scroll-curve: cubic-bezier(0.7,0,0.3,1);
+
+// header stuff
+$bg-mask-size-top: 10%;
+$bg-mask-size-side: 7%;
+
+$nav-height-desktop: 86%;
+$nav-height-netbook-11: 80%;
+$nav-height-phone-short: 76%;
+$nav-height-phone: 82%;
+
+$mask-height-desktop: 27%;
+$mask-height-netbook-11: 100% - $nav-height-netbook-11 + 10%;
+$mask-height-phone-short: 100% - $nav-height-phone-short + 10%;
+$mask-height-phone: 100% - $nav-height-phone + 10%;
+
+$header-left-width: 53%;
+
+$nav-logo-size-desktop : 64px;
+$nav-logo-size-phone : 54px;
+
+
+
+
+
+
 
 // Animation
 $scrollCurve    : cubic-bezier(0.7,0,0.3,1);
@@ -100,3 +138,7 @@ $nav-close-position       : ($nav-logo-size-desktop - $nav-close-size-desktop) /
 $nav-overlay-init-size    : 1px;
 $nav-overlay-pos-desktop  : ($nav-logo-size-desktop / 2) - ($nav-overlay-init-size / 2);
 
+
+// Logo colors
+$nav-color-dark : $warm-gray;
+$nav-link-color-dark : tint($warm-gray, 10%);
