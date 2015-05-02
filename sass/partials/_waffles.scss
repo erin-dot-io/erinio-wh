@@ -1,0 +1,30 @@
+$waffle-padding       : 4px;
+$waffle-square-height : ($waffle-padding * 2) / 3;
+
+.waffle {
+  @include clearfix;
+  width: 100vw;
+  height: 100vh;
+  padding: $waffle-padding;
+  // animate
+  // opacity: 0;
+}
+
+.waffle__square {
+  position: relative;
+  float: left;
+  width: 20%;
+  height: calc(33.3333vh - #{$waffle-square-height});
+  padding: $waffle-padding;
+  // animate
+  opacity: 0;
+}
+
+.square {
+  @include position(absolute, 4px 4px 4px 4px);
+}
+
+.square__thumb {
+  @include position(absolute, 0 0 0 0);
+  @include background-cover;
+}

@@ -1,7 +1,7 @@
 *, *:before, *:after {@include box-sizing(border-box);}
 
 body {
-  @include font-loading;
+  // @include font-loading;
 }
 
 .nav-spacer {

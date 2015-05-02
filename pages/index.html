@@ -17,75 +17,85 @@
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 
-{% block head_extra %}
-  <link rel="stylesheet" href="/static/css/splash.css"/>
-{% endblock %}
+{% block head_extra %}{% endblock %}
 
 {% block content %}
 
-<div class="top-container intro-effect-side" id="top-container">
-  <header class="header">
-    <div class="bg-canvas slide-trigger fade-bg-canvas">
-      <div class="bg-canvas__image" style="background-image: url('{{ cms.splash.splash_image.url }}')"></div>
-      <div class="bg-canvas__mask mask--bottom"></div>
-    </div>
-    <div class="header-overlay">
-      <div class="container">
-        <div class="header-top-left">
-          <div class="splash-logo">
-            <div class="splash-logo__inner">
-              <img src="{{ cms.splash.splash_logo_big.url }}" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-</div>
-<div class="header-nav nav-light fade-with-bg">
-  <div class="header-nav__inner">
-    <div class="header-nav__valign">
-      <div class="nav-center-wrap">
-        <div class="container">
-          <div class="nav-social-links" id="nav-social-links">
-            <div class="social-links__left">
-              <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a><a class="icon-twitter" href="http://twitter.com/erindotio"></a><a class="icon-paperplane trigger-email" href="mailto:erin+hello@erin.io"></a>
-            </div>
-            <div class="social-links__right">
-              <a class="icon-octoface" href="http://github.com/erindotio"></a><a class="icon-code" href="http://gist.github.com/erindotio"></a><a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
-            </div>
-          </div>
-          <div class="nav-logo" id="nav-logo">
-            <a href="/"><img src="{{ cms.splash.splash_logo_small.url }}" /></a>
-          </div>
-        </div>
-      </div>
+<div class="waffle">
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
     </div>
   </div>
-</div>
-<div class="header-content">
-  <div class="container narrow">
-    <h1 class="slide-in-item" id="hello">
-      Hello
-    </h1>
-    <p class="slide-in-item">
-      My name is Erin.
-    </p>
-    <p class="slide-in-item no-wrap">
-      I'm a designer, developer, <wbr> and autodidact.
-    </p>
-    <p class="slide-in-item">
-      I've helped design and build sites like <a href="http://www.shapeways.com/">Shapeways</a>, <a href="http://www.contextclothing.com/">Context Clothing</a>, <a href="http://august.la/">August Uncommon Tea</a>, and most recently <a href="http://www.adigoodrich.com/">Adi Goodrich</a>.
-    </p>
-    <p class="slide-in-item">
-      I've also worked at places like <a href="http://www.alldayeveryday.com/">ALLDAYEVERYDAY</a> and <a href="http://www.ahundredyears.com/">A&nbsp;Hundred&nbsp;Years</a>, where I collaborated with companies like The&nbsp;Standard&nbsp;Hotels, ALDO, Milk&nbsp;Studios, Nike, and TED.
-    </p>
-    <p class="slide-in-item no-wrap">
-      Interested in working together? <wbr> <a href="mailto:erin+hello@erin.io">Let's talk <i class="icon-paperplane"></i></a>
-    </p>
-    <p class="slide-in-item">
-      <small class="text-subtle">A real website is <wbr> coming soon...</small>
-    </p>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
+  </div>
+  <div class="waffle__square">
+    <div class="square">
+      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+    </div>
   </div>
 </div>
 

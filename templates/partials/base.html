@@ -71,19 +71,17 @@
         {% include "templates/partials/footer.html" %}
       {% endblock %}
 
-      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
       {# Put your JS in here and we'll minify it into one file. No CDN scripts. More info: #}
       {# http://www.webhook.com/docs/minify-your-js-and-css/ #}
 
       <!-- build:js /static/javascript/minified.js -->
       <script src="/static/javascript/main.js"></script>
-      <script src="/static/javascript/splash/classie.js"></script>
-      <script src="/static/javascript/splash/hammer.min.js"></script>
-      <script src="/static/javascript/splash/jquery.velocity.min.js"></script>
-      <script src="/static/javascript/splash/modernizr-283-custom-1.js"></script>
-      <script src="/static/javascript/splash/velocity.ui.js"></script>
-      <script src="/static/javascript/splash/waitForImages.min.js"></script>
+      <script src="/static/javascript/plugins/modernizr-283-custom.min.js"></script>
+      <script src="/static/javascript/plugins/velocity-122.min.js"></script>
+      <script src="/static/javascript/plugins/velocity-ui-504.js"></script>
+      <script src="/static/javascript/plugins/imagesloaded.pkgd.min.js"></script>
       <!-- endbuild -->
 
       {% block scripts_extra %}{% endblock %}

@@ -915,17 +915,6 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-body {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transition: opacity 400ms ease;
-  -moz-transition: opacity 400ms ease;
-  transition: opacity 400ms ease;
-}
-.wf-loading body {
-  opacity: 0;
-}
-
 .nav-spacer {
   margin-top: 124px;
 }
@@ -1533,13 +1522,48 @@ body {
   padding-top: 4em;
 }
 
+.waffle {
+  width: 100vw;
+  height: 100vh;
+  padding: 4px;
+}
+.waffle::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.waffle__square {
+  position: relative;
+  float: left;
+  width: 20%;
+  height: calc(33.3333vh - 2.66667px);
+  padding: 4px;
+  opacity: 0;
+}
+
+.square {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: 4px;
+}
+
+.square__thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 html.js.turbolinks-progress-bar::before {
   height: 2px;
   background-color: #564d58;
-}
-
-html, body, main, article {
-  height: 100%;
 }
 
 .last {
