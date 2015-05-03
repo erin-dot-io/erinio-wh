@@ -21,82 +21,16 @@
 
 {% block content %}
 
-<div class="waffle">
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
+  <div class="loader" id="loader">
+    <div class="loader__bgbg"></div>
+    <div class="loader__bg">
+      <div class="loader__bg--inner"></div>
+    </div>
+    <div class="loader__logo">
+      <img src="{{ cms.waffles.logo_mask.url }}" alt="">
     </div>
   </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-  <div class="waffle__square">
-    <div class="square">
-      <div class="square__thumb" style="background-image: url('http://placehold.it/400x400&text=square')" alt=""></div>
-    </div>
-  </div>
-</div>
+
+  {% include "templates/partials/waffle.html" %}
 
 {% endblock %}

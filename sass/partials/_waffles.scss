@@ -1,6 +1,42 @@
 $waffle-padding       : 4px;
 $waffle-square-height : ($waffle-padding * 2) / 3;
 
+.loader {
+  @include position(fixed, 0 0 0 0);
+  // animate
+  opacity: 0;
+  // @include transform(scale(1.05) translateZ(0));
+  // @include transition(opacity 400ms, transform 500ms);
+  .loader--loaded & {
+    opacity: 1;
+    // @include transform(scale(1) translateZ(0));
+  }
+}
+
+.loader__bg,
+.loader__bgbg {
+  @include position(absolute, 0 16% 0 18%);
+}
+
+.loader__bg {
+  @include transform(translateX(-100%));
+  .loader__bg--inner {
+    background-color: $warm-gray;
+    @include position(absolute, 0 0 0 0);
+  }
+}
+
+.loader__bgbg {
+  background-color: lighten($warm-gray, 50%);
+}
+
+.loader__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%) scale(8));
+}
+
 .waffle {
   @include clearfix;
   width: 100vw;
@@ -27,4 +63,5 @@ $waffle-square-height : ($waffle-padding * 2) / 3;
 .square__thumb {
   @include position(absolute, 0 0 0 0);
   @include background-cover;
+  img {visibility: hidden;}
 }
