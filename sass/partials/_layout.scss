@@ -62,3 +62,10 @@ body {
     margin: 0 (-($grid-padding-phone));
   }
 }
+
+.hero-zone {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

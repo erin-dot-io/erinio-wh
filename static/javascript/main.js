@@ -43,7 +43,7 @@ $(document).ready(function() {
       duration: 300,
       easing: "swing"
     });
-    loader.velocity({ scale: [ 0.15, 1 ], translateZ: 0 }, {
+    loader.velocity({ scale: [ 0.2, 1 ], translateZ: 0 }, {
       delay: 400,
       duration: 600,
       easing: "easeInOutQuad"

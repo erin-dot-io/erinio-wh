@@ -1190,6 +1190,13 @@ input[type="submit"] {
   }
 }
 
+.hero-zone {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .cd-nav-trigger {
   position: fixed;
   top: 30px;
@@ -1716,7 +1723,7 @@ input[type="submit"] {
 }
 
 .loader {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1727,33 +1734,21 @@ input[type="submit"] {
   opacity: 1;
 }
 
-.loader__bg,
-.loader__bgbg {
+.loader__bg {
   position: absolute;
   top: 0;
   right: 16%;
   bottom: 0;
   left: 18%;
-}
-
-.loader__bg {
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+  background-color: #564d58;
 }
 .loader__bg .loader__bg--inner {
-  background-color: #564d58;
+  background-color: #d4cfd5;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.loader__bgbg {
-  background-color: #d4cfd5;
 }
 
 .loader__logo {
