@@ -1197,6 +1197,11 @@ input[type="submit"] {
   overflow: hidden;
 }
 
+.post-wrapper {
+  min-height: 100vh;
+  background-color: #477DCA;
+}
+
 .cd-nav-trigger {
   position: fixed;
   top: 30px;
@@ -1779,15 +1784,31 @@ input[type="submit"] {
   width: 20%;
   height: calc(33.3333vh - 2.66667px);
   padding: 4px;
-  opacity: 0;
+}
+.intro--done .waffle__square {
+  -webkit-transition: -webkit-transform 400ms;
+  -moz-transition: -moz-transform 400ms;
+  transition: transform 400ms;
+}
+.intro--done .waffle__square:hover {
+  -webkit-transform: scale(1.025) translateZ(0) !important;
+  -moz-transform: scale(1.025) translateZ(0) !important;
+  -ms-transform: scale(1.025) translateZ(0) !important;
+  -o-transform: scale(1.025) translateZ(0) !important;
+  transform: scale(1.025) translateZ(0) !important;
 }
 
 .square {
+  display: block;
   position: absolute;
   top: 4px;
   right: 4px;
   bottom: 4px;
   left: 4px;
+}
+
+.square-blank {
+  background-color: #d7d2d3;
 }
 
 .square__thumb {
@@ -1799,9 +1820,19 @@ input[type="submit"] {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  -webkit-transition: -webkit-transform 60ms;
+  -moz-transition: -moz-transform 60ms;
+  transition: transform 60ms;
 }
 .square__thumb img {
   visibility: hidden;
+}
+a:active .square__thumb {
+  -webkit-transform: scale(0.975) translateZ(0);
+  -moz-transform: scale(0.975) translateZ(0);
+  -ms-transform: scale(0.975) translateZ(0);
+  -o-transform: scale(0.975) translateZ(0);
+  transform: scale(0.975) translateZ(0);
 }
 
 html.js.turbolinks-progress-bar::before {

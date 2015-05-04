@@ -69,3 +69,8 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+.post-wrapper {
+  min-height: 100vh;
+  background-color: $blue;
+}

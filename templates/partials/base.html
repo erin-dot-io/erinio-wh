@@ -64,8 +64,10 @@
         {% include "templates/partials/header.html" %}
       {% endblock %}
 
-      {# By default, your inner pages will load into this block. #}
-      {% block content %}{% endblock %}
+      <div id="content" class="content">
+        {# By default, your inner pages will load into this block. #}
+        {% block content %}{% endblock %}
+      </div>
 
       {% block footer %}
         {% include "templates/partials/footer.html" %}
@@ -77,12 +79,14 @@
       {# http://www.webhook.com/docs/minify-your-js-and-css/ #}
 
       <!-- build:js /static/javascript/minified.js -->
-      <script src="/static/javascript/main.js"></script>
       <script src="/static/javascript/plugins/modernizr-283-custom.min.js"></script>
       <script src="/static/javascript/plugins/velocity-122.min.js"></script>
       <script src="/static/javascript/plugins/velocity-ui-504.js"></script>
-      <script src="/static/javascript/plugins/progress.min.js"></script>
+      <script src="/static/javascript/plugins/jquery.scrollto.js"></script>
+      <script src="/static/javascript/plugins/jquery.history.js"></script>
+      <script src="/static/javascript/plugins/ajaxify-html5.js"></script>
       <script src="/static/javascript/plugins/imagesloaded.pkgd.min.js"></script>
+      <script src="/static/javascript/main.js"></script>
       <!-- endbuild -->
 
       {% block scripts_extra %}{% endblock %}

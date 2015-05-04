@@ -43,15 +43,30 @@ $waffle-square-height : ($waffle-padding * 2) / 3;
   height: calc(33.3333vh - #{$waffle-square-height});
   padding: $waffle-padding;
   // animate
-  opacity: 0;
+  // opacity: 0;
+  .intro--done & {
+    @include transition(transform 400ms);
+  }
+  .intro--done &:hover {
+    @include transform(scale(1.025) translateZ(0) !important);
+  }
 }
 
 .square {
+  display: block;
   @include position(absolute, 4px 4px 4px 4px);
+}
+
+.square-blank {
+  background-color: $off-gray;
 }
 
 .square__thumb {
   @include position(absolute, 0 0 0 0);
   @include background-cover;
   img {visibility: hidden;}
+  @include transition(transform 60ms);
+  a:active & {
+    @include transform(scale(0.975) translateZ(0));
+  }
 }
