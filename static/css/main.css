@@ -2334,6 +2334,7 @@ body.page--photo-post {
 
 .post-bg {
   background-color: white;
+  margin: 12px;
 }
 
 .post-border {

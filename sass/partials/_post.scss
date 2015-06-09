@@ -1,3 +1,5 @@
+$post-border-width : 12px;
+
 .post-header {
   padding-top: 20vh;
   padding-bottom: 20vh;
@@ -63,14 +65,13 @@
 
 .post-bg {
   background-color: $base-bg-color;
+  margin: $post-border-width;
 }
 
 .post-border {
   position: fixed;
   background-color: $alt-bg-color;
 }
-
-$post-border-width : 12px;
 
 .post-border--top {
   top: 0;
