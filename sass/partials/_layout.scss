@@ -2,6 +2,9 @@
 
 body {
   @include font-loading;
+  &.page--photo-post {
+    background-color: $alt-bg-color;
+  }
 }
 
 .nav-spacer {

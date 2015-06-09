@@ -575,6 +575,7 @@ body {
   font-family: "nimbus-sans", "freight-text-pro", "Georgia", "Cambria", "Times New Roman", "Times", serif;
   font-size: 1em;
   line-height: 1.5;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -589,9 +590,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "freight-display-pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+h6, .h6 {
+  font-family: "ff-meta-serif-web-pro", "freight-text-pro", "Georgia", "Cambria", "Times New Roman", "Times", serif;
   line-height: 1;
+  font-weight: 600;
   margin: 0;
   text-rendering: optimizeLegibility;
 }
@@ -600,7 +602,7 @@ h2.space,
 h3.space,
 h4.space,
 h5.space,
-h6.space {
+h6.space, .h6.space {
   margin-bottom: .2em;
 }
 
@@ -624,8 +626,9 @@ h5 {
   font-size: 1.25em;
 }
 
-h6 {
+h6, .h6 {
   font-size: 1em;
+  color: #777079;
 }
 
 p {
@@ -676,6 +679,10 @@ cite {
 }
 cite:before {
   content: "\2014 \00A0";
+}
+
+figure {
+  margin: 0;
 }
 
 fieldset {

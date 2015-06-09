@@ -1,0 +1,68 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+{% block body_attributes %}class="page--photo-post"{% endblock %}
+
+{% block content %}
+
+<div class="post-bg">
+  <section class="container post-header post-header--white">
+    <h1>{{ item.name }}</h1>
+    <h6>{{ item.location }} &mdash; {{ item.date|date('m.d.y') }}</h6>
+  </section>
+  <section class="container post-gallery">
+    <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
+      {% for image in item.images %}
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if image.caption %} post-gallery__item--{{ image.caption }}{% endif %} ">
+            <a href="{{ image.url }}" itemprop="contentUrl" data-size="{{ image.width }}x{{ image.height }}">
+              <img src="{% if image.caption %}{{ image|imageSize(350, "auto") }}{% else %}{{ image|imageSize(700, "auto") }}{% endif %}" itemprop="thumbnail">
+            </a>
+          </figure>
+      {% endfor %}
+    </div>
+  </section>
+  <section class="container post-footer">
+    <a class="h6" href="/">erin.io</a>
+    <span>&mdash;</span>
+    <div class="post-footer__social">
+      <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a>
+      <a class="icon-twitter" href="http://twitter.com/erindotio"></a>
+      <a class="icon-paperplane trigger-email" href="mailto:erin+hello@erin.io"></a>
+      <a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
+    </div>
+  </section>
+</div>
+
+{% include "templates/partials/photoswipe.html" %}
+
+<div class="post-border post-border--top"></div>
+<div class="post-border post-border--right"></div>
+<div class="post-border post-border--bottom"></div>
+<div class="post-border post-border--left"></div>
+
+{# <script>
+  var pswpElement = document.querySelectorAll('.pswp')[0];
+
+  var items = [
+    {% for image in item.images %}
+      {% if loop.last %}
+        {
+          src: '{{ image.url }}',
+          w: {{ image.width }},
+          h: {{ image.height }}
+        }
+      {% else %}
+        {
+          src: '{{ image.url }}',
+          w: {{ image.width }},
+          h: {{ image.height }}
+        },
+      {% endif %}
+    {% endfor %}
+  ];
+
+  console.log(items[0].w);
+
+</script> #}
+
+{% endblock %}

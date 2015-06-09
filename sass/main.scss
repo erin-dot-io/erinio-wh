@@ -1,11 +1,16 @@
 @import "base/base";
 
+// plugins
+@import "plugins/photoswipe/photoswipe";
+@import "plugins/photoswipe/default-skin/default-skin";
+
 @import "partials/animations";
 
 @import "partials/icons-icomoon";
 @import "partials/layout";
 @import "partials/nav";
 @import "partials/articles";
+@import "partials/post";
 
 @import "partials/shame";
 @import "partials/helpers";

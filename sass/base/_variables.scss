@@ -2,22 +2,22 @@
 $sans-serif: $helvetica;
 $serif: 'freight-text-pro', $georgia;
 $mono: 'Courier New', Courier, monospace;
-$condensed: 'nimbus-sans-condensed', 'Impact', $sans-serif;
+$soleil: 'soleil', $sans-serif;
 $freight-display: 'freight-display-pro', $serif;
 
 $base-font-family: $serif;
 $header-font-family: $freight-display;
-$title-font-family: $condensed;
+$title-font-family: $soleil;
 
 // Font Sizes
 $base-font-size    : 1em;
 $reading-font-size : 1.25em;
-$h1-font-size      : $base-font-size * 3.5;
+$h1-font-size      : $base-font-size * 3;
 $h2-font-size      : $base-font-size * 2.25;
 $h3-font-size      : $base-font-size * 1.75;
 $h4-font-size      : $base-font-size * 1.5;
 $h5-font-size      : $base-font-size * 1.25;
-$h6-font-size      : $base-font-size;
+$h6-font-size      : $base-font-size * 0.9375;
 
 // Line height
 $base-line-height: 1.5;
@@ -38,12 +38,14 @@ $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
 // Brand colors
-$off-gray: #d7d2d3;
-$off-white: #f3f3ef;
-$warm-gray: #564d58;
+$off-gray        : #d7d2d3;
+$off-white       : #f3f3ef;
+$warm-gray       : #564d58;
+$warm-gray-light : lighten($warm-gray, 60%);
 
 // Background Color
 $base-bg-color: white;
+$alt-bg-color: $warm-gray-light;
 
 // Font Colors
 $base-font-color: $warm-gray;

@@ -84,17 +84,26 @@
       <script src="/static/javascript/splash/modernizr-283-custom-1.js"></script>
       <script src="/static/javascript/splash/velocity.ui.js"></script>
       <script src="/static/javascript/splash/waitForImages.min.js"></script>
+      <script src="/static/javascript/plugins/photoswipe.min.js"></script>
+      <script src="/static/javascript/plugins/photoswipe-ui-default.min.js"></script>
+      <script src="/static/javascript/photo-posts.js"></script>
       <!-- endbuild -->
 
       {% block scripts_extra %}{% endblock %}
 
-      {# Google Analytics code. Feel free to remove. #}
-      <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src='//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
+      {# Google Analytics #}
+      {% if production %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', '{{ getSetting("analytics_id") }}', 'auto');
+          ga('send', 'pageview');
+        </script>
+      {% endif %}
+
     {% endblock %}
   </body>
 </html>
