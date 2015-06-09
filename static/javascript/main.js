@@ -6,9 +6,11 @@ $(window).load(function() {
   //       [{ translateZ: 0, scale: [ 1, 1.05 ], opacity: 1}, 1, { easing: 'ease' }]
   //     ]
   // });
+  if ($('#top-container').length) {
+    $('.fade-bg-canvas').addClass('fade-bg-canvas-loaded');
+    $('.fade-with-bg').addClass('fade-with-bg-loaded');
+  }
 
-  $('.fade-bg-canvas').addClass('fade-bg-canvas-loaded');
-  $('.fade-with-bg').addClass('fade-with-bg-loaded');
 
   // $('.bg-canvas__image').waitForImages(function() {
   //     $(this).parent().addClass('fade-bg-canvas-loaded');

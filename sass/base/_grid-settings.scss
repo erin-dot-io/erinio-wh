@@ -8,8 +8,8 @@ $max-width: em(940);
 
 // Grid math
 $grid-padding-desktop: 40px;
-$grid-padding-tablet: 20px;
-$grid-padding-phone: 14px;
+$grid-padding-tablet: 12px;
+$grid-padding-phone: 6px;
 
 // Neat Breakpoints
 
@@ -24,8 +24,8 @@ $desktop-narrow      : new-breakpoint(max-width 1000px);
 $desktop-narrow-only : new-breakpoint(min-width 769px max-width 1000px);
 $tablet              : new-breakpoint(max-width 768px);
 $tablet-only         : new-breakpoint(min-width 640px max-width 768px);
-$phone-wide          : new-breakpoint(max-width 669px);
-$phone-wide-only     : new-breakpoint(min-width 480px max-width 639px);
+$phone-wide          : new-breakpoint(max-width 736px);
+$phone-wide-only     : new-breakpoint(min-width 480px max-width 736px);
 $phone               : new-breakpoint(max-width 479px);
 $not-phone           : new-breakpoint(min-width 480px);
 $phone-short         : new-breakpoint(max-height 375px);

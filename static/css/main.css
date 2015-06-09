@@ -3,7 +3,7 @@
  * http://bitters.bourbon.io
  * Copyright 2013–2014 thoughtbot, inc.
  * MIT License */
-button,
+button:not(.pswp__button),
 input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   background-color: #477DCA;
@@ -16,12 +16,12 @@ input[type="submit"] {
   padding: 0.75em 1em;
   text-decoration: none;
 }
-button:hover,
+button:hover:not(.pswp__button),
 input[type="submit"]:hover {
   background-color: #2c5999;
   color: white;
 }
-button:disabled,
+button:disabled:not(.pswp__button),
 input[type="submit"]:disabled {
   cursor: not-allowed;
   opacity: 0.5;
@@ -572,17 +572,12 @@ body {
   overflow-x: hidden;
   background-color: white;
   color: #564d58;
-  font-family: "freight-text-pro", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  font-family: "soleil", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-@media screen and (max-width: 669px) {
-  body {
-    font-size: 0.83333em;
-  }
 }
 
 h1, .h1,
@@ -609,6 +604,21 @@ h6.space, .h6.space {
 h1, .h1 {
   font-size: 3em;
 }
+@media screen and (max-width: 1000px) {
+  h1, .h1 {
+    font-size: 2.25em;
+  }
+}
+@media screen and (max-width: 736px) {
+  h1, .h1 {
+    font-size: 1.75em;
+  }
+}
+@media screen and (max-width: 479px) {
+  h1, .h1 {
+    font-size: 1.5em;
+  }
+}
 
 h2 {
   font-size: 2.25em;
@@ -630,10 +640,26 @@ h6, .h6 {
   font-size: 0.9375em;
   color: #777079;
 }
+@media screen and (max-width: 1000px) {
+  h6, .h6 {
+    font-size: 0.875em;
+  }
+}
+@media screen and (max-width: 736px) {
+  h6, .h6 {
+    font-size: 0.75em;
+  }
+}
 
 p {
+  font-family: "freight-text-pro", "Georgia", "Cambria", "Times New Roman", "Times", serif;
   margin: 0 0 0.75em;
   font-size: 1.25em;
+}
+@media screen and (max-width: 736px) {
+  p {
+    font-size: 0.875em;
+  }
 }
 
 a {
@@ -696,7 +722,7 @@ input,
 label,
 select {
   display: block;
-  font-family: "freight-text-pro", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  font-family: "soleil", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em;
 }
 
@@ -724,7 +750,7 @@ select[multiple=multiple] {
   border-radius: 3px;
   border: 1px solid #DDD;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-  font-family: "freight-text-pro", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  font-family: "soleil", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em;
   margin-bottom: 0.75em;
   padding: 0.5em 0.5em;
@@ -814,7 +840,7 @@ dl dd {
   margin: 0;
 }
 
-button,
+button:not(.pswp__button),
 input[type="submit"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -847,6 +873,7 @@ input[type="submit"] {
   -webkit-text-size-adjust: 100%;
   /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   outline: none;
 }
 .pswp * {
@@ -862,6 +889,8 @@ input[type="submit"] {
   opacity: 0.001;
   will-change: opacity;
   /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+  -moz-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
 
@@ -903,6 +932,7 @@ input[type="submit"] {
   background: #000;
   opacity: 0;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   will-change: opacity;
 }
 
@@ -931,6 +961,7 @@ input[type="submit"] {
 .pswp__img {
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -942,26 +973,33 @@ input[type="submit"] {
   -webkit-transform-origin: left top;
   -moz-transform-origin: left top;
   -ms-transform-origin: left top;
+  -o-transform-origin: left top;
   transform-origin: left top;
   /* for open/close transition */
+  -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+  -moz-transition: -moz-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
 
 .pswp__bg {
   will-change: opacity;
   /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+  -moz-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
 
 .pswp--animated-in .pswp__bg,
 .pswp--animated-in .pswp__zoom-wrap {
   -webkit-transition: none;
+  -moz-transition: none;
   transition: none;
 }
 
 .pswp__container,
 .pswp__zoom-wrap {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   will-change: transform;
 }
 
@@ -980,6 +1018,8 @@ input[type="submit"] {
   height: auto;
   top: 0;
   left: 0;
+  -webkit-transition: opacity 0.15s;
+  -moz-transition: opacity 0.15s;
   transition: opacity 0.15s;
 }
 
@@ -989,6 +1029,7 @@ input[type="submit"] {
 */
 .pswp__img--placeholder {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /*
@@ -1233,14 +1274,15 @@ input[type="submit"] {
 .pswp__share-tooltip a {
   display: block;
   padding: 8px 12px;
-  color: #000;
+  color: #716573;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
   line-height: 18px;
 }
 .pswp__share-tooltip a:hover {
   text-decoration: none;
-  color: #000;
+  color: #564d58;
 }
 .pswp__share-tooltip a:first-child {
   /* round corners on the first/last list item */
@@ -1638,12 +1680,17 @@ a.pswp__share--download:hover {
 body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: opacity 400ms ease;
-  -moz-transition: opacity 400ms ease;
-  transition: opacity 400ms ease;
+  -webkit-transition: opacity 400ms ease, -webkit-transform 750ms ease;
+  -moz-transition: opacity 400ms ease, -moz-transform 750ms ease;
+  transition: opacity 400ms ease, transform 750ms ease;
 }
 .wf-loading body {
   opacity: 0;
+  -webkit-transform: translate3d(0, 15px, 0);
+  -moz-transform: translate3d(0, 15px, 0);
+  -ms-transform: translate3d(0, 15px, 0);
+  -o-transform: translate3d(0, 15px, 0);
+  transform: translate3d(0, 15px, 0);
 }
 body.page--photo-post {
   background-color: #eceaed;
@@ -1674,21 +1721,18 @@ body.page--photo-post {
   max-width: 50em;
 }
 @media screen and (max-width: 1000px) {
-  .container {
-    padding: 0 124px;
-  }
   .article__cover .container {
     padding: 0 40px;
   }
 }
 @media screen and (max-width: 768px) {
   .container {
-    padding: 0 20px;
+    padding: 0 12px;
   }
 }
-@media screen and (max-width: 669px) {
+@media screen and (max-width: 479px) {
   .container {
-    padding: 0 28px;
+    padding: 0 6px;
   }
 }
 
@@ -1722,12 +1766,12 @@ body.page--photo-post {
 }
 @media screen and (max-width: 768px) {
   .video-embed {
-    margin: 0 -20px;
+    margin: 0 -12px;
   }
 }
-@media screen and (max-width: 669px) {
+@media screen and (max-width: 736px) {
   .video-embed {
-    margin: 0 -14px;
+    margin: 0 -6px;
   }
 }
 
@@ -2025,7 +2069,7 @@ body.page--photo-post {
   transform: translate(0px, 0px) scale(1);
   opacity: 1;
 }
-@media screen and (max-width: 669px) {
+@media screen and (max-width: 736px) {
   .primary-nav__inner {
     -webkit-transform: translate(-10px, -10px) scale(0.95);
     -moz-transform: translate(-10px, -10px) scale(0.95);
@@ -2270,6 +2314,11 @@ body.page--photo-post {
 .post-header h6 {
   letter-spacing: 0.25em;
 }
+@media screen and (max-width: 479px) {
+  .post-header h1 {
+    letter-spacing: 0.2em;
+  }
+}
 
 .post-gallery__items {
   margin-left: auto;
@@ -2283,6 +2332,8 @@ body.page--photo-post {
 }
 
 .post-gallery__item {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   margin-bottom: 0.25em;
   float: left;
   display: block;
@@ -2306,6 +2357,15 @@ body.page--photo-post {
 }
 .post-gallery__item.post-gallery__item--r {
   margin-right: 0;
+}
+.post-gallery__item a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+@media screen and (max-width: 479px) {
+  .post-gallery__item {
+    margin-bottom: 0.15em;
+  }
 }
 
 .post-footer {
@@ -2335,6 +2395,11 @@ body.page--photo-post {
 .post-bg {
   background-color: white;
   margin: 12px;
+}
+@media screen and (max-width: 479px) {
+  .post-bg {
+    margin: 6px;
+  }
 }
 
 .post-border {

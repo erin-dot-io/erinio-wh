@@ -1,4 +1,4 @@
-button,
+button:not(.pswp__button),
 input[type="submit"] {
   @extend %button;
   @include appearance(none);

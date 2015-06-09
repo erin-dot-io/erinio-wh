@@ -1,4 +1,5 @@
-$post-border-width : 12px;
+$post-border-width       : 12px;
+$post-border-width-phone : 6px;
 
 .post-header {
   padding-top: 20vh;
@@ -13,6 +14,11 @@ $post-border-width : 12px;
   h6 {
     letter-spacing: 0.25em;
   }
+  @include media($phone) {
+    h1 {
+      letter-spacing: 0.2em;
+    }
+  }
 }
 
 .post-gallery__items {
@@ -23,6 +29,8 @@ $post-border-width : 12px;
 }
 
 .post-gallery__item {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
   margin-bottom: 0.25em;
   @include span-columns(12);
   &:last-child {
@@ -34,6 +42,13 @@ $post-border-width : 12px;
   }
   &.post-gallery__item--r {
     margin-right: 0;
+  }
+  a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+  }
+  @include media($phone) {
+    margin-bottom: 0.15em;
   }
 }
 
@@ -66,6 +81,9 @@ $post-border-width : 12px;
 .post-bg {
   background-color: $base-bg-color;
   margin: $post-border-width;
+  @include media($phone) {
+    margin: $post-border-width-phone;
+  }
 }
 
 .post-border {

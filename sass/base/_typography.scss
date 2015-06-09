@@ -7,7 +7,6 @@ body {
   line-height: $base-line-height;
   text-rendering: optimizeLegibility;
   @include font-smoothing;
-  @include media($phone-wide) {font-size: $base-font-size / 1.2;}
 }
 
 h1, .h1,
@@ -27,6 +26,15 @@ h6, .h6 {
 
 h1, .h1 {
   font-size: $h1-font-size;
+  @include media($desktop-narrow) {
+    font-size: $h2-font-size;
+  }
+  @include media($phone-wide) {
+    font-size: $h3-font-size;
+  }
+  @include media($phone) {
+    font-size: $h4-font-size;
+  }
 }
 
 h2 {
@@ -48,11 +56,21 @@ h5 {
 h6, .h6 {
   font-size: $h6-font-size;
   color: tint($base-font-color, 20%);
+  @include media($desktop-narrow) {
+    font-size: $base-font-size * 0.875;
+  }
+  @include media($phone-wide) {
+    font-size: $base-font-size * 0.75;
+  }
 }
 
 p {
+  font-family: $serif;
   margin: 0 0 ($base-spacing / 2);
   font-size: $reading-font-size;
+  @include media($phone-wide) {
+    font-size: $base-font-size * 0.875;
+  }
 }
 
 a {

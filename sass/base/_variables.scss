@@ -5,9 +5,10 @@ $mono: 'Courier New', Courier, monospace;
 $soleil: 'soleil', $sans-serif;
 $freight-display: 'freight-display-pro', $serif;
 
-$base-font-family: $serif;
-$header-font-family: $freight-display;
-$title-font-family: $soleil;
+$base-font-family   : $soleil;
+$header-font-family : $freight-display;
+$title-font-family  : $soleil;
+$p-font-family      : $serif;
 
 // Font Sizes
 $base-font-size    : 1em;
