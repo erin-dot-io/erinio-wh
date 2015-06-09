@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  // soundcloud.addEventListener('onPlayerReady', function(player, data) {
+  //   player.api_play();
+  // });
+
   var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements
