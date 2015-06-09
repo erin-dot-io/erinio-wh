@@ -1754,6 +1754,9 @@ input[type="submit"] {
   right: 0;
   bottom: 0;
   left: 0;
+  -webkit-transition: -webkit-transform 100ms;
+  -moz-transition: -moz-transform 100ms;
+  transition: transform 100ms;
 }
 
 .loader__logo {
@@ -1781,9 +1784,10 @@ input[type="submit"] {
 .waffle__square {
   position: relative;
   float: left;
-  width: 20%;
+  width: 33.3333%;
   height: calc(33.3333vh - 2.66667px);
   padding: 4px;
+  opacity: 0;
 }
 .intro--done .waffle__square {
   -webkit-transition: -webkit-transform 400ms;

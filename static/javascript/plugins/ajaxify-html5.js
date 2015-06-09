@@ -88,7 +88,7 @@
           // Continue as normal for cmd clicks etc
           if ( event.which == 2 || event.metaKey ) { return true; }
           waffle.velocity({scale: 0.8, translateZ: 0},400);
-          $this.css('z-index', '10').velocity({scale: 10, translateZ: 0},{
+          $this.css('z-index', '100').velocity({scale: 10, translateZ: 0},{
             duration: 400,
             complete: function() {
               // Ajaxify this link
