@@ -2381,7 +2381,54 @@ body.page--photo-post {
 }
 .post-footer span {
   display: block;
-  margin: 1em 0 1.5em;
+  margin: 1em 0 2em;
+}
+.post-footer i {
+  position: relative;
+  font-size: 14px;
+  top: 0.1em;
+}
+.post-footer p {
+  margin-bottom: 1.4em;
+}
+.post-footer small {
+  text-transform: uppercase;
+}
+.post-footer small a {
+  display: inline-block;
+  position: relative;
+  -webkit-transition: -webkit-transform 300ms;
+  -moz-transition: -moz-transform 300ms;
+  transition: transform 300ms;
+}
+.post-footer small a:after {
+  content: " →";
+  position: absolute;
+  left: 100%;
+  opacity: 0;
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+  transform: translateX(-5px);
+  -webkit-transition: -webkit-transform 300ms, opacity 300ms;
+  -moz-transition: -moz-transform 300ms, opacity 300ms;
+  transition: transform 300ms, opacity 300ms;
+}
+.post-footer small a:hover {
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+  transform: translateX(-5px);
+}
+.post-footer small a:hover:after {
+  opacity: 1;
+  -webkit-transform: translateX(5px);
+  -moz-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  -o-transform: translateX(5px);
+  transform: translateX(5px);
 }
 
 .post-footer__social a {

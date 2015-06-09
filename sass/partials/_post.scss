@@ -64,7 +64,38 @@ $post-border-width-phone : 6px;
   }
   span {
     display: block;
-    margin: 1em 0 1.5em;
+    margin: 1em 0 2em;
+  }
+  i {
+    position: relative;
+    font-size: 14px;
+    top: 0.1em;
+  }
+  p {
+    margin-bottom: 1.4em;
+  }
+  small {
+    text-transform: uppercase;
+    a {
+      display: inline-block;
+      position: relative;
+      @include transition(transform 300ms);
+      &:after {
+        content: " →";
+        position: absolute;
+        left: 100%;
+        opacity: 0;
+        @include transform(translateX(-5px));
+        @include transition(transform 300ms, opacity 300ms);
+      }
+      &:hover {
+        @include transform(translateX(-5px));
+        &:after {
+          opacity: 1;
+          @include transform(translateX(5px));
+        }
+      }
+    }
   }
 }
 
