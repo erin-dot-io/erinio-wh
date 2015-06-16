@@ -1,6 +1,14 @@
 {% extends "templates/partials/base.html" %}
 
 {% block title %}{{ item.name }} &mdash; {% parent %}{% endblock %}
+
+{% block head_extra %}
+<meta property="og:title" content="{{ item.name }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ site_url }}{{ url(item) }}" />
+<meta property="og:image" content="{{ item.feature_image|imageCrop(1200, 630) }}" />
+{% endblock %}
+
 {% block body_attributes %}class="page--photo-post"{% endblock %}
 
 {% block content %}
