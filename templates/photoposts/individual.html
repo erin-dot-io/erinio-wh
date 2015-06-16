@@ -1,6 +1,6 @@
 {% extends "templates/partials/base.html" %}
 
-{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+{% block title %}{{ item.name }} &mdash; {% parent %}{% endblock %}
 {% block body_attributes %}class="page--photo-post"{% endblock %}
 
 {% block content %}
