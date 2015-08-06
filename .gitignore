@@ -25,6 +25,5 @@ test
 .sass-cache
 
 *.sublime-workspace
-*.sublime-project
 
 css-unprefixed

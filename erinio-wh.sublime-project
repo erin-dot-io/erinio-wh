@@ -1,0 +1,21 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".*",
+				"node_modules",
+				"static/css",
+				"libs",
+				"options",
+				"tasks",
+				"test",
+				"sass/bourbon",
+				"sass/neat",
+				"css-unprefixed"
+			],
+			"path": "."
+		}
+	]
+}
