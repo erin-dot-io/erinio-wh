@@ -29,7 +29,29 @@
       {% for image in item.images %}
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if image.caption %} post-gallery__item--{{ image.caption }}{% endif %} ">
             <a href="{{ image.url }}" itemprop="contentUrl" data-size="{{ image.width }}x{{ image.height }}">
-              <img src="{% if image.caption %}{{ image|imageSize(350, "auto") }}{% else %}{{ image|imageSize(700, "auto") }}{% endif %}" itemprop="thumbnail">
+              {% if image.caption %}
+                <img src="{{ image|imageSize(348, 'auto') }}"
+                     srcset="{{ image|imageSize(190, 'auto') }} 190w,
+                             {{ image|imageSize(348, 'auto') }} 348w,
+                             {{ image|imageSize(969, 'auto') }} 969w"
+                     sizes="(max-width: 480px) 47vw,
+                            (max-width: 768px) 45vw,
+                            (max-width: 800px) 43vw,
+                            348px"
+                     itemprop="thumbnail"
+                />
+              {% else %}
+                <img src="{{ image|imageSize(700, 'auto') }}"
+                     srcset="{{ image|imageSize(380, 'auto') }} 380w,
+                             {{ image|imageSize(700, 'auto') }} 700w,
+                             {{ image|imageSize(1400, 'auto') }} 1400w"
+                     sizes="(max-width: 480px) 95vw,
+                            (max-width: 768px) 93vw,
+                            (max-width: 800px) 87vw,
+                            700px"
+                     itemprop="thumbnail"
+                />
+              {% endif %}
             </a>
           </figure>
       {% endfor %}
