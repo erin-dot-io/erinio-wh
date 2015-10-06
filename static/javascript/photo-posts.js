@@ -33,6 +33,7 @@ $(document).ready(function() {
         // create slide object
         item = {
           src: linkEl.getAttribute('href'),
+          absSrc: linkEl.getAttribute('abs-href'),
           w: parseInt(size[0], 10),
           h: parseInt(size[1], 10)
         };

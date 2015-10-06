@@ -28,7 +28,10 @@
     <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
       {% for image in item.images %}
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if image.caption %} post-gallery__item--{{ image.caption }}{% endif %} ">
-            <a href="{{ image.url }}" itemprop="contentUrl" data-size="{{ image.width }}x{{ image.height }}">
+            <a href="{{ image.url }}"
+               abs-href="{{ site_url }}{{ image.url }}"
+               itemprop="contentUrl"
+               data-size="{{ image.width }}x{{ image.height }}">
               {% if image.caption %}
                 <img src="{{ image|imageSize(348, 'auto') }}"
                      srcset="{{ image|imageSize(190, 'auto') }} 190w,

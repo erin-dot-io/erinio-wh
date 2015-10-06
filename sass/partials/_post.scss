@@ -75,10 +75,10 @@ $post-border-width-phone : 6px;
     margin-bottom: 1.4em;
   }
   small {
-    text-transform: uppercase;
     a {
       display: inline-block;
       position: relative;
+      text-transform: uppercase;
       @include transition(transform 300ms);
       &:after {
         content: " →";
