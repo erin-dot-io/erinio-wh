@@ -1,10 +1,31 @@
+$content-border-width       : 12px;
+$content-border-width-phone : 6px;
+
+$header-height : 90px;
+
 *, *:before, *:after {@include box-sizing(border-box);}
 
 body {
+  background-color: $alt-bg-color;
+}
+
+.content {
   @include font-loading('fade-up-in');
-  &.page--photo-post {
-    background-color: $alt-bg-color;
+  position: relative;
+  top: $header-height;
+  border: $content-border-width solid $alt-bg-color;
+  border-top-width: 2px;
+  background-color: $base-bg-color;
+  z-index: 10;
+  @include media($phone) {
+    margin-right: $content-border-width-phone;
+    margin-bottom: $content-border-width-phone;
+    margin-left: $content-border-width-phone;
   }
+}
+
+.content-inner {
+  transition: opacity $font-load-fade-timing ease;
 }
 
 .nav-spacer {

@@ -2,3 +2,23 @@
 {# <form action="/search-results/" method="get" data-search-index="false">
  <input type="text" name="q" placeholder="Search" id="tipue_search_input" />
 </form> #}
+
+
+<div class="top-logo">
+  <img src="{{ cms.waffles.logo_middle.url }}" alt="">
+</div>
+
+<a href="#" class="nav-trigger">
+  <span></span>
+</a>
+
+
+<nav class="sidebar" id="sidebar">
+
+  <div class="sidebar__bio">
+    <small>
+      {{ cms.sidebar.bio|safe }}
+    </small>
+  </div>
+
+</nav>

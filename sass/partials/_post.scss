@@ -1,6 +1,3 @@
-$post-border-width       : 12px;
-$post-border-width-phone : 6px;
-
 .post-header {
   padding-top: 20vh;
   padding-bottom: 20vh;
@@ -9,7 +6,7 @@ $post-border-width-phone : 6px;
   text-transform: uppercase;
   h1 {
     margin-bottom: 0.5em;
-    letter-spacing: 0.35em;
+    letter-spacing: 0.25em;
   }
   h6 {
     letter-spacing: 0.25em;
@@ -19,6 +16,10 @@ $post-border-width-phone : 6px;
       letter-spacing: 0.2em;
     }
   }
+}
+
+.post-gallery {
+  @include font-loading('fade-up-in', 218ms);
 }
 
 .post-gallery__items {
@@ -107,45 +108,4 @@ $post-border-width-phone : 6px;
     padding-right: 0.6em;
     opacity: 0.75;
   }
-}
-
-.post-bg {
-  background-color: $base-bg-color;
-  margin: $post-border-width;
-  @include media($phone) {
-    margin: $post-border-width-phone;
-  }
-}
-
-.post-border {
-  position: fixed;
-  background-color: $alt-bg-color;
-}
-
-.post-border--top {
-  top: 0;
-  left: 0;
-  right: 0;
-  height: $post-border-width;
-}
-
-.post-border--right {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: $post-border-width;
-}
-
-.post-border--bottom {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: $post-border-width;
-}
-
-.post-border--left {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: $post-border-width;
 }

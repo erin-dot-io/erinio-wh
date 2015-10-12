@@ -32,8 +32,6 @@
     <link rel="shortcut icon" href="/static/images/favicon.ico">
     <link rel="apple-touch-icon" href="/static/images/touch-icon.png">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
-
     {# Put your CSS in here and we'll minify it into one file. No CDN scripts. More info: #}
     {# http://www.webhook.com/docs/minify-your-js-and-css/ #}
 
@@ -69,7 +67,13 @@
       {% endblock %}
 
       {# By default, your inner pages will load into this block. #}
-      {% block content %}{% endblock %}
+      <div class="content" id="content">
+        <div class="content-inner">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+
+      {% block overlay %}{% endblock %}
 
       {% block footer %}
         {% include "templates/partials/footer.html" %}
@@ -81,10 +85,12 @@
       {# http://www.webhook.com/docs/minify-your-js-and-css/ #}
 
       <!-- build:js /static/javascript/minified.js -->
-      <script src="/static/javascript/main.js"></script>
-      {# <script src="/static/javascript/plugins/soundcloud.player.api.js"></script> #}
+      <script src="/static/javascript/plugins/velocity.min.js"></script>
       <script src="/static/javascript/plugins/photoswipe.min.js"></script>
       <script src="/static/javascript/plugins/photoswipe-ui-default.min.js"></script>
+      <script src="/static/javascript/main.js"></script>
+      <script src="/static/javascript/nav.js"></script>
+      {# <script src="/static/javascript/plugins/soundcloud.player.api.js"></script> #}
       <script src="/static/javascript/photo-posts.js"></script>
       <!-- endbuild -->
 

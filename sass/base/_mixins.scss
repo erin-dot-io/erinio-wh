@@ -25,18 +25,18 @@
 }
 
 $font-load-transform        : 15px;
-$font-load-fade-timing      : 400ms;
-$font-load-transform-timing : 750ms;
+$font-load-fade-timing      : 550ms;
+$font-load-transform-timing : 950ms;
 
-@mixin font-loading($style: 'fade-in') {
+@mixin font-loading($style: 'fade-in', $delay: 0ms) {
   @include backface-visibility(hidden);
   @if $style == 'fade-in' {
-    @include transition(opacity $font-load-fade-timing ease);
+    @include transition(opacity $font-load-fade-timing ease $delay);
     .wf-loading & {opacity: 0;}
   }
   @else if $style == 'fade-up-in' {
-    @include transition(opacity $font-load-fade-timing ease,
-                        transform $font-load-transform-timing ease);
+    @include transition(opacity $font-load-fade-timing $spinCurve $delay,
+                        transform $font-load-transform-timing $spinCurve $delay);
     .wf-loading & {
       opacity: 0;
       @include transform(translate3d(0, $font-load-transform, 0));

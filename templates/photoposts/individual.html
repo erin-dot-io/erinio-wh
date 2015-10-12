@@ -15,100 +15,70 @@
 
 {% block content %}
 
-<div class="post-bg">
-  <section class="container post-header post-header--white">
-    <h1>{{ item.name }}</h1>
-    <h6>{{ item.location }} &mdash; {{ item.date|date('M Y') }}</h6>
-  </section>
+<section class="container post-header post-header--white">
+  <h1>{{ item.name }}</h1>
+  <h6>{{ item.location }} &mdash; {{ item.date|date('M Y') }}</h6>
+</section>
 {#   <section class="container post-audio">
-    <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ item.soundcloud }}&show_artwork=false&show_comments=false&show_playcount=false&download=false&sharing=false&buying=false"></iframe>
-  </section> #}
-  {# auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=false&visual=false&start_track=0&callback=true #}
-  <section class="container post-gallery">
-    <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
-      {% for image in item.images %}
-          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if image.caption %} post-gallery__item--{{ image.caption }}{% endif %} ">
-            <a href="{{ image.url }}"
-               abs-href="{{ site_url }}{{ image.url }}"
-               itemprop="contentUrl"
-               data-size="{{ image.width }}x{{ image.height }}">
-              {% if image.caption %}
-                <img src="{{ image|imageSize(348, 'auto') }}"
-                     srcset="{{ image|imageSize(190, 'auto') }} 190w,
-                             {{ image|imageSize(348, 'auto') }} 348w,
-                             {{ image|imageSize(969, 'auto') }} 969w"
-                     sizes="(max-width: 480px) 47vw,
-                            (max-width: 768px) 45vw,
-                            (max-width: 800px) 43vw,
-                            348px"
-                     itemprop="thumbnail"
-                />
-              {% else %}
-                <img src="{{ image|imageSize(700, 'auto') }}"
-                     srcset="{{ image|imageSize(380, 'auto') }} 380w,
-                             {{ image|imageSize(700, 'auto') }} 700w,
-                             {{ image|imageSize(1400, 'auto') }} 1400w"
-                     sizes="(max-width: 480px) 95vw,
-                            (max-width: 768px) 93vw,
-                            (max-width: 800px) 87vw,
-                            700px"
-                     itemprop="thumbnail"
-                />
-              {% endif %}
-            </a>
-          </figure>
-      {% endfor %}
-    </div>
-  </section>
-  <section class="container post-footer">
-    <small>
-      {{ item.notes|markdown }}
-      <p>
-        <a href="http://www.instagram.com/erin.io">Instagram</a>
-        <br><br>
-        <a href="/">erin.io</a>
-      </p>
-      <span>&mdash;</span>
-    </small>
-    <div class="post-footer__social">
-      <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a>
-      <a class="icon-twitter" href="http://twitter.com/erindotio"></a>
-      <a class="icon-paperplane trigger-email" href="mailto:erin+hello@erin.io"></a>
-      <a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
-    </div>
-  </section>
-</div>
-
-{% include "templates/partials/photoswipe.html" %}
-
-{# <div class="post-border post-border--top"></div>
-<div class="post-border post-border--right"></div>
-<div class="post-border post-border--bottom"></div>
-<div class="post-border post-border--left"></div> #}
-
-{# <script>
-  var pswpElement = document.querySelectorAll('.pswp')[0];
-
-  var items = [
+  <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ item.soundcloud }}&show_artwork=false&show_comments=false&show_playcount=false&download=false&sharing=false&buying=false"></iframe>
+</section> #}
+{# auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=false&visual=false&start_track=0&callback=true #}
+<section class="container post-gallery">
+  <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
     {% for image in item.images %}
-      {% if loop.last %}
-        {
-          src: '{{ image.url }}',
-          w: {{ image.width }},
-          h: {{ image.height }}
-        }
-      {% else %}
-        {
-          src: '{{ image.url }}',
-          w: {{ image.width }},
-          h: {{ image.height }}
-        },
-      {% endif %}
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if image.caption %} post-gallery__item--{{ image.caption }}{% endif %} ">
+          <a href="{{ image.url }}"
+             abs-href="{{ site_url }}{{ image.url }}"
+             itemprop="contentUrl"
+             data-size="{{ image.width }}x{{ image.height }}">
+            {% if image.caption %}
+              <img src="{{ image|imageSize(348, 'auto') }}"
+                   srcset="{{ image|imageSize(190, 'auto') }} 190w,
+                           {{ image|imageSize(348, 'auto') }} 348w,
+                           {{ image|imageSize(969, 'auto') }} 969w"
+                   sizes="(max-width: 480px) 47vw,
+                          (max-width: 768px) 45vw,
+                          (max-width: 800px) 43vw,
+                          348px"
+                   itemprop="thumbnail"
+              />
+            {% else %}
+              <img src="{{ image|imageSize(700, 'auto') }}"
+                   srcset="{{ image|imageSize(380, 'auto') }} 380w,
+                           {{ image|imageSize(700, 'auto') }} 700w,
+                           {{ image|imageSize(1400, 'auto') }} 1400w"
+                   sizes="(max-width: 480px) 95vw,
+                          (max-width: 768px) 93vw,
+                          (max-width: 800px) 87vw,
+                          700px"
+                   itemprop="thumbnail"
+              />
+            {% endif %}
+          </a>
+        </figure>
     {% endfor %}
-  ];
+  </div>
+</section>
+<section class="container post-footer">
+  <small>
+    {{ item.notes|markdown }}
+    <p>
+      <a href="http://www.instagram.com/erin.io">Instagram</a>
+      <br><br>
+      <a href="/">erin.io</a>
+    </p>
+    <span>&mdash;</span>
+  </small>
+  <div class="post-footer__social">
+    <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a>
+    <a class="icon-twitter" href="http://twitter.com/erindotio"></a>
+    <a class="icon-paperplane trigger-email" href="mailto:erin+hello@erin.io"></a>
+    <a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
+  </div>
+</section>
 
-  console.log(items[0].w);
+{% endblock %}
 
-</script> #}
-
+{% block overlay %}
+  {% include "templates/partials/photoswipe.html" %}
 {% endblock %}
