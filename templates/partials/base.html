@@ -67,12 +67,13 @@
       {% endblock %}
 
       {# By default, your inner pages will load into this block. #}
-      <div class="content" id="content">
-        <div class="content-inner">
-          {% block content %}{% endblock %}
+      <div class="content-wrap" id="content_wrap">
+        <div class="content" id="content">
+          <div class="content-inner" id="content_inner">
+            {% block content %}{% endblock %}
+          </div>
         </div>
       </div>
-
       {% block overlay %}{% endblock %}
 
       {% block footer %}
@@ -86,6 +87,7 @@
 
       <!-- build:js /static/javascript/minified.js -->
       <script src="/static/javascript/plugins/velocity.min.js"></script>
+      <script src="/static/javascript/plugins/animate.min.js"></script>
       <script src="/static/javascript/plugins/photoswipe.min.js"></script>
       <script src="/static/javascript/plugins/photoswipe-ui-default.min.js"></script>
       <script src="/static/javascript/main.js"></script>

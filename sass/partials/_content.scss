@@ -1,0 +1,24 @@
+.content-wrap {
+  @include font-loading('fade-up-in');
+}
+
+.content {
+  position: relative;
+  top: $header-height;
+  border: $content-border-width solid $alt-bg-color;
+  border-top-width: 2px;
+  background-color: $base-bg-color;
+  z-index: 10;
+  @include media($phone) {
+    border-right-width: $content-border-width-phone;
+    border-bottom-width: $content-border-width-phone;
+    border-left-width: $content-border-width-phone;
+  }
+}
+
+.content-inner {
+}
+
+.nav-spacer {
+  margin-top: ($nav-padding-desktop * 2) + $nav-logo-size-desktop;
+}

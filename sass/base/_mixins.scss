@@ -26,12 +26,17 @@
 
 $font-load-transform        : 15px;
 $font-load-fade-timing      : 550ms;
+$font-load-fade-timing-fast : 150ms;
 $font-load-transform-timing : 950ms;
 
 @mixin font-loading($style: 'fade-in', $delay: 0ms) {
   @include backface-visibility(hidden);
   @if $style == 'fade-in' {
     @include transition(opacity $font-load-fade-timing ease $delay);
+    .wf-loading & {opacity: 0;}
+  }
+  @else if $style == 'fade-in-fast' {
+    @include transition(opacity $font-load-fade-timing-fast ease $delay);
     .wf-loading & {opacity: 0;}
   }
   @else if $style == 'fade-up-in' {

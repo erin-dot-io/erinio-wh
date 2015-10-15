@@ -5,19 +5,20 @@
 
 
 <div class="top-logo">
-  <img src="{{ cms.waffles.logo_middle.url }}" alt="">
+  {# <img src="{{ cms.waffles.logo_middle.url }}" alt=""> #}
+  {% include "templates/partials/logo.html" %}
 </div>
 
-<a href="#" class="nav-trigger">
+<a href="#" class="nav-trigger" id="nav_trigger">
   <span></span>
 </a>
 
 
-<nav class="sidebar" id="sidebar">
+<nav class="nav" id="nav">
 
-  <div class="sidebar__bio">
+  <div class="nav__bio">
     <small>
-      {{ cms.sidebar.bio|safe }}
+      {{ cms.sidebar.bio|markdown|safe }}
     </small>
   </div>
 

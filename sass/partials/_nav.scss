@@ -7,21 +7,26 @@ $nav-bg-trigger-color     : $warm-gray;
 $nav-trigger-spacing      : 8px;
 $nav-trigger-padding      : 10px;
 
+$nav-width : 280px;
+
+$nav-fade-duration    : 400ms;
+
 .top-logo {
-  @include font-loading('fade-in', 600ms);
+  // @include font-loading('fade-in-fast');
   position: fixed;
   top: 16px;
   left: 50%;
   margin-left: -($logo-width / 2);
   width: $logo-width;
   z-index: 1;
-  img {
+  svg {
     opacity: 0.75;
+    width: 100%;
   }
 }
 
 .nav-trigger {
-  @include font-loading('fade-in', 600ms);
+  // @include font-loading('fade-in-fast');
   position: fixed;
   top: 21px;
   left: 32px;
@@ -64,13 +69,14 @@ $nav-trigger-padding      : 10px;
   }
 }
 
-.sidebar {
+.nav {
   position: fixed;
   z-index: 1;
   top: $header-height;
   left: 0;
   bottom: 0;
-  width: 280px;
+  width: $nav-width;
   padding-top: $content-border-width;
   padding-left: $content-border-width * 2;
+  opacity: 0;
 }

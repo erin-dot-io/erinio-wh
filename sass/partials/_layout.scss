@@ -9,29 +9,6 @@ body {
   background-color: $alt-bg-color;
 }
 
-.content {
-  @include font-loading('fade-up-in');
-  position: relative;
-  top: $header-height;
-  border: $content-border-width solid $alt-bg-color;
-  border-top-width: 2px;
-  background-color: $base-bg-color;
-  z-index: 10;
-  @include media($phone) {
-    margin-right: $content-border-width-phone;
-    margin-bottom: $content-border-width-phone;
-    margin-left: $content-border-width-phone;
-  }
-}
-
-.content-inner {
-  transition: opacity $font-load-fade-timing ease;
-}
-
-.nav-spacer {
-  margin-top: ($nav-padding-desktop * 2) + $nav-logo-size-desktop;
-}
-
 .container {
   @include outer-container;
   @include box-sizing(content-box);
