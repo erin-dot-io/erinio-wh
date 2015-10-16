@@ -1,17 +1,10 @@
 {% extends "templates/partials/base.html" %}
 
 {% block title %}{{ item.name }} &mdash; {% parent %}{% endblock %}
+{% block description %}{% if item.location %}{{ item.location }} &mdash; {{ item.date|date('M Y') }}{% endif %}{% endblock %}
+{% block og_image %}{{ item.feature_image|imageCrop(1200, 630) }}{% endblock %}
 
-{% block head_extra %}
-<meta property="og:title" content="{{ item.name }}" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="{{ site_url }}{{ url(item) }}" />
-<meta property="og:image" content="{{ item.feature_image|imageCrop(1200, 630) }}" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-{% endblock %}
-
-{% block body_attributes %}class="page--photo-post"{% endblock %}
+{% block body_attributes %}{% parent %} page--photo-post{% endblock %}
 
 {% block content %}
 

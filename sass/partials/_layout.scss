@@ -7,6 +7,9 @@ $header-height : 90px;
 
 body {
   background-color: $alt-bg-color;
+  &.page--index {
+    background-color: $warm-gray;
+  }
 }
 
 .container {

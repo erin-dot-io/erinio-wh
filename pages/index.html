@@ -1,28 +1,27 @@
-{# ------------------------------------------------------- #}
 
-{# YOUR HOMEPAGE #}
-
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-
-{# ------------------------------------------------------- #}
-
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
 {% extends "templates/partials/base.html" %}
-
-{# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
-{# {% block title %}{% parent %} - Homepage{% endblock %} #}
+{% block body_attributes %}{% parent %} page--index{% endblock %}
 
 {% block head_extra %}
 {% endblock %}
 
-{% block content %}
+{% block hero %}
 
-<br><br><br><br><br>
-<h1 style="text-align: center">Hello</h1>
+  <div class="hero" id="hero">
+    <style>
+      body.page--index {
+        background-color: {{ feature_post.bg_color }};
+      }
+      .hero__link a {
+        color: {{ feature_post.accent_color }};
+      }
+    </style>
+    <div class="hero__image" style="background-image: url({{ feature_post.feature_image|imageSize(2560, 'auto') }});">
+      {# <img src="{{ feature_post.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+    </div>
+    <div class="hero__link">
+      <a href="{{ url(feature_post) }}">{{ feature_post.name }}</a>
+    </div>
+  </div>
 
 {% endblock %}
