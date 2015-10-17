@@ -23,11 +23,11 @@ $nav-fade-duration    : 400ms;
     opacity: 0.75;
     width: 100%;
   }
-  .page--index & {
-    .logo-path {
-      fill: #fff;
-    }
-  }
+  // .page--index & {
+  //   .logo-path {
+  //     fill: #fff;
+  //   }
+  // }
 }
 
 .nav-trigger {
@@ -75,9 +75,9 @@ $nav-fade-duration    : 400ms;
   .page--index & {
     background: none;
     span {
-      background-color: #fff;
+      // background-color: #fff;
       &:before, &:after {
-        background-color: #fff;
+        // background-color: #fff;
       }
     }
     svg {opacity: 1;}

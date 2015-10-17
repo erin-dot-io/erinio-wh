@@ -4,15 +4,22 @@
 
 .content {
   position: relative;
-  top: $header-height;
-  border: $content-border-width solid $alt-bg-color;
-  border-top-width: 2px;
   background-color: $base-bg-color;
   z-index: 10;
-  @include media($phone) {
-    border-right-width: $content-border-width-phone;
-    border-bottom-width: $content-border-width-phone;
-    border-left-width: $content-border-width-phone;
+  .page--index & {
+    margin: $content-border-width 114px;
+    padding-bottom: 50em;
+    // border-radius: 2px;
+  }
+  body:not(.page--index) & {
+    top: $header-height;
+    border: $content-border-width solid $alt-bg-color;
+    border-top-width: 0;
+    @include media($phone) {
+      border-right-width: $content-border-width-phone;
+      border-bottom-width: $content-border-width-phone;
+      border-left-width: $content-border-width-phone;
+    }
   }
 }
 

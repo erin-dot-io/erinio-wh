@@ -75,29 +75,6 @@
   p {
     margin-bottom: 1.4em;
   }
-  small {
-    a {
-      display: inline-block;
-      position: relative;
-      text-transform: uppercase;
-      @include transition(transform 300ms);
-      &:after {
-        content: " →";
-        position: absolute;
-        left: 100%;
-        opacity: 0;
-        @include transform(translateX(-5px));
-        @include transition(transform 300ms, opacity 300ms);
-      }
-      &:hover {
-        @include transform(translateX(-5px));
-        &:after {
-          opacity: 1;
-          @include transform(translateX(5px));
-        }
-      }
-    }
-  }
 }
 
 .post-footer__social {

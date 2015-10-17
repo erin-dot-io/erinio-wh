@@ -10,18 +10,42 @@
   <div class="hero" id="hero">
     <style>
       body.page--index {
-        background-color: {{ feature_post.bg_color }};
+        background-color: {{ feature.bg_color }};
+      }
+      .logo-path {
+        fill: {{ feature.accent_color }};
+      }
+      .nav-trigger span {
+        background-color: {{ feature.accent_color }};
+      }
+      .nav-trigger span:before,
+      .nav-trigger span:after {
+        background-color: {{ feature.accent_color }};
       }
       .hero__link a {
-        color: {{ feature_post.accent_color }};
+        color: {{ feature.accent_color }};
       }
     </style>
-    <div class="hero__image" style="background-image: url({{ feature_post.feature_image|imageSize(2560, 'auto') }});">
-      {# <img src="{{ feature_post.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+    <div class="hero__image-wrap" id="hero_image_wrap">
+      <div class="hero__image" id="hero_image" style="background-image: url({{ feature.feature_image|imageSize(2560, 'auto') }});">
+        {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+      </div>
     </div>
-    <div class="hero__link">
-      <a href="{{ url(feature_post) }}">{{ feature_post.name }}</a>
+    <div class="hero__link-wrap" id="hero_link_wrap">
+      <div class="hero__link link-arrows" id="hero_link">
+        <a href="{{ url(feature) }}">{{ feature.name }}</a>
+      </div>
     </div>
   </div>
+
+{% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+
+  <h1>{{ post.name }}</h1>
+
+{% endfor %}
 
 {% endblock %}

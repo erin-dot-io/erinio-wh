@@ -45,7 +45,7 @@ $warm-gray       : #564d58;
 $warm-gray-light : lighten($warm-gray, 60%);
 
 // Background Color
-$base-bg-color: white;
+$base-bg-color: tint($off-white, 40%);
 $alt-bg-color: $warm-gray-light;
 
 // Font Colors

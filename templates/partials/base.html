@@ -21,9 +21,14 @@
   {% set site_url = getSetting('site_url')%}
   {% set site_description = getSetting('site_description')%}
 
-  {% set posts = merge(cms.photoposts) %}
-  {% set posts = posts|sort('publish_date', true) %}
-  {% set feature_post = posts|first %}
+
+  {% set all_posts = merge(cms.photoposts) %}
+  {% set all_posts = all_posts|sort('publish_date', true) %}
+  {% set first_post = cms.photoposts %}
+  {% set first_post = first_post|sort('publish_date', true) %}
+  {% set first_post = first_post|slice(0,1) %}
+  {% set feature = cms.photoposts|last %}
+  {% set posts = all_posts|exclude('_id', first_post) %}
 
   <head>
     <meta charset="utf-8">
@@ -101,6 +106,11 @@
 
       <!-- build:js /static/javascript/minified.js -->
       <script src="/static/javascript/plugins/velocity.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+      <script src="/static/javascript/plugins/scrollmagic/ScrollMagic.js"></script>
+      <script src="/static/javascript/plugins/scrollmagic/debug.addindicators.js"></script>
+      <script src="/static/javascript/plugins/scrollmagic/animation.gsap.js"></script>
+      <script src="/static/javascript/plugins/imagesloaded.pkgd.min.js"></script>
       <script src="/static/javascript/plugins/animate.min.js"></script>
       <script src="/static/javascript/plugins/photoswipe.min.js"></script>
       <script src="/static/javascript/plugins/photoswipe-ui-default.min.js"></script>

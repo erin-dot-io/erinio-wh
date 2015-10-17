@@ -24,11 +24,13 @@
   }
 }
 
-$font-load-transform        : 15px;
-$font-load-fade-timing      : 550ms;
-$font-load-fade-timing-fast : 150ms;
-$font-load-transform-timing : 950ms;
-$font-load-scale-timing     : 2650ms;
+$font-load-transform         : 15px;
+$font-load-fade-timing       : 550ms;
+$font-load-fade-timing-fast  : 150ms;
+$font-load-fade-timing-slow  : 1250ms;
+$font-load-transform-timing  : 950ms;
+$font-load-scale-timing      : 2650ms;
+$font-load-scale-timing-fast : 1250ms;
 
 @mixin font-loading($style: 'fade-in', $delay: 0ms) {
   @include backface-visibility(hidden);
@@ -38,6 +40,10 @@ $font-load-scale-timing     : 2650ms;
   }
   @else if $style == 'fade-in-fast' {
     @include transition(opacity $font-load-fade-timing-fast ease $delay);
+    .wf-loading & {opacity: 0;}
+  }
+  @else if $style == 'fade-in-slow' {
+    @include transition(opacity $font-load-fade-timing-slow ease $delay);
     .wf-loading & {opacity: 0;}
   }
   @else if $style == 'fade-up-in' {

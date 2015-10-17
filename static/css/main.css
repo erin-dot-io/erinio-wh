@@ -570,7 +570,7 @@ tbody, caption {
 
 body {
   overflow-x: hidden;
-  background-color: white;
+  background-color: #f8f8f5;
   color: #564d58;
   font-family: "soleil", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em;
@@ -676,6 +676,43 @@ a:hover {
 a:active, a:focus {
   color: #2c5999;
   outline: none;
+}
+.link-arrows a {
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  -webkit-transition: -webkit-transform 300ms;
+  -moz-transition: -moz-transform 300ms;
+  transition: transform 300ms;
+}
+.link-arrows a:after {
+  content: " →";
+  position: absolute;
+  left: 100%;
+  opacity: 0;
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+  transform: translateX(-5px);
+  -webkit-transition: -webkit-transform 300ms, opacity 300ms;
+  -moz-transition: -moz-transform 300ms, opacity 300ms;
+  transition: transform 300ms, opacity 300ms;
+}
+.link-arrows a:hover {
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+  transform: translateX(-5px);
+}
+.link-arrows a:hover:after {
+  opacity: 1;
+  -webkit-transform: translateX(5px);
+  -moz-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  -o-transform: translateX(5px);
+  transform: translateX(5px);
 }
 
 hr {
@@ -1772,9 +1809,6 @@ body.page--index {
   opacity: 0.75;
   width: 100%;
 }
-.page--index .top-logo .logo-path {
-  fill: #fff;
-}
 
 .nav-trigger {
   position: fixed;
@@ -1819,12 +1853,6 @@ body.page--index {
 .page--index .nav-trigger {
   background: none;
 }
-.page--index .nav-trigger span {
-  background-color: #fff;
-}
-.page--index .nav-trigger span:before, .page--index .nav-trigger span:after {
-  background-color: #fff;
-}
 .page--index .nav-trigger svg {
   opacity: 1;
 }
@@ -1832,7 +1860,7 @@ body.page--index {
 .nav {
   position: fixed;
   z-index: 1;
-  top: 90px;
+  top: 92px;
   left: 0;
   bottom: 0;
   width: 280px;
@@ -1845,7 +1873,6 @@ body.page--index {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .hero__image {
@@ -1854,11 +1881,11 @@ body.page--index {
   -webkit-transition: opacity 950ms cubic-bezier(0.38, 0.15, 0.07, 1) 0ms, -webkit-transform 2650ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
   -moz-transition: opacity 950ms cubic-bezier(0.38, 0.15, 0.07, 1) 0ms, -moz-transform 2650ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
   transition: opacity 950ms cubic-bezier(0.38, 0.15, 0.07, 1) 0ms, transform 2650ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
-  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-size: cover;
   background-position: center center;
 }
@@ -1871,27 +1898,26 @@ body.page--index {
   transform: scale(1.04);
 }
 
-.hero__link {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transition: opacity 950ms cubic-bezier(0.38, 0.15, 0.07, 1) 500ms, -webkit-transform 2650ms cubic-bezier(0.19, 1, 0.22, 1) 500ms;
-  -moz-transition: opacity 950ms cubic-bezier(0.38, 0.15, 0.07, 1) 500ms, -moz-transform 2650ms cubic-bezier(0.19, 1, 0.22, 1) 500ms;
-  transition: opacity 950ms cubic-bezier(0.38, 0.15, 0.07, 1) 500ms, transform 2650ms cubic-bezier(0.19, 1, 0.22, 1) 500ms;
+.hero__link-wrap {
   position: absolute;
-  bottom: 40px;
+  bottom: 100px;
   left: 0;
   right: 0;
   text-align: center;
 }
+
+.hero__link {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: opacity 1250ms ease 500ms;
+  -moz-transition: opacity 1250ms ease 500ms;
+  transition: opacity 1250ms ease 500ms;
+}
 .wf-loading .hero__link {
   opacity: 0;
-  -webkit-transform: scale(1.04);
-  -moz-transform: scale(1.04);
-  -ms-transform: scale(1.04);
-  -o-transform: scale(1.04);
-  transform: scale(1.04);
 }
 .hero__link a {
+  display: inline-block;
   color: #fff;
   opacity: 0.75;
   font-weight: 500;
@@ -1920,14 +1946,20 @@ body.page--index {
 
 .content {
   position: relative;
-  top: 90px;
-  border: 12px solid #eceaed;
-  border-top-width: 2px;
-  background-color: white;
+  background-color: #f8f8f5;
   z-index: 10;
 }
+.page--index .content {
+  margin: 12px 114px;
+  padding-bottom: 50em;
+}
+body:not(.page--index) .content {
+  top: 92px;
+  border: 12px solid #eceaed;
+  border-top-width: 0;
+}
 @media screen and (max-width: 479px) {
-  .content {
+  body:not(.page--index) .content {
     border-right-width: 6px;
     border-bottom-width: 6px;
     border-left-width: 6px;
@@ -1966,7 +1998,7 @@ body.page--index {
 .text-only .article-item__title {
   position: relative;
   z-index: 1;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  text-shadow: -1px -1px 0 #f8f8f5, 1px -1px 0 #f8f8f5, -1px 1px 0 #f8f8f5, 1px 1px 0 #f8f8f5, -1px -1px 0 #f8f8f5, 1px -1px 0 #f8f8f5, -1px 1px 0 #f8f8f5, 1px 1px 0 #f8f8f5;
 }
 .cover-image .article-item__title {
   position: absolute;
@@ -2108,7 +2140,7 @@ body.page--index {
   text-align: center;
 }
 .overlay-light .article__cover {
-  color: white;
+  color: #f8f8f5;
 }
 
 .article__cover-img {
@@ -2238,43 +2270,6 @@ body.page--index {
 }
 .post-footer p {
   margin-bottom: 1.4em;
-}
-.post-footer small a {
-  display: inline-block;
-  position: relative;
-  text-transform: uppercase;
-  -webkit-transition: -webkit-transform 300ms;
-  -moz-transition: -moz-transform 300ms;
-  transition: transform 300ms;
-}
-.post-footer small a:after {
-  content: " →";
-  position: absolute;
-  left: 100%;
-  opacity: 0;
-  -webkit-transform: translateX(-5px);
-  -moz-transform: translateX(-5px);
-  -ms-transform: translateX(-5px);
-  -o-transform: translateX(-5px);
-  transform: translateX(-5px);
-  -webkit-transition: -webkit-transform 300ms, opacity 300ms;
-  -moz-transition: -moz-transform 300ms, opacity 300ms;
-  transition: transform 300ms, opacity 300ms;
-}
-.post-footer small a:hover {
-  -webkit-transform: translateX(-5px);
-  -moz-transform: translateX(-5px);
-  -ms-transform: translateX(-5px);
-  -o-transform: translateX(-5px);
-  transform: translateX(-5px);
-}
-.post-footer small a:hover:after {
-  opacity: 1;
-  -webkit-transform: translateX(5px);
-  -moz-transform: translateX(5px);
-  -ms-transform: translateX(5px);
-  -o-transform: translateX(5px);
-  transform: translateX(5px);
 }
 
 .post-footer__social a {
