@@ -1,3 +1,5 @@
+$index-content-margin : 114px;
+
 .content-wrap {
   @include font-loading('fade-up-in');
 }
@@ -7,8 +9,7 @@
   background-color: $base-bg-color;
   z-index: 10;
   .page--index & {
-    margin: $content-border-width 114px;
-    padding-bottom: 50em;
+    margin: $content-border-width $index-content-margin;
     // border-radius: 2px;
   }
   body:not(.page--index) & {
@@ -28,4 +29,17 @@
 
 .nav-spacer {
   margin-top: ($nav-padding-desktop * 2) + $nav-logo-size-desktop;
+}
+
+.index-post {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: $index-content-margin;
+    right: $index-content-margin;
+    height: 2px;
+    opacity: 0.1;
+  }
 }

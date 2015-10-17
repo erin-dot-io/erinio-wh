@@ -8,6 +8,8 @@ $(document).ready(function() {
   if($("body.page--index").length) {
 
     logo = $("#logo");
+    triggerSpan = $("#nav_trigger_span");
+    triggerLogo = $("#nav_trigger_logo");
     heroImage = $("#hero_image_wrap");
     heroLink = $("#hero_link_wrap");
 
@@ -48,9 +50,29 @@ $(document).ready(function() {
                        // .setVelocity("#animate", {opacity: 0}, {duration: 400})
                        // .addIndicators()
                        .addTo(heroScroll);
+
+    // nav trigger span fade
+    var triggerFadeTween = TweenMax.to(triggerSpan, 0.3, {opacity: 0, ease: 'easeInOutQuad'});
+    var triggerFade = new ScrollMagic.Scene({triggerElement: "#content", offset: 150})
+                       .setTween(triggerFadeTween)
+                       // trigger a velocity opaticy animation
+                       // .setVelocity("#animate", {opacity: 0}, {duration: 400})
+                       // .addIndicators()
+                       .addTo(heroScroll);
+
+    // nav trigger logo fade
+    var triggerLogoFadeTween = TweenMax.to(triggerLogo, 0.3, {opacity: 1, ease: 'easeInOutQuad'});
+    var triggerLogoFade = new ScrollMagic.Scene({triggerElement: "#content", offset: 150})
+                       .setTween(triggerLogoFadeTween)
+                       // trigger a velocity opaticy animation
+                       // .setVelocity("#animate", {opacity: 0}, {duration: 400})
+                       // .addIndicators()
+                       .addTo(heroScroll);
   } else {
 
     logo = $("#logo");
+    navSpan = $("#nav_trigger_span");
+    navLogo = $("#nav_trigger_logo");
 
     var logoScroll = new ScrollMagic.Controller();
 

@@ -48,5 +48,9 @@
     "moment": "~2.8.1",
     "cheerio": "~0.18.0",
     "nodejs-websocket": "~1.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "grunt-postcss": "^0.6.0"
   }
 }

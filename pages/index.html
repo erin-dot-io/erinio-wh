@@ -15,8 +15,14 @@
       .logo-path {
         fill: {{ feature.accent_color }};
       }
+      .nav-trigger {
+        background-color: {{ feature.bg_color }};
+      }
       .nav-trigger span {
         background-color: {{ feature.accent_color }};
+      }
+      .nav-trigger__logo .logo-path {
+        fill: {{ feature.accent_color }};
       }
       .nav-trigger span:before,
       .nav-trigger span:after {
@@ -24,6 +30,9 @@
       }
       .hero__link a {
         color: {{ feature.accent_color }};
+      }
+      .index-post:after {
+        background-color: {{ feature.bg_color }};
       }
     </style>
     <div class="hero__image-wrap" id="hero_image_wrap">
@@ -44,7 +53,16 @@
 
 {% for post in posts %}
 
-  <h1>{{ post.name }}</h1>
+  <section class="index-post">
+    <br>
+    <br>
+    <br>
+    <h1><a href="{{ url(post) }}">{{ post.name }}</a></h1>
+    <br>
+    <br>
+    <br>
+  </section>
+
 
 {% endfor %}
 

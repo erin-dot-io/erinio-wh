@@ -23,6 +23,7 @@
 
 
   {% set all_posts = merge(cms.photoposts) %}
+  {% set all_posts = all_posts|exclude('public', false) %}
   {% set all_posts = all_posts|sort('publish_date', true) %}
   {% set first_post = cms.photoposts %}
   {% set first_post = first_post|sort('publish_date', true) %}
