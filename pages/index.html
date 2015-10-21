@@ -7,34 +7,57 @@
 
 {% block hero %}
 
-  <div class="hero" id="hero">
+  <style>
+    body.page--index {
+      background-color: {{ feature.bg_color }};
+    }
+    .logo-path {
+      fill: {{ feature.accent_color }};
+    }
+    .nav-trigger {
+      background-color: {{ feature.bg_color }};
+    }
+    .nav-trigger span {
+      background-color: {{ feature.accent_color }};
+    }
+    .nav-trigger__logo .logo-path {
+      fill: {{ feature.accent_color }};
+    }
+    .nav-trigger span:before,
+    .nav-trigger span:after {
+      background-color: {{ feature.accent_color }};
+    }
+    .index-post:after {
+      background-color: {{ feature.bg_color }};
+    }
+  </style>
+  {% if feature.link_color == 'BG Color' %}
     <style>
-      body.page--index {
-        background-color: {{ feature.bg_color }};
+      .hero__link a {
+        color: {{ feature.bg_color }};
       }
-      .logo-path {
-        fill: {{ feature.accent_color }};
+    </style>
+  {% elseif feature.link_color == 'White' %}
+    <style>
+      .hero__link a {
+        color: rgba(255,255,255,0.75);
       }
-      .nav-trigger {
-        background-color: {{ feature.bg_color }};
+    </style>
+  {% elseif feature.link_color == 'Black' %}
+    <style>
+      .hero__link a {
+        color: rgba(0,0,0,0.75);
       }
-      .nav-trigger span {
-        background-color: {{ feature.accent_color }};
-      }
-      .nav-trigger__logo .logo-path {
-        fill: {{ feature.accent_color }};
-      }
-      .nav-trigger span:before,
-      .nav-trigger span:after {
-        background-color: {{ feature.accent_color }};
-      }
+    </style>
+  {% else %}
+    <style>
       .hero__link a {
         color: {{ feature.accent_color }};
       }
-      .index-post:after {
-        background-color: {{ feature.bg_color }};
-      }
     </style>
+  {% endif %}
+
+  <div class="hero" id="hero">
     <div class="hero__image-wrap" id="hero_image_wrap">
       <div class="hero__image" id="hero_image" style="background-image: url({{ feature.feature_image|imageSize(2560, 'auto') }});">
         {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}

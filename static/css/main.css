@@ -1959,7 +1959,11 @@ body.page--index {
   z-index: 10;
 }
 .page--index .content {
-  margin: 12px 114px;
+  margin: 12px auto;
+  padding-left: 114px;
+  padding-right: 114px;
+  max-width: 50em;
+  padding-bottom: 40em;
 }
 body:not(.page--index) .content {
   top: 92px;

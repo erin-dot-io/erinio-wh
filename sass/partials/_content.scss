@@ -9,8 +9,12 @@ $index-content-margin : 114px;
   background-color: $base-bg-color;
   z-index: 10;
   .page--index & {
-    margin: $content-border-width $index-content-margin;
+    margin: $content-border-width auto;
+    padding-left: $index-content-margin;
+    padding-right: $index-content-margin;
+    max-width: em(800);
     // border-radius: 2px;
+    padding-bottom: 40em;
   }
   body:not(.page--index) & {
     top: $header-height;
