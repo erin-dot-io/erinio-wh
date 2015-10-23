@@ -1,0 +1,19 @@
+.index-post {
+  text-align: center;
+  margin-bottom: 3em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.index-post__image {
+  // opacity: 0.95;
+  transition: opacity 400ms;
+  &:hover {
+    opacity: 0.94;
+  }
+}
+
+.index-post__title {
+  margin: 1em 0;
+}

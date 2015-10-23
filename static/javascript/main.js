@@ -16,8 +16,8 @@ $(document).ready(function() {
     var heroScroll = new ScrollMagic.Controller();
 
     // hero image fade
-    var heroFadeTween = TweenMax.to(heroImage, 1, {opacity: 0, ease: 'ease'});
-    var heroFade = new ScrollMagic.Scene({triggerElement: "#content", duration: 800, offset: -200})
+    var heroFadeTween = TweenMax.to(heroImage, 1, {opacity: 0.04, ease: 'ease'});
+    var heroFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', offset: 10, duration: 900})
                         .setTween(heroFadeTween)
                         // trigger a velocity opaticy animation
                         // .setVelocity("#animate", {opacity: 0}, {duration: 400})

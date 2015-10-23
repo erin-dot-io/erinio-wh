@@ -53,8 +53,8 @@ function navOpen() {
   animate({
     el: contentInner,
     opacity: 0.5,
-    duration: 300,
-    easing: "linear",
+    duration: 250,
+    easing: "easeOutQuad",
   });
   animate({
     el: nav,
@@ -84,8 +84,8 @@ function navClose(el) {
   animate({
     el: contentInner,
     opacity: [0.5, 1],
-    duration: 300,
-    easing: "linear",
+    duration: 250,
+    easing: "easeOutQuad",
   });
   animate({
     el: nav,

@@ -19,6 +19,8 @@ h6, .h6 {
   line-height: $header-line-height;
   font-weight: 600;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
   // @include font-smoothing;
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
   &.space {margin-bottom: .2em;}
@@ -27,6 +29,7 @@ h6, .h6 {
 h1, .h1 {
   font-size: $h1-font-size;
   font-weight: 500;
+  margin-bottom: 0.5em;
   @include media($desktop-narrow) {
     font-size: $h2-font-size;
   }
@@ -35,6 +38,7 @@ h1, .h1 {
   }
   @include media($phone) {
     font-size: $h4-font-size;
+    letter-spacing: 0.2em;
   }
 }
 

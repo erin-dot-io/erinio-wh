@@ -19,6 +19,7 @@ $nav-fade-duration    : 400ms;
   margin-left: -($logo-width / 2);
   width: $logo-width;
   z-index: 1;
+  // mix-blend-mode: soft-light;
   svg {
     opacity: 0.75;
     width: 100%;
@@ -41,6 +42,7 @@ $nav-fade-duration    : 400ms;
   background-color: $alt-bg-color;
   border-radius: 100px;
   z-index: 20;
+  transition: background 150ms;
   span {
     display: block;
     position: relative;
@@ -77,7 +79,7 @@ $nav-fade-duration    : 400ms;
     }
   }
   .page--index & {
-    // background: none;
+    background: none;
     span {
       // background-color: #fff;
       &:before, &:after {

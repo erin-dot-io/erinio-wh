@@ -6,7 +6,7 @@
 button:not(.pswp__button),
 input[type="submit"] {
   -webkit-font-smoothing: antialiased;
-  background-color: #477DCA;
+  background-color: #4d454f;
   border-radius: 3px;
   color: white;
   display: inline-block;
@@ -18,7 +18,7 @@ input[type="submit"] {
 }
 button:hover:not(.pswp__button),
 input[type="submit"]:hover {
-  background-color: #2c5999;
+  background-color: #252126;
   color: white;
 }
 button:disabled:not(.pswp__button),
@@ -578,6 +578,8 @@ h6, .h6 {
   line-height: 1;
   font-weight: 600;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
   text-rendering: optimizeLegibility;
 }
 h1.space, .h1.space,
@@ -592,6 +594,7 @@ h6.space, .h6.space {
 h1, .h1 {
   font-size: 3em;
   font-weight: 500;
+  margin-bottom: 0.5em;
 }
 @media screen and (max-width: 1000px) {
   h1, .h1 {
@@ -606,6 +609,7 @@ h1, .h1 {
 @media screen and (max-width: 479px) {
   h1, .h1 {
     font-size: 1.5em;
+    letter-spacing: 0.2em;
   }
 }
 
@@ -652,16 +656,16 @@ p {
 }
 
 a {
-  color: #477DCA;
+  color: #4d454f;
   text-decoration: none;
   -webkit-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
 a:hover {
-  color: #2c5999;
+  color: #252126;
 }
 a:active, a:focus {
-  color: #2c5999;
+  color: #252126;
   outline: none;
 }
 .link-arrows a {
@@ -778,8 +782,8 @@ select[multiple=multiple]:hover {
 textarea:focus,
 input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus,
 select[multiple=multiple]:focus {
-  border-color: #477DCA;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(55, 112, 192, 0.7);
+  border-color: #4d454f;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(64, 57, 65, 0.7);
   outline: none;
 }
 
@@ -1821,6 +1825,8 @@ body.page--index {
   background-color: #eceaed;
   border-radius: 100px;
   z-index: 20;
+  -webkit-transition: background 150ms;
+          transition: background 150ms;
 }
 .nav-trigger span {
   display: block;
@@ -1856,6 +1862,9 @@ body.page--index {
 }
 .nav-trigger:hover svg {
   opacity: 0;
+}
+.page--index .nav-trigger {
+  background: none;
 }
 
 .nav-trigger__logo {
@@ -1931,7 +1940,6 @@ body.page--index {
 .hero__link a {
   display: inline-block;
   color: #fff;
-  opacity: 0.75;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.875em;
@@ -1960,9 +1968,12 @@ body.page--index {
 }
 .page--index .content {
   margin: 12px auto;
+  padding-top: 100px;
   padding-left: 114px;
   padding-right: 114px;
+  padding-bottom: 100px;
   max-width: 50em;
+  border-radius: 1px;
   padding-bottom: 40em;
 }
 body:not(.page--index) .content {
@@ -1993,6 +2004,26 @@ body:not(.page--index) .content {
   right: 114px;
   height: 2px;
   opacity: 0.1;
+}
+
+.index-post {
+  text-align: center;
+  margin-bottom: 3em;
+}
+.index-post:last-child {
+  margin-bottom: 0;
+}
+
+.index-post__image {
+  -webkit-transition: opacity 400ms;
+          transition: opacity 400ms;
+}
+.index-post__image:hover {
+  opacity: 0.94;
+}
+
+.index-post__title {
+  margin: 1em 0;
 }
 
 .home-logo {
@@ -2184,19 +2215,6 @@ body:not(.page--index) .content {
   padding-bottom: 20vh;
   max-width: 62.5em;
   text-align: center;
-  text-transform: uppercase;
-}
-.post-header h1 {
-  margin-bottom: 0.5em;
-  letter-spacing: 0.25em;
-}
-.post-header h6 {
-  letter-spacing: 0.25em;
-}
-@media screen and (max-width: 479px) {
-  .post-header h1 {
-    letter-spacing: 0.2em;
-  }
 }
 
 .post-gallery {

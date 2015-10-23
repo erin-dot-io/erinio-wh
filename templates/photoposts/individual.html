@@ -1,7 +1,7 @@
 {% extends "templates/partials/base.html" %}
 
 {% block title %}{{ item.name }} &mdash; {% parent %}{% endblock %}
-{% block description %}{% if item.location %}{{ item.location }} &mdash; {{ item.date|date('M Y') }}{% endif %}{% endblock %}
+{% block description %}{% if item.subtitle %}{{ item.subtitle }} &mdash; {{ item.date|date('M Y') }}{% endif %}{% endblock %}
 {% block og_image %}{{ item.feature_image|imageCrop(1200, 630) }}{% endblock %}
 
 {% block body_attributes %}{% parent %} page--photo-post{% endblock %}
@@ -10,7 +10,7 @@
 
 <section class="container post-header post-header--white">
   <h1>{{ item.name }}</h1>
-  <h6>{{ item.location }} &mdash; {{ item.date|date('M Y') }}</h6>
+  <h6>{{ item.subtitle }} &mdash; {{ item.date|date('M Y') }}</h6>
 </section>
 {#   <section class="container post-audio">
   <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ item.soundcloud }}&show_artwork=false&show_comments=false&show_playcount=false&download=false&sharing=false&buying=false"></iframe>

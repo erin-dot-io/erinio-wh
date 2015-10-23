@@ -20,6 +20,9 @@
     .nav-trigger span {
       background-color: {{ feature.accent_color }};
     }
+    body.page--index .nav-trigger:hover {
+      background-color: {{ feature.bg_color }};
+    }
     .nav-trigger__logo .logo-path {
       fill: {{ feature.accent_color }};
     }
@@ -27,9 +30,9 @@
     .nav-trigger span:after {
       background-color: {{ feature.accent_color }};
     }
-    .index-post:after {
+    /*.index-post:after {
       background-color: {{ feature.bg_color }};
-    }
+    }*/
   </style>
   {% if feature.link_color == 'BG Color' %}
     <style>
@@ -74,19 +77,30 @@
 
 {% block content %}
 
-{% for post in posts %}
+  <section class="index-posts">
 
-  <section class="index-post">
-    <br>
-    <br>
-    <br>
-    <h1><a href="{{ url(post) }}">{{ post.name }}</a></h1>
-    <br>
-    <br>
-    <br>
+    {% for post in posts %}
+
+      <div class="index-post">
+        <div class="index-post__image">
+          <a href="{{ url(post) }}">
+            <img src="{{ post.feature_image|imageSize(572, 'auto') }}"
+                 srcset="{{ post.feature_image|imageSize(320, 'auto') }} 320w,
+                         {{ post.feature_image|imageSize(572, 'auto') }} 572w,
+                         {{ post.feature_image|imageSize(1144, 'auto') }} 1144w"
+                 sizes="(max-width: 800px) 72vw,
+                        572px"
+                 itemprop="thumbnail"
+            />
+          </a>
+        </div>
+        <div class="index-post__title">
+          <h5><a href="{{ url(post) }}">{{ post.name }}</a></h5>
+        </div>
+      </div>
+
+    {% endfor %}
+
   </section>
-
-
-{% endfor %}
 
 {% endblock %}

@@ -50,7 +50,7 @@ $alt-bg-color: $warm-gray-light;
 
 // Font Colors
 $base-font-color: $warm-gray;
-$base-accent-color: $blue;
+$base-accent-color: shade($warm-gray, 10%);
 $overlay-text-color: white;
 
 // Link Colors

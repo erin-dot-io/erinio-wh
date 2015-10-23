@@ -10,10 +10,12 @@ $index-content-margin : 114px;
   z-index: 10;
   .page--index & {
     margin: $content-border-width auto;
+    padding-top: 100px;
     padding-left: $index-content-margin;
     padding-right: $index-content-margin;
+    padding-bottom: 100px;
     max-width: em(800);
-    // border-radius: 2px;
+    border-radius: 1px;
     padding-bottom: 40em;
   }
   body:not(.page--index) & {
