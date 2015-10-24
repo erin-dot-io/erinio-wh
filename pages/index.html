@@ -30,6 +30,13 @@
     .nav-trigger span:after {
       background-color: {{ feature.accent_color }};
     }
+    .hero__image {
+      background-image: url({{ feature.feature_image|imageSize(1280, 'auto') }});
+      background-image: -webkit-image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
+                                          url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
+      background-image: image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
+                                  url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
+    }
     /*.index-post:after {
       background-color: {{ feature.bg_color }};
     }*/
@@ -62,7 +69,7 @@
 
   <div class="hero" id="hero">
     <div class="hero__image-wrap" id="hero_image_wrap">
-      <div class="hero__image" id="hero_image" style="background-image: url({{ feature.feature_image|imageSize(2560, 'auto') }});">
+      <div class="hero__image" id="hero_image">
         {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
       </div>
     </div>
