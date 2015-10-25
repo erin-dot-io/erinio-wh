@@ -14,15 +14,15 @@
     .logo-path {
       fill: {{ feature.accent_color }};
     }
-    .nav-trigger {
+    .trigger-bg {
       background-color: {{ feature.bg_color }};
     }
     .nav-trigger span {
       background-color: {{ feature.accent_color }};
     }
-    body.page--index .nav-trigger:hover {
+    /*body.page--index .nav-trigger:hover {
       background-color: {{ feature.bg_color }};
-    }
+    }*/
     .nav-trigger__logo .logo-path {
       fill: {{ feature.accent_color }};
     }
@@ -69,8 +69,10 @@
 
   <div class="hero" id="hero">
     <div class="hero__image-wrap" id="hero_image_wrap">
-      <div class="hero__image" id="hero_image">
-        {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+      <div class="hero__image-nav-wrap" id="hero_nav_wrap">
+        <div class="hero__image" id="hero_image">
+          {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+        </div>
       </div>
     </div>
     <div class="hero__link-wrap" id="hero_link_wrap">

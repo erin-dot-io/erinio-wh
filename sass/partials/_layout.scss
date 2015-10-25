@@ -6,6 +6,7 @@ $header-height : 92px;
 *, *:before, *:after {@include box-sizing(border-box);}
 
 body {
+  overflow-x: hidden;
   background-color: $alt-bg-color;
   &.page--index {
     background-color: $warm-gray;
@@ -15,20 +16,15 @@ body {
 .container {
   @include outer-container;
   @include box-sizing(content-box);
-  padding: 0 $grid-padding-desktop;
+  padding: 0 90px ;
   &.narrow {
     max-width: em(700);
   }
   &.top-narrow {
     max-width: em(800);
   }
-  @include media($desktop-narrow) {
-    // padding: 0 $nav-padding-desktop 0 (($nav-padding-desktop * 2) + $nav-logo-size-desktop);
-    // padding: 0 (($nav-padding-desktop * 2) + $nav-logo-size-desktop);
-    .article__cover & {padding: 0 $grid-padding-desktop;}
-  }
-  @include media($tablet) {
-    padding: 0 $grid-padding-tablet;
+  @include media($phone-wide) {
+    padding: 0 75px;
   }
   @include media($phone) {
     padding: 0 $grid-padding-phone;
@@ -65,3 +61,23 @@ body {
     margin: 0 (-($grid-padding-phone));
   }
 }
+
+// .loader {
+//   position: fixed;
+//   bottom: 50vh;
+//   left: 0;
+//   right: 0;
+//   text-align: center;
+//   line-height: 0;
+//   z-index: -1;
+//   transition: opacity 400ms ease 4000ms;
+//   opacity: 0;
+//   .wf-loading & {
+//     opacity: 1;
+//     transition: opacity 400ms ease 4000ms;
+//   }
+//   .wf-active & {
+//     opacity: 0;
+//     transition: opacity 200ms ease 0ms;
+//   }
+// }

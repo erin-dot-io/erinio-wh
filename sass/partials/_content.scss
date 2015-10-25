@@ -2,36 +2,72 @@ $index-content-margin : 114px;
 
 .content-wrap {
   @include font-loading('fade-up-in');
+  overflow-x: hidden;
+  .page--index & {
+    // box-sizing: content-box;
+    padding: 0 110px;
+  }
+  @include media($tablet) {
+    .page--index & {
+      padding: 0;
+    }
+  }
 }
 
 .content {
   position: relative;
   background-color: $base-bg-color;
+  overflow-x: hidden;
   z-index: 10;
   .page--index & {
     margin: $content-border-width auto;
-    padding-top: 100px;
-    padding-left: $index-content-margin;
-    padding-right: $index-content-margin;
-    padding-bottom: 100px;
+    padding: 100px $index-content-margin;
     max-width: em(800);
     border-radius: 1px;
-    padding-bottom: 40em;
+    // padding-bottom: 40em;
   }
   body:not(.page--index) & {
     top: $header-height;
     border: $content-border-width solid $alt-bg-color;
     border-top-width: 0;
-    @include media($phone) {
-      border-right-width: $content-border-width-phone;
-      border-bottom-width: $content-border-width-phone;
-      border-left-width: $content-border-width-phone;
+  }
+  @include media($desktop-narrow) {
+    .page--index & {
+      padding: 60px;
+    }
+  }
+  @include media($tablet) {
+    .page--index & {
+      padding: 100px $index-content-margin;
+    }
+  }
+  @include media($phone-wide) {
+    body:not(.page--index) & {
+      border-right-width: 0;
+      border-bottom-width: 0;
+      border-left-width: 0;
+    }
+    .page--index & {
+      padding: 70px;
+    }
+  }
+  @include media($phone) {
+    .page--index & {
+      padding: 6px;
     }
   }
 }
 
-.content-inner {
-}
+// .content-mask {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   background-color: rgba(#fff, 0.5);
+//   opacity: 0;
+//   display: none;
+// }
 
 .nav-spacer {
   margin-top: ($nav-padding-desktop * 2) + $nav-logo-size-desktop;

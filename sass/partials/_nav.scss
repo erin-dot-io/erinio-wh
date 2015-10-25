@@ -1,6 +1,7 @@
-$logo-width : 90px;
+$logo-width        : 90px;
+$logo-width-tablet : 70px;
 
-$nav-trigger-width        : 30px;
+$nav-trigger-width        : 28px;
 $nav-trigger-height       : 28px;
 $nav-trigger-bar-height   : 2px;
 $nav-bg-trigger-color     : $warm-gray;
@@ -14,85 +15,97 @@ $nav-fade-duration    : 400ms;
 .top-logo {
   // @include font-loading('fade-in-fast');
   position: fixed;
-  top: 16px;
-  left: 50%;
+  left: 50vw;
+  top: $logo-width / 6;
   margin-left: -($logo-width / 2);
   width: $logo-width;
   z-index: 1;
+  // @include tap-highlight;
   // mix-blend-mode: soft-light;
   svg {
     opacity: 0.75;
     width: 100%;
   }
-  // .page--index & {
-  //   .logo-path {
-  //     fill: #fff;
-  //   }
-  // }
+  @include media($phone-wide) {
+    top: $logo-width-tablet / 5;
+    margin-left: -($logo-width-tablet / 2);
+    width: $logo-width-tablet;
+  }
 }
 
 .nav-trigger {
   // @include font-loading('fade-in-fast');
   position: fixed;
-  top: 21px;
+  top: 19px;
   left: 32px;
   width: $nav-trigger-width + ($nav-trigger-padding * 2);
   height: $nav-trigger-width + ($nav-trigger-padding * 2);
   padding: $nav-trigger-padding;
-  background-color: $alt-bg-color;
-  border-radius: 100px;
   z-index: 20;
   transition: background 150ms;
-  span {
-    display: block;
+  .trigger-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100px;
+    opacity: 0;
+  }
+  .trigger-bars {
     position: relative;
-    top: 50%;
-    margin-top: -1px;
-    width: 100%;
-    height: $nav-trigger-bar-height;
-    background-color: $nav-bg-trigger-color;
+    top: -1px;
+    width: $nav-trigger-width;
+    height: $nav-trigger-width;
     opacity: 0.7;
     transition: opacity 150ms;
-    &:before, &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 40px;
-      width: $nav-trigger-width;
-      height: $nav-trigger-bar-height;
-      background-color: $nav-bg-trigger-color;
-    }
-    &:before {
-      bottom: $nav-trigger-spacing;
-    }
-    &:after {
-      top: $nav-trigger-spacing;
-    }
+  }
+  .top-bar,
+  .mid-bar,
+  .bottom-bar {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: $nav-trigger-width;
+    height: $nav-trigger-bar-height;
+    background-color: $nav-bg-trigger-color;
+  }
+  .top-bar {
+    transform: translateY(-$nav-trigger-spacing);
+  }
+  .bottom-bar {
+    transform: translateY($nav-trigger-spacing);
   }
   &:hover {
-    span {
+    .trigger-bars {
       opacity: 1 !important;
-      transform: translate3d(0, 0, 0) !important;
     }
     svg {
       opacity: 0;
     }
   }
-  .page--index & {
-    background: none;
-    span {
-      // background-color: #fff;
-      &:before, &:after {
-        // background-color: #fff;
-      }
+  &.nav--opened {
+    .trigger-bars {
+      opacity: 1 !important;
+    }
+    svg {
+      opacity: 0 !important;
+    }
+  }
+  @include media($phone-wide) {
+    left: 12px;
+  }
+  @include media($phone) {
+    .trigger-bg {
+      background-color: $alt-bg-color;
     }
   }
 }
 
 .nav-trigger__logo {
   position: absolute;
-  top: 6px;
-  left: 7px;
+  top: 5px;
+  left: 6px;
   width: 36px;
   height: auto;
   opacity: 0;
@@ -106,12 +119,39 @@ $nav-fade-duration    : 400ms;
 
 .nav {
   position: fixed;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   z-index: 1;
   top: $header-height;
   left: 0;
   bottom: 0;
   width: $nav-width;
   padding-top: $content-border-width;
-  padding-left: $content-border-width * 2;
+  padding-left: 41px;
+  padding-right: 10px;
   opacity: 0;
+  display: none;
+  @include media($phone-wide) {
+    padding-left: 21px;
+  }
+}
+
+.nav__bio {
+  p {
+    font-size: 0.75em;
+    font-family: $base-font-family;
+    color: lighten($warm-gray, 15%);
+    a {
+      // border-bottom: 1px dotted;
+    }
+    i {
+      position: relative;
+      top: 1px;
+    }
+  }
+  @include media($tablet) {
+    p {
+      font-size: 0.875em;
+    }
+  }
 }

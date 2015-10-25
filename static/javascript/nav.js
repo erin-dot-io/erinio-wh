@@ -1,9 +1,14 @@
 $(document).ready(function() {
 
-navTrigger = $("nav_trigger");
+navTrigger = $("#nav_trigger");
+navBars = $("#trigger_bars");
+topBar = $("#top_bar");
+midBar = $("#mid_bar");
+bottomBar = $("#bottom_bar");
 nav = $("#nav");
 content = $("#content");
 contentInner = $("#content_inner");
+hero = $("#hero_nav_wrap");
 
 navAction();
 
@@ -27,7 +32,13 @@ function navAction() {
       }
     }
   });
-  $("#content").bind("touchstart click", function() {
+  $(content).bind("touchstart click", function() {
+    if (navState == true) {
+      navClose();
+      return false;
+    }
+  });
+  $("#hero_image").bind("touchstart click", function() {
     if (navState == true) {
       navClose();
       return false;
@@ -38,9 +49,11 @@ function navAction() {
 
 function navOpen() {
 
+  $(navTrigger).addClass("nav--opened");
+
   animate.stop(content);
-  animate.stop(contentInner);
   animate.stop(nav);
+  animate.stop(hero);
   animate({
     el: content,
     translateX: 280,
@@ -55,23 +68,70 @@ function navOpen() {
     opacity: 0.5,
     duration: 250,
     easing: "easeOutQuad",
+    begin: function() {
+      $(contentInner).css("pointer-events", "none");
+    }
   });
   animate({
     el: nav,
     opacity: [0, 1],
     translateX: [-15, 0],
     duration: 750,
-    delay: 50,
+    easing: "easeOutExpo",
+    begin: function() {
+      $(nav).show();
+    }
+  });
+  animate({
+    el: hero,
+    opacity: 0.05,
+    scale: 0.982,
+    duration: 1050,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: midBar,
+    opacity: 0,
+    delay: 150,
+    duration: 50,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: topBar,
+    translateY: ["-8px", "0px"],
+    duration: 350,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: topBar,
+    rotate: "45deg",
+    delay: 200,
+    duration: 450,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: bottomBar,
+    translateY: ["8px", "0px"],
+    duration: 350,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: bottomBar,
+    rotate: "-45deg",
+    delay: 200,
+    duration: 450,
     easing: "easeOutExpo",
   });
 
 }
 
-function navClose(el) {
+function navClose() {
+
+  $(navTrigger).removeClass("nav--opened");
 
   animate.stop(content);
-  animate.stop(contentInner);
   animate.stop(nav);
+  animate.stop(hero);
   animate({
     el: content,
     translateX: [280, 0],
@@ -86,14 +146,61 @@ function navClose(el) {
     opacity: [0.5, 1],
     duration: 250,
     easing: "easeOutQuad",
+    complete: function() {
+      $(contentInner).css("pointer-events", "auto");
+    }
   });
   animate({
     el: nav,
     opacity: [1, 0],
     translateX: [0, -15],
     duration: 750,
-    delay: 50,
+    easing: "easeOutExpo",
+    complete: function() {
+      $(nav).hide();
+    }
+  });
+  animate({
+    el: hero,
+    opacity: [0.05, 1],
+    scale: [0.982, 1],
+    duration: 1050,
     easing: "easeOutExpo",
   });
+  animate({
+    el: midBar,
+    opacity: [0, 1],
+    delay: 250,
+    duration: 50,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: topBar,
+    rotate: ["45deg", "0deg"],
+    duration: 350,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: topBar,
+    translateY: ["0px", "-8px"],
+    delay: 250,
+    duration: 450,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: bottomBar,
+    rotate: ["-45deg", "0deg"],
+    duration: 350,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: bottomBar,
+    translateY: ["0px", "8px"],
+    delay: 250,
+    duration: 450,
+    easing: "easeOutExpo",
+  });
+
+
 
 }

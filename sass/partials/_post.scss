@@ -21,6 +21,9 @@
   -webkit-touch-callout: none;
   margin-bottom: 0.25em;
   @include span-columns(12);
+  img {
+    background-color: $alt-bg-color;
+  }
   &:last-child {
     margin-bottom: 0;
   }

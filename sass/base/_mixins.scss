@@ -1,5 +1,6 @@
 @mixin tap-highlight() {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
 }
 
 @mixin background-cover($pos-y: center, $pos-x: center, $size: cover) {

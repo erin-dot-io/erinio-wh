@@ -4,13 +4,26 @@
   height: 100vh;
 }
 
-.hero__image {
-  @include font-loading(fade-scale-in);
+.hero__image-wrap,
+.hero__image-nav-wrap {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
-  height: 100vh;
+  bottom: 0;
+  left: 0;
+}
+
+.hero__image-nav-wrap {
+
+}
+
+.hero__image {
+  @include font-loading(fade-scale-in);
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 104vw;
+  height: 104vh;
   background-size: cover;
   background-position: center center;
 }

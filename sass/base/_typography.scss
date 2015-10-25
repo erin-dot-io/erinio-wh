@@ -30,9 +30,6 @@ h1, .h1 {
   font-size: $h1-font-size;
   font-weight: 500;
   margin-bottom: 0.5em;
-  @include media($desktop-narrow) {
-    font-size: $h2-font-size;
-  }
   @include media($phone-wide) {
     font-size: $h3-font-size;
   }
@@ -104,7 +101,7 @@ a {
       @include transform(translateX(-5px));
       @include transition(transform 300ms, opacity 300ms);
     }
-    &:hover {
+    .no-touch &:hover {
       @include transform(translateX(-5px));
       &:after {
         opacity: 1;

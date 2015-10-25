@@ -13,8 +13,8 @@ $p-font-family      : $serif;
 // Font Sizes
 $base-font-size    : 1em;
 $reading-font-size : 1.25em;
-$h1-font-size      : $base-font-size * 3;
-$h2-font-size      : $base-font-size * 2.25;
+$h1-font-size      : $base-font-size * 2.25;
+$h2-font-size      : $base-font-size * 2;
 $h3-font-size      : $base-font-size * 1.75;
 $h4-font-size      : $base-font-size * 1.5;
 $h5-font-size      : $base-font-size * 1.25;
@@ -50,7 +50,7 @@ $alt-bg-color: $warm-gray-light;
 
 // Font Colors
 $base-font-color: $warm-gray;
-$base-accent-color: shade($warm-gray, 10%);
+$base-accent-color: shade($warm-gray, 20%);
 $overlay-text-color: white;
 
 // Link Colors
