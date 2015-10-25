@@ -17,7 +17,9 @@
     .trigger-bg {
       background-color: {{ feature.bg_color }};
     }
-    .nav-trigger span {
+    .trigger-bars .top-bar,
+    .trigger-bars .mid-bar,
+    .trigger-bars .bottom-bar {
       background-color: {{ feature.accent_color }};
     }
     /*body.page--index .nav-trigger:hover {
@@ -26,16 +28,26 @@
     .nav-trigger__logo .logo-path {
       fill: {{ feature.accent_color }};
     }
-    .nav-trigger span:before,
-    .nav-trigger span:after {
-      background-color: {{ feature.accent_color }};
-    }
     .hero__image {
       background-image: url({{ feature.feature_image|imageSize(1280, 'auto') }});
       background-image: -webkit-image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
                                           url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
       background-image: image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
                                   url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
+    }
+    .nav__bio {
+      color: {{ feature.accent_color }};
+    }
+    .nav__bio a {
+      color: {{ feature.accent_color }};
+      opacity: 0.6;
+    }
+    .nav__bio a:hover {
+      color: {{ feature.accent_color }};
+      opacity: 0.85;
+    }
+    .nav .button {
+      color: {{ feature.accent_color }};
     }
     /*.index-post:after {
       background-color: {{ feature.bg_color }};
@@ -91,8 +103,8 @@
     {% for post in posts %}
 
       <div class="index-post">
-        <div class="index-post__image">
-          <a href="{{ url(post) }}">
+        <a href="{{ url(post) }}">
+          <div class="index-post__image">
             <img src="{{ post.feature_image|imageSize(572, 'auto') }}"
                  srcset="{{ post.feature_image|imageSize(320, 'auto') }} 320w,
                          {{ post.feature_image|imageSize(572, 'auto') }} 572w,
@@ -101,11 +113,12 @@
                         572px"
                  itemprop="thumbnail"
             />
-          </a>
-        </div>
-        <div class="index-post__title">
-          <h5><a href="{{ url(post) }}">{{ post.name }}</a></h5>
-        </div>
+          </div>
+          <div class="index-post__titles">
+            <h5>{{ post.name }}</h5>
+            <h6><small>{{ post.date|date('M Y') }}</small></h6>
+          </div>
+        </a>
       </div>
 
     {% endfor %}

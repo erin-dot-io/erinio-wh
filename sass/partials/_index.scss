@@ -1,6 +1,6 @@
 .index-post {
   text-align: center;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
   &:last-child {
     margin-bottom: 0;
   }
@@ -14,9 +14,12 @@
   }
 }
 
-.index-post__title {
+.index-post__titles {
   margin: 1em 0;
   a {
     color: $base-font-color;
+  }
+  h5 {
+    margin-bottom: 0.5em;
   }
 }

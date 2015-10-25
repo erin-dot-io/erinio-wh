@@ -86,7 +86,12 @@ $nav-fade-duration    : 400ms;
   }
   &.nav--opened {
     .trigger-bars {
-      opacity: 1 !important;
+      opacity: 0.7 !important;
+    }
+    &:hover {
+      .trigger-bars {
+        opacity: 1 !important;
+      }
     }
     svg {
       opacity: 0 !important;
@@ -134,15 +139,22 @@ $nav-fade-duration    : 400ms;
   @include media($phone-wide) {
     padding-left: 21px;
   }
+  .button-back {
+    .page--index & {
+      display: none;
+    }
+  }
 }
 
 .nav__bio {
+  margin-bottom: 1em;
+  color: lighten($warm-gray, 15%);
   p {
     font-size: 0.75em;
     font-family: $base-font-family;
-    color: lighten($warm-gray, 15%);
     a {
-      // border-bottom: 1px dotted;
+      transition: opacity 0.1s linear;
+      font-weight: bold;
     }
     i {
       position: relative;
