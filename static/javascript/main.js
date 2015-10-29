@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   if($("body.page--index").length) {
 
-    logo = $("#logo");
+    logo = $("#top_logo_wrap");
     triggerBars = $("#trigger_bars");
     triggerLogo = $("#nav_trigger_logo");
     triggerBg = $("#trigger_bg");
@@ -25,17 +25,17 @@ $(document).ready(function() {
                         // .addIndicators()
                         .addTo(heroScroll);
 
-    // hero link fade
-    var linkFadeTween = TweenMax.to(heroLink, 1, {opacity: 0, ease: 'linear'});
-    var linkFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 300})
-                       .setTween(linkFadeTween)
-                       // trigger a velocity opaticy animation
-                       // .setVelocity("#animate", {opacity: 0}, {duration: 400})
-                       // .addIndicators()
-                       .addTo(heroScroll);
+    // // hero link fade
+    // var linkFadeTween = TweenMax.to(heroLink, 1, {opacity: 0, ease: 'linear'});
+    // var linkFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 300})
+    //                    .setTween(linkFadeTween)
+    //                    // trigger a velocity opaticy animation
+    //                    // .setVelocity("#animate", {opacity: 0}, {duration: 400})
+    //                    // .addIndicators()
+    //                    .addTo(heroScroll);
 
     // hero link scroll
-    var linkScrollTween = TweenMax.to(heroLink, 1, {yPercent: 400, ease: 'linear'});
+    var linkScrollTween = TweenMax.to(heroLink, 1, {y: -60, ease: 'linear'});
     var linkScroll = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 450})
                        .setTween(linkScrollTween)
                        // trigger a velocity opaticy animation
@@ -53,7 +53,7 @@ $(document).ready(function() {
                        .addTo(heroScroll);
 
     // nav trigger span fade
-    var triggerFadeTween = TweenMax.to(triggerBars, 0.2, {opacity: 0, ease: 'easeInOutQuad'});
+    var triggerFadeTween = TweenMax.to(triggerBars, 0.2, {opacity: 0, ease: 'linear'});
     var triggerFade = new ScrollMagic.Scene({triggerElement: "#content", offset: 150})
                        .setTween(triggerFadeTween)
                        // trigger a velocity opaticy animation
@@ -62,7 +62,7 @@ $(document).ready(function() {
                        .addTo(heroScroll);
 
     // nav trigger logo fade
-    var triggerLogoFadeTween = TweenMax.to(triggerLogo, 0.2, {opacity: 1, ease: 'easeInOutQuad'});
+    var triggerLogoFadeTween = TweenMax.to(triggerLogo, 0.2, {opacity: 1, ease: 'linear'});
     var triggerLogoFade = new ScrollMagic.Scene({triggerElement: "#content", offset: 150})
                        .setTween(triggerLogoFadeTween)
                        // trigger a velocity opaticy animation
@@ -71,7 +71,7 @@ $(document).ready(function() {
                        .addTo(heroScroll);
 
     // nav trigger logo bg fade
-    var triggerBgFadeTween = TweenMax.to(triggerBg, 0.2, {opacity: 1, ease: 'easeInOutQuad'});
+    var triggerBgFadeTween = TweenMax.to(triggerBg, 0.2, {opacity: 1, ease: 'linear'});
     var triggerBgFade = new ScrollMagic.Scene({triggerElement: "#content", offset: 150})
                        .setTween(triggerBgFadeTween)
                        // trigger a velocity opaticy animation
@@ -81,7 +81,7 @@ $(document).ready(function() {
 
   } else {
 
-    logo = $("#logo");
+    logo = $("#top_logo_wrap");
     triggerBars = $("#trigger_bars");
     triggerLogo = $("#nav_trigger_logo");
     triggerBg = $("#trigger_bg");
@@ -89,8 +89,8 @@ $(document).ready(function() {
     var logoScroll = new ScrollMagic.Controller();
 
     // logo fade
-    var logoFadeTween = TweenMax.to(logo, 1, {opacity: 0, ease: 'linear'});
-    var logoFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onLeave', offset: -88, duration: 35})
+    var logoFadeTween = TweenMax.to(logo, 0.2, {opacity: 0, ease: 'linear'});
+    var logoFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onLeave', offset: -80})
                        .setTween(logoFadeTween)
                        // trigger a velocity opaticy animation
                        // .setVelocity("#animate", {opacity: 0}, {duration: 400})
@@ -98,7 +98,7 @@ $(document).ready(function() {
                        .addTo(logoScroll);
 
     // nav trigger span fade
-    var triggerFadeTween = TweenMax.to(triggerBars, 0.2, {opacity: 0, ease: 'easeOutQuad'});
+    var triggerFadeTween = TweenMax.to(triggerBars, 0.2, {opacity: 0, ease: 'linear'});
     var triggerFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onLeave'})
                        .setTween(triggerFadeTween)
                        // trigger a velocity opaticy animation
@@ -107,7 +107,7 @@ $(document).ready(function() {
                        .addTo(logoScroll);
 
     // nav trigger logo fade
-    var triggerLogoFadeTween = TweenMax.to(triggerLogo, 0.2, {opacity: 1, ease: 'easeInQuad'});
+    var triggerLogoFadeTween = TweenMax.to(triggerLogo, 0.2, {opacity: 1, ease: 'linear'});
     var triggerLogoFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onLeave'})
                        .setTween(triggerLogoFadeTween)
                        // trigger a velocity opaticy animation
@@ -116,7 +116,7 @@ $(document).ready(function() {
                        .addTo(logoScroll);
 
     // nav trigger logo bg fade
-    var triggerBgFadeTween = TweenMax.to(triggerBg, 0.2, {opacity: 1, ease: 'easeInOutQuad'});
+    var triggerBgFadeTween = TweenMax.to(triggerBg, 0.2, {opacity: 1, ease: 'linear'});
     var triggerBgFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onLeave'})
                        .setTween(triggerBgFadeTween)
                        // trigger a velocity opaticy animation

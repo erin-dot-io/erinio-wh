@@ -94,7 +94,7 @@ function navOpen() {
     el: heroLink,
     opacity: 0,
     scale: 0.95,
-    duration: 600,
+    duration: 400,
     easing: "easeOutExpo",
   });
   animate({

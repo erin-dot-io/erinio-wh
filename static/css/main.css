@@ -1817,7 +1817,7 @@ body.page--index {
   }
 }
 
-.top-logo {
+.top-logo-wrap {
   position: fixed;
   left: 50vw;
   top: 15px;
@@ -1825,6 +1825,7 @@ body.page--index {
   width: 90px;
   z-index: 1;
 }
+
 .top-logo svg {
   opacity: 0.75;
   width: 100%;
@@ -2168,13 +2169,8 @@ body:not(.page--index) .content {
 }
 
 .index-post__image {
-  -webkit-transition: opacity 400ms;
-          transition: opacity 400ms;
   border-radius: 2px;
   overflow: hidden;
-}
-.index-post__image:hover {
-  opacity: 0.94;
 }
 
 .index-post__titles {

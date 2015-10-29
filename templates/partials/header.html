@@ -3,10 +3,12 @@
  <input type="text" name="q" placeholder="Search" id="tipue_search_input" />
 </form> #}
 
-<a href="/" class="top-logo" id="logo">
-  {# <img src="{{ cms.waffles.logo_middle.url }}" alt=""> #}
-  {% include "templates/partials/logo.html" %}
-</a>
+<div class="top-logo-wrap" id="top_logo_wrap">
+  <a href="/" class="top-logo" id="logo">
+    {# <img src="{{ cms.waffles.logo_middle.url }}" alt=""> #}
+    {% include "templates/partials/logo.html" %}
+  </a>
+</div>
 
 <a href="#" class="nav-trigger" id="nav_trigger">
     <div class="trigger-bg" id="trigger_bg"></div>
