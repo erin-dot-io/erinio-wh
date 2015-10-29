@@ -9,6 +9,7 @@ nav = $("#nav");
 content = $("#content");
 contentInner = $("#content_inner");
 hero = $("#hero_nav_wrap");
+heroLink = $("#hero_link_wrap");
 
 navAction();
 
@@ -90,6 +91,13 @@ function navOpen() {
     easing: "easeOutExpo",
   });
   animate({
+    el: heroLink,
+    opacity: 0,
+    scale: 0.95,
+    duration: 600,
+    easing: "easeOutExpo",
+  });
+  animate({
     el: midBar,
     opacity: 0,
     delay: 150,
@@ -165,6 +173,13 @@ function navClose() {
     opacity: [0.05, 1],
     scale: [0.982, 1],
     duration: 1050,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: heroLink,
+    opacity: [0, 1],
+    scale: [0.95, 1],
+    duration: 850,
     easing: "easeOutExpo",
   });
   animate({

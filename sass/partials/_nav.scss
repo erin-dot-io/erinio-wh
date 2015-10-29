@@ -147,13 +147,12 @@ $nav-fade-duration    : 400ms;
 }
 
 .nav__bio {
-  margin-bottom: 1em;
+  margin-bottom: 4em;
   color: lighten($warm-gray, 15%);
   p {
     font-size: 0.75em;
     font-family: $base-font-family;
     a {
-      transition: opacity 0.1s linear;
       font-weight: bold;
     }
     i {

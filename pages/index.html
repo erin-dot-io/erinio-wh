@@ -15,7 +15,7 @@
       fill: {{ feature.accent_color }};
     }
     .trigger-bg {
-      background-color: {{ feature.bg_color }};
+      background-color: {{ feature.bg_color }} !important;
     }
     .trigger-bars .top-bar,
     .trigger-bars .mid-bar,
@@ -52,23 +52,26 @@
     /*.index-post:after {
       background-color: {{ feature.bg_color }};
     }*/
+    .hero__link-wrap {
+      mix-blend-mode: {{ feature.title_blend_mode }};
+    }
   </style>
-  {% if feature.link_color == 'BG Color' %}
+  {% if feature.title_color == 'BG Color' %}
     <style>
       .hero__link a {
         color: {{ feature.bg_color }};
       }
     </style>
-  {% elseif feature.link_color == 'White' %}
+  {% elseif feature.title_color == 'White' %}
     <style>
       .hero__link a {
-        color: rgba(255,255,255,0.75);
+        color: #fff;
       }
     </style>
-  {% elseif feature.link_color == 'Black' %}
+  {% elseif feature.title_color == 'Black' %}
     <style>
       .hero__link a {
-        color: rgba(0,0,0,0.75);
+        color: #000;
       }
     </style>
   {% else %}
@@ -88,8 +91,8 @@
       </div>
     </div>
     <div class="hero__link-wrap" id="hero_link_wrap">
-      <div class="hero__link link-arrows" id="hero_link">
-        <a href="{{ url(feature) }}">{{ feature.name }}</a>
+      <div class="hero__link" id="hero_link">
+        <a href="{{ url(feature) }}"><h1>{{ feature.name }}</h1></a>
       </div>
     </div>
   </div>

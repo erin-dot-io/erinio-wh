@@ -12,7 +12,7 @@ $(document).ready(function() {
     triggerLogo = $("#nav_trigger_logo");
     triggerBg = $("#trigger_bg");
     heroImage = $("#hero_image_wrap");
-    heroLink = $("#hero_link_wrap");
+    heroLink = $("#hero_link a");
 
     var heroScroll = new ScrollMagic.Controller();
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     // hero link fade
     var linkFadeTween = TweenMax.to(heroLink, 1, {opacity: 0, ease: 'linear'});
-    var linkFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', offset: 150, duration: 300})
+    var linkFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 300})
                        .setTween(linkFadeTween)
                        // trigger a velocity opaticy animation
                        // .setVelocity("#animate", {opacity: 0}, {duration: 400})
