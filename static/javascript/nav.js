@@ -52,9 +52,7 @@ function navOpen() {
 
   $(navTrigger).addClass("nav--opened");
 
-  animate.stop(content);
-  animate.stop(nav);
-  animate.stop(hero);
+  animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
   animate({
     el: content,
     translateX: 280,
@@ -137,9 +135,7 @@ function navClose() {
 
   $(navTrigger).removeClass("nav--opened");
 
-  animate.stop(content);
-  animate.stop(nav);
-  animate.stop(hero);
+  animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
   animate({
     el: content,
     translateX: [280, 0],

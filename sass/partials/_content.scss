@@ -2,7 +2,7 @@ $index-content-margin : 114px;
 
 .content-wrap {
   @include font-loading('fade-up-in');
-  overflow-x: hidden;
+  // overflow-x: hidden;
   .page--index & {
     // box-sizing: content-box;
     padding: 0 110px;
