@@ -64,6 +64,7 @@ function navOpen() {
     easing: "easeOutExpo",
     begin: function() {
       $(contentInner).css("pointer-events", "none");
+      $(heroLink).css("pointer-events", "none");
     }
   });
   // animate({
@@ -148,6 +149,7 @@ function navClose() {
     easing: "easeOutExpo",
     begin: function() {
       $(contentInner).css("pointer-events", "auto");
+      $(heroLink).css("pointer-events", "auto");
     }
   });
   // animate({

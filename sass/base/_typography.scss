@@ -88,10 +88,28 @@ a {
     color: $hover-link-color;
     outline: none;
   }
+  p & {
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      margin-top: -0.25em;
+      background-color: $base-font-color;
+      // transition: height 0.1s linear;
+    }
+  }
+  .no-touch p &:hover {
+    &:after {
+      height: 2px;
+    }
+  }
   .link-arrows & {
     display: inline-block;
     position: relative;
-    text-transform: uppercase;
     @include transition(transform 300ms);
     &:after {
       content: " →";

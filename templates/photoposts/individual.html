@@ -6,10 +6,25 @@
 
 {% block body_attributes %}{% parent %} page--photo-post{% endblock %}
 
+{% block hero %}
+
+  {% if !production %}
+    {% set feature = item %}
+    {% include "templates/partials/hero.html" %}
+  {% endif %}
+
+{% endblock hero %}
+
 {% block content %}
 
 <section class="container post-header post-header--white">
-  <h1>{{ item.name }}</h1>
+  <h1>
+  {% if item.custom_title %}
+    {{ item.custom_title }}
+  {% else %}
+    {{ item.name }}
+  {% endif %}
+  </h1>
   <h6>{{ item.subtitle }} &mdash; {{ item.date|date('M Y') }}</h6>
 </section>
 {#   <section class="container post-audio">
@@ -53,19 +68,14 @@
   </div>
 </section>
 <section class="container post-footer">
-  <small class="link-arrows">
+  <small>
     {{ item.notes|markdown }}
-    <p>
-      <a href="http://www.instagram.com/erin.io">Instagram</a>
-      <br><br>
-      <a href="/">erin.io</a>
-    </p>
     <span>&mdash;</span>
   </small>
   <div class="post-footer__social">
     <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a>
     <a class="icon-twitter" href="http://twitter.com/erindotio"></a>
-    <a class="icon-paperplane trigger-email" href="mailto:erin+hello@erin.io"></a>
+    <a class="icon-paperplane trigger-email" href="mailto:erin@erin.io"></a>
     <a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
   </div>
 </section>

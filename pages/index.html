@@ -6,98 +6,8 @@
 {% endblock %}
 
 {% block hero %}
-
-  <style>
-    body.page--index {
-      background-color: {{ feature.bg_color }};
-    }
-    .logo-path {
-      fill: {{ feature.accent_color }};
-    }
-    .trigger-bg {
-      background-color: {{ feature.bg_color }} !important;
-    }
-    .trigger-bars .top-bar,
-    .trigger-bars .mid-bar,
-    .trigger-bars .bottom-bar {
-      background-color: {{ feature.accent_color }};
-    }
-    /*body.page--index .nav-trigger:hover {
-      background-color: {{ feature.bg_color }};
-    }*/
-    .nav-trigger__logo .logo-path {
-      fill: {{ feature.accent_color }};
-    }
-    .hero__image {
-      background-image: url({{ feature.feature_image|imageSize(1280, 'auto') }});
-      background-image: -webkit-image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
-                                          url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
-      background-image: image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
-                                  url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
-    }
-    .nav__bio {
-      color: {{ feature.accent_color }};
-    }
-    .nav__bio a {
-      color: {{ feature.accent_color }};
-      opacity: 0.6;
-    }
-    .nav__bio a:hover {
-      color: {{ feature.accent_color }};
-      opacity: 0.85;
-    }
-    .nav .button {
-      color: {{ feature.accent_color }};
-    }
-    /*.index-post:after {
-      background-color: {{ feature.bg_color }};
-    }*/
-    .hero__link-wrap {
-      mix-blend-mode: {{ feature.title_blend_mode }};
-    }
-  </style>
-  {% if feature.title_color == 'BG Color' %}
-    <style>
-      .hero__link a {
-        color: {{ feature.bg_color }};
-      }
-    </style>
-  {% elseif feature.title_color == 'White' %}
-    <style>
-      .hero__link a {
-        color: #fff;
-      }
-    </style>
-  {% elseif feature.title_color == 'Black' %}
-    <style>
-      .hero__link a {
-        color: #000;
-      }
-    </style>
-  {% else %}
-    <style>
-      .hero__link a {
-        color: {{ feature.accent_color }};
-      }
-    </style>
-  {% endif %}
-
-  <div class="hero" id="hero">
-    <div class="hero__image-wrap" id="hero_image_wrap">
-      <div class="hero__image-nav-wrap" id="hero_nav_wrap">
-        <div class="hero__image" id="hero_image">
-          {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
-        </div>
-      </div>
-      <div class="hero__link-wrap" id="hero_link_wrap">
-        <div class="hero__link" id="hero_link">
-          <a href="{{ url(feature) }}"><h1>{{ feature.name }}</h1></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-{% endblock %}
+  {% include "templates/partials/hero.html" %}
+{% endblock hero %}
 
 {% block content %}
 
@@ -118,7 +28,13 @@
             />
           </div>
           <div class="index-post__titles">
-            <h5>{{ post.name }}</h5>
+            <h5>
+              {% if post.custom_title %}
+                {{ post.custom_title }}
+              {% else %}
+                {{ post.name }}
+              {% endif %}
+            </h5>
             <h6><small>{{ post.date|date('M Y') }}</small></h6>
           </div>
         </a>

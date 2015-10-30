@@ -666,10 +666,25 @@ a:active, a:focus {
   color: #1d1a1d;
   outline: none;
 }
+p a {
+  position: relative;
+}
+p a:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  margin-top: -0.25em;
+  background-color: #564d58;
+}
+.no-touch p a:hover:after {
+  height: 2px;
+}
 .link-arrows a {
   display: inline-block;
   position: relative;
-  text-transform: uppercase;
   -webkit-transition: -webkit-transform 300ms;
   transition: transform 300ms;
 }
@@ -1920,7 +1935,7 @@ body.page--index {
   opacity: 0;
 }
 .nav-trigger__logo svg {
-  opacity: 0.7;
+  opacity: 0.9;
   width: 100%;
   -webkit-transition: opacity 300ms ease;
           transition: opacity 300ms ease;
@@ -1942,13 +1957,16 @@ body.page--index {
   opacity: 0;
   display: none;
 }
+.nav a:after {
+  display: none;
+}
+.page--index .nav .button-back {
+  display: none;
+}
 @media screen and (max-width: 667px) {
   .nav {
     padding-left: 21px;
   }
-}
-.page--index .nav .button-back {
-  display: none;
 }
 
 .nav__bio {
@@ -2052,14 +2070,26 @@ body.page--index {
   display: inline-block;
   color: #fff;
 }
-.no-touch .hero__link a:hover h1 {
-  letter-spacing: 0.21em;
+.no-touch .hero__link a:hover + h6 {
+  opacity: 1;
 }
 .hero__link h1 {
   font-size: 4em;
+  margin-bottom: 0;
+  padding: 0.5em 0;
   letter-spacing: 0.2em;
-  -webkit-transition: letter-spacing 400ms ease;
-          transition: letter-spacing 400ms ease;
+}
+.hero__link h6 {
+  position: relative;
+  top: -2em;
+  -webkit-transition: opacity 400ms ease;
+          transition: opacity 400ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.hero__link h6 span {
+  position: relative;
+  top: -0.1em;
 }
 @media screen and (max-width: 1000px) {
   .hero__link h1 {
@@ -2183,7 +2213,7 @@ body:not(.page--index) .content {
   color: #564d58;
 }
 .index-post__titles h5 {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
 .home-logo {

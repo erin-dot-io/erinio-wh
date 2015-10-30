@@ -1,0 +1,103 @@
+<style>
+  body {
+    background-color: {{ feature.bg_color }} !important;
+  }
+  .logo-path {
+    fill: {{ feature.accent_color }};
+  }
+  .trigger-bg {
+    background-color: {{ feature.bg_color }} !important;
+  }
+  .trigger-bars .top-bar,
+  .trigger-bars .mid-bar,
+  .trigger-bars .bottom-bar {
+    background-color: {{ feature.accent_color }};
+  }
+  /*body.page--index .nav-trigger:hover {
+    background-color: {{ feature.bg_color }};
+  }*/
+  .nav-trigger__logo .logo-path {
+    fill: {{ feature.accent_color }};
+  }
+  .hero__image {
+    background-image: url({{ feature.feature_image|imageSize(1280, 'auto') }});
+    background-image: -webkit-image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
+                                        url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
+    background-image: image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
+                                url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
+  }
+  .nav__bio {
+    color: {{ feature.accent_color }};
+  }
+  .nav__bio a {
+    color: {{ feature.accent_color }};
+    opacity: 0.6;
+  }
+  .nav__bio a:hover {
+    color: {{ feature.accent_color }};
+    opacity: 0.85;
+  }
+  .nav .button {
+    color: {{ feature.accent_color }};
+  }
+  /*.index-post:after {
+    background-color: {{ feature.bg_color }};
+  }*/
+  .hero__link-wrap {
+    mix-blend-mode: {{ feature.title_blend_mode }};
+  }
+</style>
+{% if feature.title_color == 'BG Color' %}
+  <style>
+    .hero__link a,
+    .hero__link h6 {
+      color: {{ feature.bg_color }};
+    }
+  </style>
+{% elseif feature.title_color == 'White' %}
+  <style>
+    .hero__link a,
+    .hero__link h6 {
+      color: #fff;
+    }
+  </style>
+{% elseif feature.title_color == 'Black' %}
+  <style>
+    .hero__link a,
+    .hero__link h6 {
+      color: #000;
+    }
+  </style>
+{% else %}
+  <style>
+    .hero__link a,
+    .hero__link h6 {
+      color: {{ feature.accent_color }};
+    }
+  </style>
+{% endif %}
+
+<div class="hero" id="hero">
+  <div class="hero__image-wrap" id="hero_image_wrap">
+    <div class="hero__image-nav-wrap" id="hero_nav_wrap">
+      <div class="hero__image" id="hero_image">
+        {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+      </div>
+    </div>
+    <div class="hero__link-wrap" id="hero_link_wrap">
+      <div class="hero__link" id="hero_link">
+        <a href="{{ url(feature) }}">
+          <h1>
+            {% if feature.custom_title %}
+              {{ feature.custom_title }}
+            {% else %}
+              {{ feature.name }}
+            {% endif %}
+          </h1>
+          <h6>{{ feature.subtitle }} <span>&rarr;</span></h6>
+        </a>
+        {# <h6>{{ feature.subtitle }} &mdash; {{ feature.date|date('M Y') }}</h6> #}
+      </div>
+    </div>
+  </div>
+</div>

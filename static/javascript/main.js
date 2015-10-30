@@ -35,14 +35,14 @@ $(document).ready(function() {
     //                    // .addIndicators()
     //                    .addTo(heroScroll);
 
-    // hero link scroll
-    var linkScrollTween = TweenMax.to(heroLink, 1, {y: -60, ease: 'linear'});
-    var linkScroll = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 450})
-                       .setTween(linkScrollTween)
-                       // trigger a velocity opaticy animation
-                       // .setVelocity("#animate", {opacity: 0}, {duration: 400})
-                       // .addIndicators()
-                       .addTo(heroScroll);
+    // // hero link scroll
+    // var linkScrollTween = TweenMax.to(heroLink, 1, {y: -60, ease: 'linear'});
+    // var linkScroll = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 450})
+    //                    .setTween(linkScrollTween)
+    //                    // trigger a velocity opaticy animation
+    //                    // .setVelocity("#animate", {opacity: 0}, {duration: 400})
+    //                    // .addIndicators()
+    //                    .addTo(heroScroll);
 
     // logo fade
     var logoFadeTween = TweenMax.to(logo, 1, {opacity: 0, yPercent: -22, ease: 'linear'});
@@ -79,24 +79,6 @@ $(document).ready(function() {
                        // .setVelocity("#animate", {opacity: 0}, {duration: 400})
                        // .addIndicators()
                        .addTo(heroScroll);
-
-    $("#hero_link a").hover(
-      function() {
-        animate({
-          el: heroNavWrap,
-          opacity: 0.8,
-          duration: 750,
-          easing: "easeOutExpo",
-        });
-      }, function() {
-        animate({
-          el: heroNavWrap,
-          opacity: [0.8, 1],
-          duration: 750,
-          easing: "easeOutExpo",
-        });
-      }
-    );
 
   } else {
 
@@ -146,4 +128,33 @@ $(document).ready(function() {
 
   }
 
+  // hero section actions
+  if($("#hero").length) {
+
+    heroNavWrap = $("#hero_nav_wrap");
+
+    $("#hero_link a").hover(
+      function() {
+        animate({
+          el: heroNavWrap,
+          opacity: 0.8,
+          duration: 750,
+          easing: "easeOutExpo",
+        });
+      }, function() {
+        animate({
+          el: heroNavWrap,
+          opacity: [0.8, 1],
+          duration: 750,
+          easing: "easeOutExpo",
+        });
+      }
+    );
+
+  }
+
 });
+
+
+
+
