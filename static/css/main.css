@@ -1740,10 +1740,6 @@ a.pswp__share--download:hover {
   box-sizing: border-box;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   overflow-x: hidden;
   background-color: #eceaed;
@@ -1828,17 +1824,16 @@ body.page--index {
   width: 90px;
   z-index: 1;
 }
-
-.top-logo svg {
-  opacity: 0.75;
-  width: 100%;
-}
 @media screen and (max-width: 667px) {
-  .top-logo {
+  .top-logo-wrap {
     top: 14px;
     margin-left: -35px;
     width: 70px;
   }
+}
+.top-logo-wrap svg {
+  opacity: 0.75;
+  width: 100%;
 }
 
 .nav-trigger {
@@ -1943,6 +1938,7 @@ body.page--index {
   padding-top: 12px;
   padding-left: 41px;
   padding-right: 10px;
+  padding-bottom: 4em;
   opacity: 0;
   display: none;
 }
@@ -1956,7 +1952,7 @@ body.page--index {
 }
 
 .nav__bio {
-  margin-bottom: 4em;
+  margin-bottom: 1em;
   color: #7e7181;
 }
 .nav__bio p {
@@ -2056,9 +2052,14 @@ body.page--index {
   display: inline-block;
   color: #fff;
 }
+.no-touch .hero__link a:hover h1 {
+  letter-spacing: 0.21em;
+}
 .hero__link h1 {
   font-size: 4em;
   letter-spacing: 0.2em;
+  -webkit-transition: letter-spacing 400ms ease;
+          transition: letter-spacing 400ms ease;
 }
 @media screen and (max-width: 1000px) {
   .hero__link h1 {

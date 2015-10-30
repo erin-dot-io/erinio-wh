@@ -58,10 +58,16 @@
     // font-size: 0.875em;
     // @include font-smoothing;
     // letter-spacing: 0.25em;
+    .no-touch &:hover {
+      h1 {
+        letter-spacing: 0.21em;
+      }
+    }
   }
   h1 {
     font-size: 4em;
     letter-spacing: 0.2em;
+    transition: letter-spacing 400ms ease;
   }
   @include media($desktop-narrow) {
     h1 {

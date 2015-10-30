@@ -19,21 +19,21 @@ $nav-fade-duration    : 400ms;
   margin-left: -($logo-width / 2);
   width: $logo-width;
   z-index: 1;
+  @include media($phone-wide) {
+    top: $logo-width-tablet / 5;
+    margin-left: -($logo-width-tablet / 2);
+    width: $logo-width-tablet;
+  }
+  svg {
+    opacity: 0.75;
+    width: 100%;
+  }
 }
 
 .top-logo {
   // @include font-loading('fade-in-fast');
   // @include tap-highlight;
   // mix-blend-mode: soft-light;
-  svg {
-    opacity: 0.75;
-    width: 100%;
-  }
-  @include media($phone-wide) {
-    top: $logo-width-tablet / 5;
-    margin-left: -($logo-width-tablet / 2);
-    width: $logo-width-tablet;
-  }
 }
 
 .nav-trigger {
@@ -137,6 +137,7 @@ $nav-fade-duration    : 400ms;
   padding-top: $content-border-width;
   padding-left: 41px;
   padding-right: 10px;
+  padding-bottom: 4em;
   opacity: 0;
   display: none;
   @include media($phone-wide) {
@@ -150,7 +151,7 @@ $nav-fade-duration    : 400ms;
 }
 
 .nav__bio {
-  margin-bottom: 4em;
+  margin-bottom: 1em;
   color: lighten($warm-gray, 15%);
   p {
     font-size: 0.75em;

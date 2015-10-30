@@ -52,6 +52,10 @@ function navOpen() {
 
   $(navTrigger).addClass("nav--opened");
 
+  navState = true;
+
+  // console.log(navState);
+
   animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
   animate({
     el: content,
@@ -59,18 +63,15 @@ function navOpen() {
     duration: 750,
     easing: "easeOutExpo",
     begin: function() {
-      navState = true;
-    }
-  });
-  animate({
-    el: contentInner,
-    opacity: 0.5,
-    duration: 250,
-    easing: "easeOutQuad",
-    begin: function() {
       $(contentInner).css("pointer-events", "none");
     }
   });
+  // animate({
+  //   el: contentInner,
+  //   opacity: 0.5,
+  //   duration: 250,
+  //   easing: "easeOutQuad",
+  // });
   animate({
     el: nav,
     opacity: [0, 1],
@@ -135,6 +136,10 @@ function navClose() {
 
   $(navTrigger).removeClass("nav--opened");
 
+  navState = false;
+
+  // console.log(navState);
+
   animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
   animate({
     el: content,
@@ -142,18 +147,15 @@ function navClose() {
     duration: 750,
     easing: "easeOutExpo",
     begin: function() {
-      navState = false;
-    }
-  });
-  animate({
-    el: contentInner,
-    opacity: [0.5, 1],
-    duration: 250,
-    easing: "easeOutQuad",
-    complete: function() {
       $(contentInner).css("pointer-events", "auto");
     }
   });
+  // animate({
+  //   el: contentInner,
+  //   opacity: [0.5, 1],
+  //   duration: 250,
+  //   easing: "easeOutQuad"
+  // });
   animate({
     el: nav,
     opacity: [1, 0],
@@ -161,7 +163,9 @@ function navClose() {
     duration: 750,
     easing: "easeOutExpo",
     complete: function() {
-      $(nav).hide();
+      if (navState == false) {
+        $(nav).hide();
+      }
     }
   });
   animate({

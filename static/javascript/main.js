@@ -12,6 +12,7 @@ $(document).ready(function() {
     triggerLogo = $("#nav_trigger_logo");
     triggerBg = $("#trigger_bg");
     heroImage = $("#hero_image_wrap");
+    heroNavWrap = $("#hero_nav_wrap");
     heroLink = $("#hero_link a");
 
     var heroScroll = new ScrollMagic.Controller();
@@ -78,6 +79,24 @@ $(document).ready(function() {
                        // .setVelocity("#animate", {opacity: 0}, {duration: 400})
                        // .addIndicators()
                        .addTo(heroScroll);
+
+    $("#hero_link a").hover(
+      function() {
+        animate({
+          el: heroNavWrap,
+          opacity: 0.8,
+          duration: 750,
+          easing: "easeOutExpo",
+        });
+      }, function() {
+        animate({
+          el: heroNavWrap,
+          opacity: [0.8, 1],
+          duration: 750,
+          easing: "easeOutExpo",
+        });
+      }
+    );
 
   } else {
 
