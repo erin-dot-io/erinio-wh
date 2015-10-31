@@ -1990,6 +1990,41 @@ body.page--index {
   }
 }
 
+.index-footer {
+  padding: 3em 0;
+  width: 100%;
+  text-align: center;
+}
+
+.post-footer {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  text-align: center;
+}
+.post-footer span {
+  display: block;
+  margin: 1em 0 2em;
+}
+.post-footer i {
+  position: relative;
+  font-size: 14px;
+  top: 0.1em;
+}
+.post-footer p {
+  margin-bottom: 1.4em;
+}
+
+.post-footer__social a {
+  position: relative;
+  top: 2px;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  opacity: 0.75;
+}
+.post-footer__social a:hover {
+  opacity: 1;
+}
+
 .hero {
   position: relative;
   width: 100vw;
@@ -2140,7 +2175,7 @@ body.page--index {
   z-index: 10;
 }
 .page--index .content {
-  margin: 0 auto 12px auto;
+  margin: 0 auto;
   padding: 100px 114px;
   max-width: 50em;
   border-radius: 1px;
@@ -2469,38 +2504,6 @@ body:not(.page--index) .content {
   .post-gallery__item {
     margin-bottom: 0.15em;
   }
-}
-
-.post-footer {
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  text-align: center;
-}
-.post-footer a {
-  color: #564d58;
-}
-.post-footer a:hover {
-  color: #2b272c;
-}
-.post-footer span {
-  display: block;
-  margin: 1em 0 2em;
-}
-.post-footer i {
-  position: relative;
-  font-size: 14px;
-  top: 0.1em;
-}
-.post-footer p {
-  margin-bottom: 1.4em;
-}
-
-.post-footer__social a {
-  position: relative;
-  top: 2px;
-  padding-left: 0.6em;
-  padding-right: 0.6em;
-  opacity: 0.75;
 }
 
 .last {

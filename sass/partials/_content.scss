@@ -20,7 +20,7 @@ $index-content-margin : 114px;
   overflow-x: hidden;
   z-index: 10;
   .page--index & {
-    margin: 0 auto $content-border-width auto;
+    margin: 0 auto;
     padding: 100px $index-content-margin;
     max-width: em(800);
     border-radius: 1px;

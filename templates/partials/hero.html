@@ -26,7 +26,9 @@
     background-image: image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
                                 url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
   }
-  .nav__bio {
+  .nav__bio,
+  .nav .button,
+  .index-footer a {
     color: {{ feature.accent_color }};
   }
   .nav__bio a {
@@ -36,9 +38,6 @@
   .nav__bio a:hover {
     color: {{ feature.accent_color }};
     opacity: 0.85;
-  }
-  .nav .button {
-    color: {{ feature.accent_color }};
   }
   /*.index-post:after {
     background-color: {{ feature.bg_color }};

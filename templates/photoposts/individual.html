@@ -1,6 +1,6 @@
 {% extends "templates/partials/base.html" %}
 
-{% block title %}{{ item.name }} &mdash; {% parent %}{% endblock %}
+{% block title %}{% if item.custom_title %}{{ item.custom_title }}{% else %}{{ item.name }}{% endif %} &mdash; {% parent %}{% endblock %}
 {% block description %}{% if item.subtitle %}{{ item.subtitle }} &mdash; {{ item.date|date('M Y') }}{% endif %}{% endblock %}
 {% block og_image %}{{ item.feature_image|imageCrop(1200, 630) }}{% endblock %}
 
