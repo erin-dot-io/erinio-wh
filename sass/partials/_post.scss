@@ -10,17 +10,16 @@
 }
 
 .post-gallery__items {
-  @include clearfix;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: em(700);
+  // @include clearfix;
+  // margin-left: auto;
+  // margin-right: auto;
 }
 
 .post-gallery__item {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
-  margin-bottom: 0.25em;
-  @include span-columns(12);
+  max-width: em(700);
+  margin: 0 auto 0.25em;
   img {
     background-color: $alt-bg-color;
   }
@@ -38,7 +37,19 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-touch-callout: none;
   }
+  @include media($phone-wide) {
+    padding-left: 72px;
+    padding-right: 72px;
+  }
   @include media($phone) {
     margin-bottom: 0.15em;
+  }
+}
+
+.post-gallery__item--pano {
+  max-width: 100%;
+  @include media($phone-wide) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
