@@ -16,12 +16,11 @@ $index-content-margin : 114px;
 
 .content {
   position: relative;
-  background-color: $base-bg-color;
   overflow-x: hidden;
   z-index: 10;
   .page--index & {
     margin: 0 auto;
-    padding: 100px $index-content-margin;
+    padding: 0 $index-content-margin;
     max-width: em(800);
     border-radius: 1px;
     // padding-bottom: 40em;
@@ -30,6 +29,7 @@ $index-content-margin : 114px;
     top: $header-height;
     border: $content-border-width solid $alt-bg-color;
     border-top-width: 0;
+    background-color: $base-bg-color;
   }
   @include media($desktop-narrow) {
     .page--index & {

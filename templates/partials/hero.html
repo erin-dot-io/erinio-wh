@@ -46,6 +46,15 @@
     mix-blend-mode: {{ feature.title_blend_mode }};
   }
 </style>
+{% if feature.feature_image_align == 'top' or 'bottom' %}
+  <style>
+    .hero__image {background-position: center {{ feature.feature_image_align }};}
+  </style>
+{% elseif feature.feature_image_align == 'left' or 'right' %}
+  <style>
+    .hero__image {background-position: {{ feature.feature_image_align }} center;}
+  </style>
+{% endif %}
 {% if feature.title_color == 'BG Color' %}
   <style>
     .hero__link a,

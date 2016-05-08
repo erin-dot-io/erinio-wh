@@ -49,7 +49,7 @@ $base-bg-color: tint($off-white, 40%);
 $alt-bg-color: $warm-gray-light;
 
 // Font Colors
-$base-font-color: $warm-gray;
+$base-font-color: darken($warm-gray, 10%);
 $base-accent-color: shade($warm-gray, 20%);
 $overlay-text-color: white;
 

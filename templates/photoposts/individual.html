@@ -25,46 +25,68 @@
     {{ item.name }}
   {% endif %}
   </h1>
-  <h6>{{ item.subtitle }}{% if item.date %} &mdash; {{ item.date|date('M Y') }}{% endif %}</h6>
+  <h6>{% if item.subtitle %}{{ item.subtitle }} &mdash; {% endif %}{% if item.date %}{{ item.date|date('M Y') }}{% endif %}</h6>
 </section>
 {#   <section class="container post-audio">
   <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ item.soundcloud }}&show_artwork=false&show_comments=false&show_playcount=false&download=false&sharing=false&buying=false"></iframe>
 </section> #}
 {# auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=false&visual=false&start_track=0&callback=true #}
-<section class="container post-gallery">
-  <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
-    {% for image in item.images %}
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if [image.width / 2] > image.height %} post-gallery__item--pano{% endif %}">
-          <a href="{{ image.url }}"
-             abs-href="{{ site_url }}{{ image.url }}"
-             itemprop="contentUrl"
-             data-size="{{ image.width }}x{{ image.height }}">
-            {% if [image.width / 2] > image.height %}
-              <img src="{{ image|imageSize(1232, 'auto') }}"
-                   srcset="{{ image|imageSize(616, 'auto') }} 616w,
-                           {{ image|imageSize(1232, 'auto') }} 1232w,
-                           {{ image|imageSize(2464, 'auto') }} 2464w"
-                   sizes="(max-width: 667px) 100vw,
-                          96vw"
-                   itemprop="thumbnail"
-              />
-            {% else %}
-              <img src="{{ image|imageSize(700, 'auto') }}"
-                   srcset="{{ image|imageSize(380, 'auto') }} 380w,
-                           {{ image|imageSize(700, 'auto') }} 700w,
-                           {{ image|imageSize(1400, 'auto') }} 1400w"
-                   sizes="(max-width: 480px) 95vw,
-                          (max-width: 667px) 96vw,
-                          (max-width: 750px) 93vw,
-                          700px"
-                   itemprop="thumbnail"
-              />
-            {% endif %}
-          </a>
-        </figure>
-    {% endfor %}
-  </div>
-</section>
+<article class="post-content">
+  {% for row in item.row %}
+    {% if row.images %}
+      <section class="container post-section post-gallery">
+        <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
+          {% for image in row.images %}
+              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if [image.width / 2] > image.height %} post-gallery__item--pano{% elseif image.caption %} post-gallery__item--{{ image.caption }}{% endif %}">
+                <a href="{{ image|imageSize(2560, 'auto') }}"
+                   abs-href="{{ site_url }}{{ image.url }}"
+                   itemprop="contentUrl"
+                   data-size="{{ image.width }}x{{ image.height }}">
+                  {% if [image.width / 2] > image.height %}
+                    <img src="{{ image|imageSize(1232, 'auto') }}"
+                         srcset="{{ image|imageSize(616, 'auto') }} 616w,
+                                 {{ image|imageSize(1232, 'auto') }} 1232w,
+                                 {{ image|imageSize(2464, 'auto') }} 2464w"
+                         sizes="(max-width: 667px) 100vw,
+                                96vw"
+                         itemprop="thumbnail"
+                    />
+      {#             {% elseif image.caption %}
+                    <img src="{{ image|imageSize(348, 'auto') }}"
+                         srcset="{{ image|imageSize(190, 'auto') }} 190w,
+                                 {{ image|imageSize(348, 'auto') }} 348w,
+                                 {{ image|imageSize(969, 'auto') }} 969w"
+                         sizes="(max-width: 480px) 47vw,
+                                (max-width: 768px) 45vw,
+                                (max-width: 800px) 43vw,
+                                348px"
+                         itemprop="thumbnail"
+                    /> #}
+                  {% else %}
+                    <img src="{{ image|imageSize(700, 'auto') }}"
+                         srcset="{{ image|imageSize(380, 'auto') }} 380w,
+                                 {{ image|imageSize(700, 'auto') }} 700w,
+                                 {{ image|imageSize(1400, 'auto') }} 1400w"
+                         sizes="(max-width: 480px) 95vw,
+                                (max-width: 667px) 96vw,
+                                (max-width: 750px) 93vw,
+                                700px"
+                         itemprop="thumbnail"
+                    />
+                  {% endif %}
+                </a>
+              </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+    {% if row.text %}
+      <section class="post-section post-text">
+        {{ row.text|markdown }}
+      </section>
+    {% endif %}
+  {% endfor %}
+</article>
 <section class="container post-footer">
   <small>
     {{ item.notes|markdown }}

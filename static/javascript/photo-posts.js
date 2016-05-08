@@ -150,6 +150,20 @@ $(document).ready(function() {
         // define options (if needed)
         options = {
 
+          // dont loop
+          loop: false,
+
+          // hide share button
+          shareEl: false,
+
+          // disable zooming
+          zoomEl: false,
+          maxSpreadZoom: 1,
+          getDoubleTapZoom: function(isMouseClick, item) {
+            item.initialZoomLevel;
+            gallery.next();
+          },
+
           // define gallery index (for URL)
           galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 

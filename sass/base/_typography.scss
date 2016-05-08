@@ -70,8 +70,8 @@ p {
   font-family: $serif;
   margin: 0 0 ($base-spacing / 2);
   font-size: $reading-font-size;
-  @include media($phone-wide) {
-    font-size: $base-font-size * 0.875;
+  @include media($phone) {
+    font-size: 1.125em;
   }
 }
 

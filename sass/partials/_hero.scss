@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh + 1em);
 }
 
 .hero__image-wrap,
@@ -30,13 +30,12 @@
 
 .hero__link-wrap {
   position: absolute;
-  bottom: 0;
-  top: 0;
+  top: 35%;
   left: 20px;
   right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   text-align: center;
   @include media($phone-wide) {
     left: 10px;

@@ -33,21 +33,25 @@ $font-load-transform-timing  : 950ms;
 $font-load-scale-timing      : 2650ms;
 $font-load-scale-timing-fast : 1250ms;
 
-@mixin font-loading($style: 'fade-in', $delay: 0ms) {
+@mixin font-loading($style: 'fade-in', $delay: 0ms, $opacity: 1) {
   @include backface-visibility(hidden);
   @if $style == 'fade-in' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing ease $delay);
     .wf-loading & {opacity: 0;}
   }
   @else if $style == 'fade-in-fast' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing-fast ease $delay);
     .wf-loading & {opacity: 0;}
   }
   @else if $style == 'fade-in-slow' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing-slow ease $delay);
     .wf-loading & {opacity: 0;}
   }
   @else if $style == 'fade-up-in' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing $spinCurve $delay,
                         transform $font-load-transform-timing $spinCurve $delay);
     .wf-loading & {
@@ -56,6 +60,7 @@ $font-load-scale-timing-fast : 1250ms;
     }
   }
   @else if $style == 'fade-scale-in' {
+    opacity: $opacity;
     @include transition(opacity $font-load-transform-timing $spinCurve $delay,
                         transform $font-load-scale-timing cubic-bezier(0.19, 1, 0.22, 1) $delay);
     .wf-loading & {
@@ -64,6 +69,7 @@ $font-load-scale-timing-fast : 1250ms;
     }
   }
   @else if $style == 'fade-down-in' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing ease,
                         transform $font-load-transform-timing ease);
     .wf-loading & {
@@ -72,6 +78,7 @@ $font-load-scale-timing-fast : 1250ms;
     }
   }
   @else if $style == 'fade-right-in' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing ease,
                         transform $font-load-transform-timing ease);
     .wf-loading & {
@@ -80,6 +87,7 @@ $font-load-scale-timing-fast : 1250ms;
     }
   }
   @else if $style == 'fade-left-in' {
+    opacity: $opacity;
     @include transition(opacity $font-load-fade-timing ease,
                         transform $font-load-transform-timing ease);
     .wf-loading & {
