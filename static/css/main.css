@@ -951,18 +951,8 @@ input[type="submit"] {
   display: block;
 }
 
-.pswp--zoomed-in .pswp__img {
-  /* autoprefixer: off */
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
-  cursor: grab;
-}
-
-.pswp--dragging .pswp__img {
-  /* autoprefixer: off */
-  cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
-  cursor: grabbing;
+.pswp--zoom-allowed .pswp__img {
+  cursor: e-resize;
 }
 
 /*
