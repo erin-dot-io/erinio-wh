@@ -15,23 +15,29 @@ $(document).ready(function() {
           $pic.find('a').each(function() {
             var $href   = $(this).attr('href'),
                 $msrc   = $(this).find('img').attr('src'),
+                $thumb  = $(this).find('img'),
                 $size   = $(this).data('size').split('x'),
                 $width  = $size[0],
                 $height = $size[1];
 
             var item = {
-                src  : $href,
-                w    : $width,
-                h    : $height,
-                msrc : $msrc,
-                last : false
+                src   : $href,
+                w     : $width,
+                h     : $height,
+                msrc  : $msrc,
+                thumb : $thumb,
+                first : false,
+                last  : false
             }
 
+            if ($(this).parent().is(':first-child')) {
+              item.first = true
+            }
             if ($(this).parent().is(':last-child')) {
               item.last = true
             }
 
-            console.log(item)
+            // console.log(item);
 
             items.push(item);
           });

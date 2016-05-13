@@ -734,6 +734,17 @@ var PhotoSwipeUI_Default =
         return;
       }
 
+      if(pswp.currItem.last) {
+        // pswp.currItem.thumb.velocity("scroll", {
+        //   duration: 500,
+        //   easing: "ease-in-out",
+        //   delay: 333,
+        //   offset: -90
+        // });
+        pswp.close();
+        return;
+      }
+
       if(framework.hasClass(target, 'pswp__img')) {
         if(_options.clickToAdvanceImage) {
           if(pswp.getZoomLevel() <= pswp.currItem.fitRatio) {

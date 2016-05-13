@@ -954,6 +954,10 @@ input[type="submit"] {
 .pswp--zoom-allowed .pswp__img {
   cursor: e-resize;
 }
+.pswp--zoom-allowed .pswp__img.pswp__img--last {
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+}
 
 /*
   Background is added as a separate element.

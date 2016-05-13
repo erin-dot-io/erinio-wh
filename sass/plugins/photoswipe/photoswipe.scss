@@ -52,6 +52,9 @@
 
 .pswp--zoom-allowed .pswp__img {
   cursor: e-resize;
+  &.pswp__img--last {
+    cursor: zoom-out;
+  }
 }
 
 // .pswp--zoomed-in .pswp__img {
