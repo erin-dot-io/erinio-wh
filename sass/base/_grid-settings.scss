@@ -18,17 +18,19 @@ $grid-padding-phone: 6px;
 // iPhone 6: 375px (portrait), 667px (landscape)
 // iPhone 6 Plus: 414px (portrait), 736px (landscape)
 
-$desktop-wide        : new-breakpoint(min-width 1370px);
-$desktop             : new-breakpoint(min-width 1001px);
-$desktop-narrow      : new-breakpoint(max-width 1000px);
-$desktop-narrow-only : new-breakpoint(min-width 769px max-width 1000px);
-$tablet              : new-breakpoint(max-width 768px);
-$tablet-only         : new-breakpoint(min-width 640px max-width 768px);
-$phone-wide          : new-breakpoint(max-width 667px);
-$phone-wide-only     : new-breakpoint(min-width 480px max-width 736px);
-$phone               : new-breakpoint(max-width 479px);
-$not-phone           : new-breakpoint(min-width 480px);
-$phone-short         : new-breakpoint(max-height 375px);
-$netbook-11          : new-breakpoint(max-height 600px);
-$netbook-13          : new-breakpoint(max-height 790px);
-$ratio-small         : new-breakpoint(min-width 1670px max-height 639px);
+$desktop-wide         : new-breakpoint(min-width 1100px);
+$above-desktop-narrow : new-breakpoint(min-width 1001px);
+$desktop-narrow       : new-breakpoint(max-width 1000px);
+$desktop-narrow-only  : new-breakpoint(min-width 769px max-width 1000px);
+$tablet               : new-breakpoint(max-width 768px);
+$tablet-only          : new-breakpoint(min-width 640px max-width 768px);
+$above-phone-wide     : new-breakpoint(min-width 670px);
+$phone-wide           : new-breakpoint(max-width 669px);
+$phone-wide-only      : new-breakpoint(min-width 480px max-width 669px);
+$phone-med            : new-breakpoint(max-width 574px);
+$above-phone          : new-breakpoint(min-width 480px);
+$phone                : new-breakpoint(max-width 479px);
+$phone-short          : new-breakpoint(max-height 500px);
+$netbook-11           : new-breakpoint(max-height 600px);
+$netbook-13           : new-breakpoint(max-height 790px);
+$ratio-small          : new-breakpoint(min-width 1670px max-height 639px);

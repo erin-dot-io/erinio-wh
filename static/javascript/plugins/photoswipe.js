@@ -986,12 +986,14 @@ var publicMethods = {
 
     _showOrHide(self.currItem, null, true, self.destroy);
 
-    self.currItem.thumb.velocity("scroll", {
-      duration: 500,
-      easing: "ease-in-out",
-      delay: 333,
-      offset: -90
-    });
+    if (!_closedByScroll) {
+      self.currItem.thumb.velocity("scroll", {
+        duration: 500,
+        easing: "ease-in-out",
+        delay: 333,
+        offset: -90
+      });
+    }
 
   },
 

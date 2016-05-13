@@ -54,12 +54,14 @@ function navOpen() {
 
   navState = true;
 
+  navOpenWidth = 280;
+
   // console.log(navState);
 
   animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
   animate({
     el: content,
-    translateX: 280,
+    translateX: navOpenWidth,
     duration: 750,
     easing: "easeOutExpo",
     begin: function() {
@@ -144,7 +146,7 @@ function navClose() {
   animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
   animate({
     el: content,
-    translateX: [280, 0],
+    translateX: [navOpenWidth, 0],
     duration: 750,
     easing: "easeOutExpo",
     begin: function() {

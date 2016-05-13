@@ -599,7 +599,7 @@ h1, .h1 {
   font-weight: 500;
   margin-bottom: 0.5em;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   h1, .h1 {
     font-size: 1.75em;
   }
@@ -636,7 +636,7 @@ h6, .h6 {
     font-size: 0.875em;
   }
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   h6, .h6 {
     font-size: 0.75em;
   }
@@ -901,7 +901,7 @@ input[type="submit"] {
   position: relative;
   top: -1px;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .button-back {
     font-size: 0.75em;
     padding: 0.5em 0.75em;
@@ -1746,9 +1746,6 @@ body {
   overflow-x: hidden;
   background-color: #eceaed;
 }
-body.page--index {
-  background-color: #564d58;
-}
 
 .container {
   max-width: 43.75em;
@@ -1773,7 +1770,7 @@ body.page--index {
   padding-left: 12px;
   padding-right: 12px;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .container {
     padding: 0 75px;
   }
@@ -1821,7 +1818,7 @@ body.page--index {
     margin: 0 -12px;
   }
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .video-embed {
     margin: 0 -6px;
   }
@@ -1835,7 +1832,7 @@ body.page--index {
   width: 90px;
   z-index: 1;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .top-logo-wrap {
     top: 14px;
     margin-left: -35px;
@@ -1911,7 +1908,7 @@ body.page--index {
 .nav-trigger.nav--opened svg {
   opacity: 0 !important;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .nav-trigger {
     left: 12px;
   }
@@ -1959,7 +1956,7 @@ body.page--index {
 .page--index .nav .button-back {
   display: none;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .nav {
     padding-left: 21px;
   }
@@ -2058,49 +2055,50 @@ body.page--index {
   transform: scale(1.04);
 }
 
-.hero__link-wrap {
+.hero__text-wrap {
   position: absolute;
   top: 35%;
   left: 20px;
   right: 20px;
   text-align: center;
 }
-@media screen and (max-width: 667px) {
-  .hero__link-wrap {
+@media screen and (max-width: 669px) {
+  .hero__text-wrap {
     left: 10px;
     right: 10px;
   }
 }
 @media screen and (max-width: 479px) {
-  .hero__link-wrap {
+  .hero__text-wrap {
     bottom: 10vh;
   }
 }
 
-.hero__link {
+.hero__text {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   opacity: 1;
   -webkit-transition: opacity 1250ms ease 500ms;
   transition: opacity 1250ms ease 500ms;
-}
-.wf-loading .hero__link {
-  opacity: 0;
-}
-.hero__link a {
-  display: inline-block;
+  cursor: pointer;
   color: #fff;
 }
-.no-touch .hero__link a:hover + h6 {
+.wf-loading .hero__text {
+  opacity: 0;
+}
+.hero__text a {
+  display: inline-block;
+}
+.no-touch .hero__text a:hover + h6 {
   opacity: 1;
 }
-.hero__link h1 {
+.hero__text h1 {
   font-size: 4em;
   margin-bottom: 0;
   padding: 0.5em 0;
   letter-spacing: 0.2em;
 }
-.hero__link h6 {
+.hero__text h6 {
   position: relative;
   top: -2em;
   -webkit-transition: opacity 400ms ease;
@@ -2108,27 +2106,27 @@ body.page--index {
   opacity: 0;
   pointer-events: none;
 }
-.hero__link h6 span {
+.hero__text h6 span {
   position: relative;
   top: -0.1em;
 }
 @media screen and (max-width: 1000px) {
-  .hero__link h1 {
+  .hero__text h1 {
     font-size: 3.75em;
   }
 }
 @media screen and (max-width: 768px) {
-  .hero__link h1 {
+  .hero__text h1 {
     font-size: 3.25em;
   }
 }
-@media screen and (max-width: 667px) {
-  .hero__link h1 {
+@media screen and (max-width: 669px) {
+  .hero__text h1 {
     font-size: 2.5em;
   }
 }
 @media screen and (max-width: 479px) {
-  .hero__link h1 {
+  .hero__text h1 {
     font-size: 2em;
   }
 }
@@ -2147,7 +2145,9 @@ body.page--index {
   transform: translate3d(0, 15px, 0);
 }
 .page--index .content-wrap {
-  padding: 0 110px;
+  position: relative;
+  top: 100px;
+  padding-bottom: 110px;
 }
 @media screen and (max-width: 768px) {
   .page--index .content-wrap {
@@ -2168,33 +2168,37 @@ body.page--index {
 }
 body:not(.page--index) .content {
   top: 92px;
-  border: 12px solid #eceaed;
-  border-top-width: 0;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
   background-color: #f8f8f5;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 1100px) {
   .page--index .content {
-    padding: 60px;
+    -webkit-transform: translateX(0) !important;
+    -ms-transform: translateX(0) !important;
+    transform: translateX(0) !important;
   }
 }
 @media screen and (max-width: 768px) {
   .page--index .content {
-    padding: 100px 114px;
+    padding: 0 114px 100px;
   }
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   body:not(.page--index) .content {
-    border-right-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 0;
+    margin: 0;
   }
   .page--index .content {
-    padding: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
   }
 }
 @media screen and (max-width: 479px) {
   .page--index .content {
-    padding: 6px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: -15px;
   }
 }
 
@@ -2224,6 +2228,12 @@ body:not(.page--index) .content {
 }
 .index-post:last-child {
   margin-bottom: 0;
+}
+@media screen and (max-width: 479px) {
+  .index-post {
+    padding: 6px;
+    margin-bottom: 2px;
+  }
 }
 
 .index-post__image {
@@ -2426,8 +2436,8 @@ body:not(.page--index) .content {
 }
 
 .post-header {
-  padding-top: 20vh;
-  padding-bottom: 20vh;
+  padding-top: 5em;
+  padding-bottom: 5em;
   max-width: 62.5em;
   text-align: center;
 }
@@ -2474,7 +2484,7 @@ body:not(.page--index) .content {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .post-gallery__item {
     padding-left: 6px;
     padding-right: 6px;
@@ -2485,7 +2495,7 @@ body:not(.page--index) .content {
 .post-gallery__item--pano {
   max-width: 100%;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 669px) {
   .post-gallery__item--pano {
     padding-left: 0;
     padding-right: 0;

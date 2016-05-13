@@ -42,7 +42,7 @@
   /*.index-post:after {
     background-color: {{ feature.bg_color }};
   }*/
-  .hero__link-wrap {
+  .hero__text-wrap {
     mix-blend-mode: {{ feature.title_blend_mode }};
   }
 </style>
@@ -57,29 +57,25 @@
 {% endif %}
 {% if feature.title_color == 'BG Color' %}
   <style>
-    .hero__link a,
-    .hero__link h6 {
+    .hero__text {
       color: {{ feature.bg_color }};
     }
   </style>
 {% elseif feature.title_color == 'White' %}
   <style>
-    .hero__link a,
-    .hero__link h6 {
+    .hero__text {
       color: #fff;
     }
   </style>
 {% elseif feature.title_color == 'Black' %}
   <style>
-    .hero__link a,
-    .hero__link h6 {
+    .hero__text {
       color: #000;
     }
   </style>
 {% else %}
   <style>
-    .hero__link a,
-    .hero__link h6 {
+    .hero__text {
       color: {{ feature.accent_color }};
     }
   </style>
@@ -92,18 +88,16 @@
         {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
       </div>
     </div>
-    <div class="hero__link-wrap" id="hero_link_wrap">
-      <div class="hero__link" id="hero_link">
-        <a href="{{ url(feature) }}">
-          <h1>
-            {% if feature.custom_title %}
-              {{ feature.custom_title }}
-            {% else %}
-              {{ feature.name }}
-            {% endif %}
-          </h1>
-          <h6>{{ feature.subtitle }} <span>&rarr;</span></h6>
-        </a>
+    <div class="hero__text-wrap" id="hero_link_wrap">
+      <div class="hero__text" id="hero_text">
+        <h1>
+          {% if feature.custom_title %}
+            {{ feature.custom_title }}
+          {% else %}
+            {{ feature.name }}
+          {% endif %}
+        </h1>
+        <h6>{{ feature.subtitle }} <span>&rarr;</span></h6>
         {# <h6>{{ feature.subtitle }} &mdash; {{ feature.date|date('M Y') }}</h6> #}
       </div>
     </div>

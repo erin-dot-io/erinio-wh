@@ -29,7 +29,7 @@
   {% set first_post = first_post|sort('publish_date', true) %}
   {% set first_post = first_post|slice(0,1) %}
   {% set feature = first_post|last %}
-  {% set posts = all_posts|exclude('_id', first_post) %}
+  {% set posts = all_posts %}
 
   <head>
     <meta charset="utf-8">
