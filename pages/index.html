@@ -17,13 +17,15 @@
 
     {% for post in posts %}
 
-      {# {% set image_ratio = post.feature_image.height / post.feature_image.width * 100 %} #}
+      {% set image_ratio = post.feature_image.height / post.feature_image.width * 100 %}
 
-      <div class="index-post lazyload">
+      <div class="index-post">
         <a href="{{ url(post) }}">
-          <div class="index-post__image" style="padding-bottom: {{ image_ratio }}%">
-            <img class="image-thumb" src="{{ post.feature_image|imageSize(20, 'auto') }}">
-            <img class="lazyload"
+          <div class="index-post__image lazy-image" style="padding-bottom: {{ image_ratio }}%">
+            <div class="image-thumb--blurred">
+              <img class="image-thumb--blurred" src="{{ post.feature_image|imageSize(20, 'auto') }}">
+            </div>
+            <img class="image-thumb lazyload"
                  data-src="{{ post.feature_image|imageSize(572, 'auto') }}"
                  data-srcset="{{ post.feature_image|imageSize(320, 'auto') }} 320w,
                          {{ post.feature_image|imageSize(572, 'auto') }} 572w,

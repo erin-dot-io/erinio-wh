@@ -14,23 +14,33 @@
   }
 }
 
-.index-post__image {
+.lazy-image {
+  display: block;
   position: relative;
-  // intrinsic ratio padding calculated and set in template
-  // height: 0;
+  height: 0;
+  overflow: hidden;
+  .image-thumb--blurred, > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  > img {
+    @include lazyloaded;
+  }
+  .image-thumb--blurred {
+    overflow: hidden;
+    @include transform(scale(1.05));
+    img {@include filter(blur(15px));}
+  }
+}
+
+.index-post__image {
   border-radius: 2px;
   overflow: hidden;
   img {
     border-radius: 2px;
-  }
-  img:not(.image-thumb) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include lazyloaded;
-  }
-  img.image-thumb {
-    @include filter(blur(10px));
   }
 }
 

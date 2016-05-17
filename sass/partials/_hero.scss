@@ -29,6 +29,7 @@
 }
 
 .hero-loader {
+  display: none;
   position: fixed;
   top: 50vh;
   left: 50vw;
@@ -36,14 +37,14 @@
   width: 50px;
   background-color: #fff;
   pointer-events: none;
-  opacity: 0;
-  @include transform(scale(0.9));
-  @include transition(opacity $font-load-transform-timing $spinCurve 0ms,
-                      transform $font-load-scale-timing ease 0ms);
-  .hero__image img.lazyloading + & {
-    opacity: 1;
-    @include transform(scale(1));
-  }
+  // opacity: 0;
+  // @include transform(scale(0.9));
+  // @include transition(opacity $font-load-transform-timing $spinCurve 0ms,
+  //                     transform $font-load-scale-timing ease 0ms);
+  // .hero__image img.lazyloading + & {
+  //   opacity: 1;
+  //   @include transform(scale(1));
+  // }
 }
 
 .hero__text-wrap {

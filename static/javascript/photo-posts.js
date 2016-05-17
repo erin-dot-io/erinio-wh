@@ -14,8 +14,8 @@ $(document).ready(function() {
           var items = [];
           $pic.find('a').each(function() {
             var $href   = $(this).attr('href'),
-                $msrc   = $(this).find('img').currentSrc,
-                $thumb  = $(this).find('img'),
+                $msrc   = $(this).find('.image-thumb').attr('data-src'),
+                $thumb  = $(this).find('.image-thumb'),
                 $size   = $(this).data('size').split('x'),
                 $width  = $size[0],
                 $height = $size[1];
@@ -61,7 +61,7 @@ $(document).ready(function() {
           getThumbBoundsFn: function(index) {
 
             // find thumbnail element
-            var thumbnail = $pic.find('img')[index];
+            var thumbnail = $pic.find('.image-thumb')[index];
 
             // get window scroll Y
             var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
