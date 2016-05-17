@@ -19,13 +19,13 @@
   .nav-trigger__logo .logo-path {
     fill: {{ feature.accent_color }};
   }
-  .hero__image {
+/*  .hero__image {
     background-image: url({{ feature.feature_image|imageSize(1280, 'auto') }});
     background-image: -webkit-image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
                                         url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
     background-image: image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
                                 url({{ feature.feature_image|imageSize(2560, 'auto') }}) 2x);
-  }
+  }*/
   .nav__bio,
   .nav .button,
   .index-footer a {
@@ -84,8 +84,14 @@
 <div class="hero" id="hero">
   <div class="hero__image-wrap" id="hero_image_wrap">
     <div class="hero__image-nav-wrap" id="hero_nav_wrap">
-      <div class="hero__image" id="hero_image">
-        {# <img src="{{ feature.feature_image|imageSize(1014, 'auto') }}" alt=""> #}
+      <div class="hero__image">
+        <img class="lazyload"
+             data-src="{{ feature.feature_image|imageSize(1280, 'auto') }}"
+             data-srcset="{{ feature.feature_image|imageSize(1280, 'auto') }} 1280w,
+                          {{ feature.feature_image|imageSize(2560, 'auto') }} 2560w"
+             data-sizes="100vw"
+        />
+        <div id="hero_loader" class="hero-loader"></div>
       </div>
     </div>
     <div class="hero__text-wrap" id="hero_link_wrap">
@@ -97,7 +103,7 @@
             {{ feature.name }}
           {% endif %}
         </h1>
-        <h6>{{ feature.subtitle }} <span>&rarr;</span></h6>
+        {# <h6>{{ feature.subtitle }} <span>&rarr;</span></h6> #}
         {# <h6>{{ feature.subtitle }} &mdash; {{ feature.date|date('M Y') }}</h6> #}
       </div>
     </div>

@@ -34,12 +34,12 @@
                    itemprop="contentUrl"
                    data-size="{{ image.width }}x{{ image.height }}">
                   {% if [image.width / 2] > image.height %}
-                    <img src="{{ image|imageSize(1232, 'auto') }}"
-                         srcset="{{ image|imageSize(616, 'auto') }} 616w,
+                    <img class="lazyload"
+                         data-src="{{ image|imageSize(1232, 'auto') }}"
+                         data-srcset="{{ image|imageSize(616, 'auto') }} 616w,
                                  {{ image|imageSize(1232, 'auto') }} 1232w,
                                  {{ image|imageSize(2464, 'auto') }} 2464w"
-                         sizes="(max-width: 667px) 100vw,
-                                96vw"
+                         data-sizes="auto"
                          itemprop="thumbnail"
                     />
       {#             {% elseif image.caption %}
@@ -54,14 +54,12 @@
                          itemprop="thumbnail"
                     /> #}
                   {% else %}
-                    <img src="{{ image|imageSize(700, 'auto') }}"
-                         srcset="{{ image|imageSize(380, 'auto') }} 380w,
+                    <img class="lazyload"
+                         data-src="{{ image|imageSize(700, 'auto') }}"
+                         data-srcset="{{ image|imageSize(380, 'auto') }} 380w,
                                  {{ image|imageSize(700, 'auto') }} 700w,
                                  {{ image|imageSize(1400, 'auto') }} 1400w"
-                         sizes="(max-width: 480px) 95vw,
-                                (max-width: 667px) 96vw,
-                                (max-width: 750px) 93vw,
-                                700px"
+                         data-sizes="auto"
                          itemprop="thumbnail"
                     />
                   {% endif %}

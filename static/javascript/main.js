@@ -5,6 +5,10 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
+  setTimeout(function() {
+    $('body').addClass('hero-loading');
+  }, 100);
+
   if($("body.page--photo-post").length) {
 
     logo = $("#top_logo_wrap");
@@ -33,24 +37,6 @@ $(document).ready(function() {
                         // .setVelocity("#animate", {opacity: 0}, {duration: 400})
                         // .addIndicators()
                         .addTo(heroScroll);
-
-    // // hero link fade
-    // var linkFadeTween = TweenMax.to(heroLink, 1, {opacity: 0, ease: 'linear'});
-    // var linkFade = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 300})
-    //                    .setTween(linkFadeTween)
-    //                    // trigger a velocity opaticy animation
-    //                    // .setVelocity("#animate", {opacity: 0}, {duration: 400})
-    //                    // .addIndicators()
-    //                    .addTo(heroScroll);
-
-    // // hero link scroll
-    // var linkScrollTween = TweenMax.to(heroLink, 1, {y: -60, ease: 'linear'});
-    // var linkScroll = new ScrollMagic.Scene({triggerElement: "#content", triggerHook: 'onEnter', duration: 450})
-    //                    .setTween(linkScrollTween)
-    //                    // trigger a velocity opaticy animation
-    //                    // .setVelocity("#animate", {opacity: 0}, {duration: 400})
-    //                    // .addIndicators()
-    //                    .addTo(heroScroll);
 
     // logo fade
     var logoFadeTween = TweenMax.to(logo, 1, {opacity: 0, yPercent: -22, ease: 'linear'});

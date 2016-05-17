@@ -33,6 +33,37 @@ $font-load-transform-timing  : 950ms;
 $font-load-scale-timing      : 2650ms;
 $font-load-scale-timing-fast : 1250ms;
 
+@mixin lazyloaded($style: 'fade-in', $delay: 0ms, $opacity: 1) {
+  @include backface-visibility(hidden);
+  @if $style == 'fade-in' {
+    opacity: 0;
+    @include transition(opacity $font-load-fade-timing ease $delay);
+    &.lazyloaded {
+      opacity: $opacity;
+    }
+  }
+  @else if $style == 'fade-up-in' {
+    opacity: 0;
+    @include transform(translate3d(0, $font-load-transform, 0));
+    @include transition(opacity $font-load-fade-timing $spinCurve $delay,
+                        transform $font-load-transform-timing $spinCurve $delay);
+    &.lazyloaded {
+    opacity: $opacity;
+    @include transform(translate3d(0, 0, 0));
+    }
+  }
+  @else if $style == 'fade-scale-in' {
+    opacity: 0;
+    @include transform(scale(1.04));
+    @include transition(opacity $font-load-transform-timing $spinCurve $delay,
+                        transform $font-load-scale-timing cubic-bezier(0.19, 1, 0.22, 1) $delay);
+    &.lazyloaded {
+      opacity: $opacity;
+      @include transform(scale(1));
+    }
+  }
+}
+
 @mixin font-loading($style: 'fade-in', $delay: 0ms, $opacity: 1) {
   @include backface-visibility(hidden);
   @if $style == 'fade-in' {
@@ -99,3 +130,4 @@ $font-load-scale-timing-fast : 1250ms;
     }
   }
 }
+

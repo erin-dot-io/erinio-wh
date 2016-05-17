@@ -7,20 +7,28 @@
 
 {% block content %}
 
+  <style>
+    .index-post__image {
+      background-color: {{ feature.bg_color }};
+    }
+  </style>
+
   <section class="index-posts">
 
     {% for post in posts %}
 
-      <div class="index-post">
+      {# {% set image_ratio = post.feature_image.height / post.feature_image.width * 100 %} #}
+
+      <div class="index-post lazyload">
         <a href="{{ url(post) }}">
-          <div class="index-post__image">
-            <img src="{{ post.feature_image|imageSize(572, 'auto') }}"
-                 srcset="{{ post.feature_image|imageSize(320, 'auto') }} 320w,
+          <div class="index-post__image" style="padding-bottom: {{ image_ratio }}%">
+            <img class="image-thumb" src="{{ post.feature_image|imageSize(20, 'auto') }}">
+            <img class="lazyload"
+                 data-src="{{ post.feature_image|imageSize(572, 'auto') }}"
+                 data-srcset="{{ post.feature_image|imageSize(320, 'auto') }} 320w,
                          {{ post.feature_image|imageSize(572, 'auto') }} 572w,
                          {{ post.feature_image|imageSize(1144, 'auto') }} 1144w"
-                 sizes="(max-width: 800px) 72vw,
-                        572px"
-                 itemprop="thumbnail"
+                 data-sizes="auto"
             />
           </div>
           <div class="index-post__titles">

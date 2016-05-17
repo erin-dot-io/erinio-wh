@@ -1,7 +1,7 @@
 $index-content-margin : 114px;
 
 .content-wrap {
-  @include font-loading('fade-up-in');
+  // @include font-loading('fade-up-in');
   // overflow-x: hidden;
   .page--index & {
     position: relative;

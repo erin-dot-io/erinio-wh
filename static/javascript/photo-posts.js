@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  photoPost = $("body.page--photo-post");
+  var photoPost = $("body.page--photo-post");
 
   if (photoPost.length) {
 
-
+    // PhotoSwipe
     var $pswp = $('.pswp')[0];
     var image = [];
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
           var items = [];
           $pic.find('a').each(function() {
             var $href   = $(this).attr('href'),
-                $msrc   = $(this).find('img').attr('src'),
+                $msrc   = $(this).find('img').currentSrc,
                 $thumb  = $(this).find('img'),
                 $size   = $(this).data('size').split('x'),
                 $width  = $size[0],

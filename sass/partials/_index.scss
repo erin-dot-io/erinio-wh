@@ -1,4 +1,5 @@
 .index-post {
+  @include font-loading(fade-up-in);
   text-align: center;
   margin-bottom: 4em;
   background-color: $base-bg-color;
@@ -14,13 +15,23 @@
 }
 
 .index-post__image {
-  // opacity: 0.95;
-  // transition: opacity 400ms;
+  position: relative;
+  // intrinsic ratio padding calculated and set in template
+  // height: 0;
   border-radius: 2px;
   overflow: hidden;
-  // &:hover {
-  //   opacity: 0.94;
-  // }
+  img {
+    border-radius: 2px;
+  }
+  img:not(.image-thumb) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include lazyloaded;
+  }
+  img.image-thumb {
+    @include filter(blur(10px));
+  }
 }
 
 .index-post__titles {
