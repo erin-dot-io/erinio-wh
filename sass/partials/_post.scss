@@ -12,9 +12,16 @@
 .post-title {
   text-align: center;
   max-width: em(700);
-  margin: 4em auto 5em;
+  margin: 5em auto 2em;
   padding-left: 6px;
   padding-right: 6px;
+  .post-text + & {
+    margin-top: 4em;
+  }
+}
+
+.post-title--top {
+  margin-bottom: 5em;
 }
 
 .post-title__text {
@@ -43,13 +50,37 @@
 }
 
 .post-text {
+  position: relative;
   box-sizing: content-box;
   max-width: em(600);
   margin: 2em auto 2.5em;
   padding: 0 em(50);
   &:last-child {margin-bottom: 0;}
+  .post-title + & {
+    margin-top: 0;
+  }
+  // .post-text + &:before {
+  //   content: "";
+  //   position: absolute;
+  //   top: -1em;
+  //   left: 0;
+  //   right: 0;
+  //   height: 1px;
+  //   background-color: $base-font-color;
+  //   opacity: 0.5;
+  // }
+  .post-text + & {
+    padding-top: 2em;
+    border-top: 1px solid rgba($base-font-color, 0.2);
+  }
   @include media($phone) {
     padding: 0 em(30);
+  }
+}
+
+.post-gallery {
+  .post-title + & {
+    margin-top: 4em;
   }
 }
 

@@ -15,7 +15,7 @@
 
 {% block content %}
 
-<section class="container post-section post-title">
+<section class="container post-section post-title post-title--top">
   <div class="post-title__text no-line">
     <h6>{% if item.subtitle %}{{ item.subtitle }}{% endif %}{% if item.subtitle and item.date %} &mdash; {% endif %}{% if item.date %}{{ item.date|date('F Y') }}{% endif %}</h6>
   </div>
@@ -31,6 +31,11 @@
         <div class="post-title__text">
           <h6>{{ row.title }}</h6>
         </div>
+      </section>
+    {% endif %}
+    {% if row.text and row.text_position == 'Above' %}
+      <section class="container post-section post-text">
+        {{ row.text|markdown }}
       </section>
     {% endif %}
     {% if row.images %}
@@ -89,8 +94,8 @@
         </div>
       </section>
     {% endif %}
-    {% if row.text %}
-      <section class="post-section post-text">
+    {% if row.text and row.text_position == 'Below' %}
+      <section class="container post-section post-text">
         {{ row.text|markdown }}
       </section>
     {% endif %}
