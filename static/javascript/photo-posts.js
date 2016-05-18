@@ -56,6 +56,7 @@ $(document).ready(function() {
           shareEl: false,
           loop: false,
           zoomEl: false,
+          preload: [1,2],
           history: false,
           getThumbBoundsFn: function(index) {
 
