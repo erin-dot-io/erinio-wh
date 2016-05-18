@@ -15,8 +15,10 @@
 
 {% block content %}
 
-<section class="container post-header post-header--white">
-  <h6>{% if item.subtitle %}{{ item.subtitle }} &mdash; {% endif %}{% if item.date %}{{ item.date|date('M Y') }}{% endif %}</h6>
+<section class="container post-section post-title">
+  <div class="post-title__text no-line">
+    <h6>{% if item.subtitle %}{{ item.subtitle }}{% endif %}{% if item.subtitle and item.date %} &mdash; {% endif %}{% if item.date %}{{ item.date|date('F Y') }}{% endif %}</h6>
+  </div>
 </section>
 {#   <section class="container post-audio">
   <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ item.soundcloud }}&show_artwork=false&show_comments=false&show_playcount=false&download=false&sharing=false&buying=false"></iframe>
@@ -24,6 +26,13 @@
 {# auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=false&visual=false&start_track=0&callback=true #}
 <article class="post-content">
   {% for row in item.row %}
+    {% if row.title and row.show_title %}
+      <section class="container post-section post-title">
+        <div class="post-title__text">
+          <h6>{{ row.title }}</h6>
+        </div>
+      </section>
+    {% endif %}
     {% if row.images %}
       <section class="container post-section post-gallery">
         <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">

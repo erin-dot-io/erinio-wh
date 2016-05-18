@@ -14,7 +14,7 @@ $(document).ready(function() {
           var items = [];
           $pic.find('a').each(function() {
             var $href   = $(this).attr('href'),
-                $msrc   = $(this).find('.image-thumb').attr('data-src'),
+                $msrc   = $(this).find('.image-thumb').prop("currentSrc"),
                 $thumb  = $(this).find('.image-thumb'),
                 $size   = $(this).data('size').split('x'),
                 $width  = $size[0],
@@ -37,19 +37,19 @@ $(document).ready(function() {
               item.last = true
             }
 
-            // console.log(item);
+            // console.log(item.msrc);
 
             items.push(item);
           });
           return items;
         }
 
-      var items = getItems();
 
       var $pswp = $('.pswp')[0];
       $pic.on('click', 'figure', function(event) {
         event.preventDefault();
 
+        var items = getItems();
         var $index = $(this).index();
         var options = {
           index: $index,
@@ -57,7 +57,6 @@ $(document).ready(function() {
           loop: false,
           zoomEl: false,
           history: false,
-          preload: [0,1],
           getThumbBoundsFn: function(index) {
 
             // find thumbnail element

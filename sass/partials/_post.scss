@@ -9,10 +9,30 @@
   @include font-loading('fade-up-in', 218ms);
 }
 
-.post-gallery__items {
-  // @include clearfix;
-  // margin-left: auto;
-  // margin-right: auto;
+.post-title {
+  text-align: center;
+  max-width: em(700);
+  margin: 4em auto 5em;
+}
+
+.post-title__text {
+  position: relative;
+  &:not(.no-line):before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    height: 1px;
+    background-color: $base-font-color;
+    opacity: 0.75;
+    z-index: -1;
+  }
+  h6 {
+    display: inline-block;
+    padding: 0 em(10) 0 em(14);
+    background-color: $base-bg-color;
+  }
 }
 
 .post-text {
