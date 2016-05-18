@@ -13,6 +13,8 @@
   text-align: center;
   max-width: em(700);
   margin: 4em auto 5em;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .post-title__text {
@@ -32,6 +34,11 @@
     display: inline-block;
     padding: 0 em(10) 0 em(14);
     background-color: $base-bg-color;
+  }
+  @include media($phone-wide) {
+    &:not(.no-line):before {
+      top: 54%;
+    }
   }
 }
 

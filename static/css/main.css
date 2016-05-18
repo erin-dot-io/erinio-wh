@@ -2517,6 +2517,8 @@ body:not(.page--index) .content {
   text-align: center;
   max-width: 43.75em;
   margin: 4em auto 5em;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .post-title__text {
@@ -2537,6 +2539,11 @@ body:not(.page--index) .content {
   display: inline-block;
   padding: 0 0.625em 0 0.875em;
   background-color: #f8f8f5;
+}
+@media screen and (max-width: 669px) {
+  .post-title__text:not(.no-line):before {
+    top: 54%;
+  }
 }
 
 .post-text {
