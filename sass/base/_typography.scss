@@ -76,6 +76,8 @@ p {
   }
 }
 
+q { quotes: '\201C' '\201D' '\2018' '\2019'; }
+
 a {
   color: $base-link-color;
   text-decoration: none;

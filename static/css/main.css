@@ -656,6 +656,10 @@ p:last-child {
   }
 }
 
+q {
+  quotes: '\201C' '\201D' '\2018' '\2019';
+}
+
 a {
   color: #453e46;
   text-decoration: none;
