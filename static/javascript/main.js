@@ -5,9 +5,9 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-  setTimeout(function() {
-    $('body').addClass('hero-loading');
-  }, 100);
+  // setTimeout(function() {
+  //   $('body').addClass('hero-loading');
+  // }, 100);
 
   if($("body.page--photo-post").length) {
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
     triggerBg = $("#trigger_bg");
     heroImage = $("#hero_image_wrap");
     heroNavWrap = $("#hero_nav_wrap");
-    heroText = $("#hero_text");
+    heroText = $(".hero__link");
 
     heroText.bind("touchstart click", function() {
       $('#content').velocity("scroll", {
@@ -123,29 +123,29 @@ $(document).ready(function() {
   }
 
   // hero section actions
-  if($("#hero").length) {
+  // if($("#hero").length) {
 
-    heroNavWrap = $("#hero_nav_wrap");
+  //   heroNavWrap = $("#hero_nav_wrap");
 
-    $("#hero_link a").hover(
-      function() {
-        animate({
-          el: heroNavWrap,
-          opacity: 0.8,
-          duration: 750,
-          easing: "easeOutExpo",
-        });
-      }, function() {
-        animate({
-          el: heroNavWrap,
-          opacity: [0.8, 1],
-          duration: 750,
-          easing: "easeOutExpo",
-        });
-      }
-    );
+  //   $("#hero_link a").hover(
+  //     function() {
+  //       animate({
+  //         el: heroNavWrap,
+  //         opacity: 0.8,
+  //         duration: 750,
+  //         easing: "easeOutExpo",
+  //       });
+  //     }, function() {
+  //       animate({
+  //         el: heroNavWrap,
+  //         opacity: [0.8, 1],
+  //         duration: 750,
+  //         easing: "easeOutExpo",
+  //       });
+  //     }
+  //   );
 
-  }
+  // }
 
 });
 

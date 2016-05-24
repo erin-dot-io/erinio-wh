@@ -1,0 +1,26 @@
+{% set image_ratio = post.feature_image.height / post.feature_image.width * 100 %}
+
+<a class="index-post" href="{{ url(post) }}">
+  <div class="index-post__image lazy-image" style="padding-bottom: {{ image_ratio }}%">
+    <div class="image-thumb--blurred">
+      <img class="image-thumb--blurred" src="{{ post.feature_image|imageSize(20, 'auto') }}">
+    </div>
+    <img class="image-thumb lazyload"
+         data-src="{{ post.feature_image|imageSize(572, 'auto') }}"
+         data-srcset="{{ post.feature_image|imageSize(320, 'auto') }} 320w,
+                 {{ post.feature_image|imageSize(572, 'auto') }} 572w,
+                 {{ post.feature_image|imageSize(1144, 'auto') }} 1144w"
+         data-sizes="auto"
+    />
+  </div>
+  <div class="index-post__titles">
+    <h5>
+      {% if post.custom_title %}
+        {{ post.custom_title }}
+      {% else %}
+        {{ post.name }}
+      {% endif %}
+    </h5>
+    <h6><small>{{ post.date|date('M Y') }}</small></h6>
+  </div>
+</a>

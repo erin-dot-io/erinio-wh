@@ -102,10 +102,6 @@
   {% endfor %}
 </article>
 <section class="container post-footer">
-  <small>
-    {{ item.notes|markdown }}
-    <span>&mdash;</span>
-  </small>
   <div class="post-footer__social">
     <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a>
     <a class="icon-twitter" href="http://twitter.com/erindotio"></a>
@@ -113,6 +109,19 @@
     <a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
   </div>
 </section>
+
+{% if item.related_posts %}
+  <section class="container wide post-section post-title related-posts-title">
+    <div class="post-title__text">
+      <h6>See More</h6>
+    </div>
+  </section>
+  <section class="container wide related-posts">
+    {% for post in item.related_posts %}
+      {% include "templates/partials/post-card.html" %}
+    {% endfor %}
+  </section>
+{% endif %}
 
 {% endblock %}
 

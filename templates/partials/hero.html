@@ -57,32 +57,32 @@
 {% endif %}
 {% if feature.title_color == 'BG Color' %}
   <style>
-    .hero__text {
+    .hero__link {
       color: {{ feature.bg_color }};
     }
   </style>
 {% elseif feature.title_color == 'White' %}
   <style>
-    .hero__text {
+    .hero__link {
       color: #fff;
     }
   </style>
 {% elseif feature.title_color == 'Black' %}
   <style>
-    .hero__text {
+    .hero__link {
       color: #000;
     }
   </style>
 {% else %}
   <style>
-    .hero__text {
+    .hero__link {
       color: {{ feature.accent_color }};
     }
   </style>
 {% endif %}
 
 <div class="hero" id="hero">
-  <div class="hero__image-wrap" id="hero_image_wrap">
+  <div class="hero__image-wrap lazyload" id="hero_image_wrap">
     <div class="hero__image-nav-wrap" id="hero_nav_wrap">
       <div class="hero__image">
         <img class="lazyload"
@@ -95,7 +95,7 @@
       </div>
     </div>
     <div class="hero__text-wrap" id="hero_link_wrap">
-      <div class="hero__text" id="hero_text">
+      <div class="hero__text hero__link" id="hero_text">
         <h1>
           {% if feature.custom_title %}
             {{ feature.custom_title }}
@@ -107,5 +107,6 @@
         {# <h6>{{ feature.subtitle }} &mdash; {{ feature.date|date('M Y') }}</h6> #}
       </div>
     </div>
+    <div class="hero__down-arrow icon-down-arrow-thin hero__link"></div>
   </div>
 </div>

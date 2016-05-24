@@ -66,7 +66,6 @@
 }
 
 .hero__text {
-  cursor: pointer;
   color: #fff;
   opacity: 0;
   @include transform(scale(1.04));
@@ -126,5 +125,28 @@
     h1 {
       font-size: 2em;
     }
+  }
+}
+
+.hero__link {
+  cursor: pointer;
+}
+
+.hero__down-arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -15px;
+  font-size: 60px;
+  color: #fff;
+  opacity: 0;
+  @include transform(translateY(-10px));
+  @include transition-property(opacity, transform);
+  @include transition-duration(900ms);
+  @include transition-timing-function(ease);
+  @include transition-delay(3500ms);
+  .lazyloaded & {
+    opacity: 0.9;
+    @include transform(translateY(0px));
   }
 }

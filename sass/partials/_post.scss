@@ -13,10 +13,16 @@
   text-align: center;
   max-width: em(700);
   margin: 5em auto 2em;
-  padding-left: 6px;
-  padding-right: 6px;
+  &:not(.wide) {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
   .post-text + & {
     margin-top: 4em;
+  }
+  .post-footer + & {
+    margin-top: 0;
+    margin-bottom: 4em;
   }
 }
 
@@ -115,5 +121,18 @@
   @include media($phone-wide) {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+.related-posts-title,
+.related-posts {
+  max-width: inherit;
+}
+
+.related-posts {
+  @include clearfix;
+  margin-bottom: 4em;
+  @include media($desktop-narrow-only) {
+    max-width: em(500);
   }
 }

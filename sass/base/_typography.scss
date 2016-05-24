@@ -93,6 +93,13 @@ a {
   }
   p & {
     position: relative;
+    white-space: nowrap;
+    text-shadow: 0 0 1px $base-bg-color,
+                 0 0 1px $base-bg-color,
+                 0 0 1px $base-bg-color,
+                 0 0 1px $base-bg-color,
+                 0 0 1px $base-bg-color,
+                 0 0 1px $base-bg-color;
     &:after {
       content: "";
       position: absolute;
@@ -102,6 +109,7 @@ a {
       height: 1px;
       margin-top: -0.25em;
       background-color: $base-font-color;
+      z-index: -1;
       // transition: height 0.1s linear;
     }
   }

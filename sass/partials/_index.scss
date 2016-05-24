@@ -1,16 +1,32 @@
 .index-post {
-  @include font-loading(fade-up-in);
+  display: block;
   text-align: center;
-  margin-bottom: 4em;
   background-color: $base-bg-color;
   padding: 1em;
   border-radius: 1px;
-  &:last-child {
-    margin-bottom: 0;
+  .index-posts & {
+    @include font-loading(fade-up-in);
+    margin-bottom: 4em;
   }
+  .related-posts & {
+    font-size: 0.85em;
+    @include span-columns(3 of 9);
+    border: 1px solid rgba($base-font-color, 0.2);
+    &:hover {border-color: rgba($base-font-color, 0.4)}
+  }
+  &:last-child {margin-bottom: 0;}
   @include media($phone) {
-    padding: 6px;
-    margin-bottom: 2px;
+    .index-posts & {
+      padding: 6px;
+      margin-bottom: 6px;
+    }
+  }
+  @include media($desktop-narrow) {
+    .related-posts & {
+      @include span-columns(9 of 9);
+      margin-bottom: 4em;
+      &:last-child {margin-bottom: 0;}
+    }
   }
 }
 
@@ -51,5 +67,10 @@
   }
   h5 {
     margin-bottom: 0.4em;
+  }
+  h6 {
+    .related-posts & {
+      display: none;
+    }
   }
 }
