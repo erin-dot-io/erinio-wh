@@ -5,7 +5,6 @@ $index-content-margin : 114px;
   // overflow-x: hidden;
   .page--index & {
     position: relative;
-    top: 100px;
     padding-bottom: 110px;
   }
   @include media($tablet) {
@@ -17,38 +16,25 @@ $index-content-margin : 114px;
 
 .content {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   z-index: 10;
   .page--index & {
-    margin: 0 auto;
+    margin: $header-height auto 0;
     padding: 0 $index-content-margin;
     max-width: em(800);
     border-radius: 1px;
     // padding-bottom: 40em;
   }
   body:not(.page--index) & {
-    top: $header-height;
     // border: $content-border-width solid $alt-bg-color;
     margin-left: $content-border-width;
     margin-right: $content-border-width;
-    margin-bottom: $content-border-width;
     // border-top-width: 0;
     background-color: $base-bg-color;
-  }
-  @include media($desktop-narrow) {
-    .page--index & {
-      // padding-left: 60px;
-      // padding-right: 60px;
-    }
   }
   @include media($desktop-wide) {
     .page--index & {
       @include transform(translateX(0) !important);
-    }
-  }
-  @include media($tablet) {
-    .page--index & {
-      padding: 0 $index-content-margin 100px;
     }
   }
   @include media($phone-wide) {
@@ -64,8 +50,14 @@ $index-content-margin : 114px;
     .page--index & {
       padding-left: 0;
       padding-right: 0;
-      margin-top: -15px;
+      // margin-top: 77px;
     }
+  }
+}
+
+.content-inner {
+  .page--photo-post & {
+    padding-bottom: 4em;
   }
 }
 

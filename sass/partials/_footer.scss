@@ -1,4 +1,4 @@
-.index-footer {
+.footer {
   // position: fixed;
   // bottom: 1em;
   // left: 0;
@@ -6,11 +6,21 @@
   padding: 3em 0;
   width: 100%;
   text-align: center;
+  a {
+    position: relative;
+    top: 2px;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    opacity: 0.75;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .post-footer {
   padding-top: 6em;
-  padding-bottom: 6em;
+  padding-bottom: 2em;
   text-align: center;
   // a {
   //   color: $base-font-color;

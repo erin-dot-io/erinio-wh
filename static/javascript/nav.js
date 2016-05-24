@@ -10,6 +10,8 @@ content = $("#content");
 contentInner = $("#content_inner");
 hero = $("#hero_nav_wrap");
 heroLink = $("#hero_link_wrap");
+footer = $("#footer");
+downArrow = $("#down_arrow_wrapper");
 
 navAction();
 
@@ -58,7 +60,7 @@ function navOpen() {
 
   // console.log(navState);
 
-  animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar);
+  animate.stop(content, contentInner, nav, hero, heroLink, topBar, midBar, bottomBar, footer, downArrow);
   animate({
     el: content,
     translateX: navOpenWidth,
@@ -90,6 +92,18 @@ function navOpen() {
     opacity: 0.05,
     scale: 0.982,
     duration: 1050,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: footer,
+    opacity: 0,
+    duration: 450,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: downArrow,
+    opacity: 0,
+    duration: 450,
     easing: "easeOutExpo",
   });
   animate({
@@ -177,6 +191,18 @@ function navClose() {
     opacity: [0.05, 1],
     scale: [0.982, 1],
     duration: 1050,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: footer,
+    opacity: [0, 1],
+    duration: 450,
+    easing: "easeOutExpo",
+  });
+  animate({
+    el: downArrow,
+    opacity: [0, 1],
+    duration: 450,
     easing: "easeOutExpo",
   });
   animate({

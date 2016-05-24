@@ -64,17 +64,6 @@
                          data-sizes="auto"
                          itemprop="thumbnail"
                     />
-      {#             {% elseif image.caption %}
-                    <img src="{{ image|imageSize(348, 'auto') }}"
-                         srcset="{{ image|imageSize(190, 'auto') }} 190w,
-                                 {{ image|imageSize(348, 'auto') }} 348w,
-                                 {{ image|imageSize(969, 'auto') }} 969w"
-                         sizes="(max-width: 480px) 47vw,
-                                (max-width: 768px) 45vw,
-                                (max-width: 800px) 43vw,
-                                348px"
-                         itemprop="thumbnail"
-                    /> #}
                   {% else %}
                     <div class="image-thumb--blurred">
                       <img src="{{ image|imageSize(100, 'auto') }}">
@@ -88,6 +77,7 @@
                          itemprop="thumbnail"
                     />
                   {% endif %}
+                  <div class="image-loader">loading</div>
                 </a>
               </figure>
           {% endfor %}
@@ -101,16 +91,16 @@
     {% endif %}
   {% endfor %}
 </article>
-<section class="container post-footer">
-  <div class="post-footer__social">
-    <a class="icon-instagram" href="http://www.instagram.com/erin.io"></a>
-    <a class="icon-twitter" href="http://twitter.com/erindotio"></a>
-    <a class="icon-paperplane trigger-email" href="mailto:erin@erin.io"></a>
-    <a class="icon-waves trigger-wavey last" href="https://vine.co/v/bF1wF9i5vmA"></a>
-  </div>
-</section>
 
-{% if item.related_posts %}
+{% if item.notes %}
+<section class="container post-footer">
+  <small>
+    {{ item.notes|markdown }}
+  </small>
+</section>
+{% endif %}
+
+{% if item.related_posts|first %}
   <section class="container wide post-section post-title related-posts-title">
     <div class="post-title__text">
       <h6>See More</h6>

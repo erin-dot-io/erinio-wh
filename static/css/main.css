@@ -675,8 +675,6 @@ a:active, a:focus {
 }
 p a {
   position: relative;
-  white-space: nowrap;
-  text-shadow: 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5;
 }
 p a:after {
   content: "";
@@ -688,6 +686,10 @@ p a:after {
   margin-top: -0.25em;
   background-color: #3b353d;
   z-index: -1;
+}
+.post-text a, .post-footer a {
+  white-space: nowrap;
+  text-shadow: 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5, 0 0 1px #f8f8f5;
 }
 .no-touch p a:hover:after {
   height: 2px;
@@ -1668,20 +1670,24 @@ a.pswp__share--download:hover {
   background: none;
 }
 
-@-webkit-keyframes fadeUpIn {
+@-webkit-keyframes rotate {
   from {
-    opacity: 0;
+    -webkit-transform: rotate(0deg);
   }
   to {
-    opacity: 1;
+    -webkit-transform: rotate(-360deg);
   }
 }
-@keyframes fadeUpIn {
+@keyframes rotate {
   from {
-    opacity: 0;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    opacity: 1;
+    -webkit-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 @font-face {
@@ -1865,7 +1871,7 @@ body {
 
 .nav-trigger {
   position: fixed;
-  top: 19px;
+  top: 22px;
   left: 32px;
   width: 48px;
   height: 48px;
@@ -2002,15 +2008,25 @@ body {
   }
 }
 
-.index-footer {
+.footer {
   padding: 3em 0;
   width: 100%;
   text-align: center;
 }
+.footer a {
+  position: relative;
+  top: 2px;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  opacity: 0.75;
+}
+.footer a:hover {
+  opacity: 1;
+}
 
 .post-footer {
   padding-top: 6em;
-  padding-bottom: 6em;
+  padding-bottom: 2em;
   text-align: center;
 }
 .post-footer span {
@@ -2204,7 +2220,6 @@ body {
 
 .page--index .content-wrap {
   position: relative;
-  top: 100px;
   padding-bottom: 110px;
 }
 @media screen and (max-width: 768px) {
@@ -2215,20 +2230,18 @@ body {
 
 .content {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   z-index: 10;
 }
 .page--index .content {
-  margin: 0 auto;
+  margin: 92px auto 0;
   padding: 0 114px;
   max-width: 50em;
   border-radius: 1px;
 }
 body:not(.page--index) .content {
-  top: 92px;
   margin-left: 12px;
   margin-right: 12px;
-  margin-bottom: 12px;
   background-color: #f8f8f5;
 }
 @media screen and (min-width: 1100px) {
@@ -2236,11 +2249,6 @@ body:not(.page--index) .content {
     -webkit-transform: translateX(0) !important;
     -ms-transform: translateX(0) !important;
     transform: translateX(0) !important;
-  }
-}
-@media screen and (max-width: 768px) {
-  .page--index .content {
-    padding: 0 114px 100px;
   }
 }
 @media screen and (max-width: 669px) {
@@ -2256,8 +2264,11 @@ body:not(.page--index) .content {
   .page--index .content {
     padding-left: 0;
     padding-right: 0;
-    margin-top: -15px;
   }
+}
+
+.page--photo-post .content-inner {
+  padding-bottom: 4em;
 }
 
 .nav-spacer {
@@ -2610,7 +2621,7 @@ body:not(.page--index) .content {
   margin-top: 4em;
 }
 .post-footer + .post-title {
-  margin-top: 0;
+  margin-top: 2em;
   margin-bottom: 4em;
 }
 
@@ -2671,6 +2682,7 @@ body:not(.page--index) .content {
 }
 
 .post-gallery__item {
+  position: relative;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   max-width: 43.75em;
@@ -2701,14 +2713,35 @@ body:not(.page--index) .content {
   }
 }
 
+.image-loader {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-family: "soleil", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  font-size: 0.85em;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease 0ms;
+  transition: opacity 400ms ease 0ms;
+}
+.lazyloading + .image-loader {
+  opacity: 1;
+  -webkit-transition: opacity 400ms ease 1500ms;
+  transition: opacity 400ms ease 1500ms;
+}
+
 .related-posts-title,
 .related-posts {
   max-width: inherit;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-.related-posts {
-  margin-bottom: 4em;
-}
 .related-posts::after {
   clear: both;
   content: "";

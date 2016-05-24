@@ -19,6 +19,7 @@
   .nav-trigger__logo .logo-path {
     fill: {{ feature.accent_color }};
   }
+
 /*  .hero__image {
     background-image: url({{ feature.feature_image|imageSize(1280, 'auto') }});
     background-image: -webkit-image-set(url({{ feature.feature_image|imageSize(1280, 'auto') }}) 1x,
@@ -28,7 +29,7 @@
   }*/
   .nav__bio,
   .nav .button,
-  .index-footer a {
+  .footer a {
     color: {{ feature.accent_color }};
   }
   .nav__bio a {
@@ -57,25 +58,25 @@
 {% endif %}
 {% if feature.title_color == 'BG Color' %}
   <style>
-    .hero__link {
+    .hero__text {
       color: {{ feature.bg_color }};
     }
   </style>
 {% elseif feature.title_color == 'White' %}
   <style>
-    .hero__link {
+    .hero__text {
       color: #fff;
     }
   </style>
 {% elseif feature.title_color == 'Black' %}
   <style>
-    .hero__link {
+    .hero__text {
       color: #000;
     }
   </style>
 {% else %}
   <style>
-    .hero__link {
+    .hero__text {
       color: {{ feature.accent_color }};
     }
   </style>
@@ -107,6 +108,8 @@
         {# <h6>{{ feature.subtitle }} &mdash; {{ feature.date|date('M Y') }}</h6> #}
       </div>
     </div>
-    <div class="hero__down-arrow icon-down-arrow-thin hero__link"></div>
+    <div id="down_arrow_wrapper">
+      <div class="hero__down-arrow icon-down-arrow-thin hero__link"></div>
+    </div>
   </div>
 </div>

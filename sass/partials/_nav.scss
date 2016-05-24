@@ -39,7 +39,7 @@ $nav-fade-duration    : 400ms;
 .nav-trigger {
   // @include font-loading('fade-in-fast');
   position: fixed;
-  top: 19px;
+  top: 22px;
   left: 32px;
   width: $nav-trigger-width + ($nav-trigger-padding * 2);
   height: $nav-trigger-width + ($nav-trigger-padding * 2);
