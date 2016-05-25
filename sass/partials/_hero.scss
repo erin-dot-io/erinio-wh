@@ -21,11 +21,11 @@
   height: 104vh;
   background-size: cover;
   background-position: center center;
-  img {
-    height: 100%;
-    object-fit: cover;
-    @include lazyloaded(fade-scale-in);
-  }
+  @include lazyloaded(fade-scale-in);
+  // img {
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
 }
 
 .hero-loader {
