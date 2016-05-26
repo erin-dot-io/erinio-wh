@@ -93,7 +93,7 @@
 </article>
 
 {% if item.notes %}
-<section class="container post-text post-notes">
+<section class="container post-section post-text post-notes">
   <small>
     {{ item.notes|markdown }}
   </small>
@@ -106,7 +106,7 @@
       <h6>See More</h6>
     </div>
   </section>
-  <section class="container wide related-posts">
+  <section class="container wide post-section related-posts">
     {% for post in item.related_posts %}
       {% include "templates/partials/post-card.html" %}
     {% endfor %}
