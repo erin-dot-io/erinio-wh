@@ -84,6 +84,13 @@
   }
 }
 
+.post-notes {
+  padding-top: 6em;
+  padding-bottom: 2em;
+  max-width: em(500);
+  text-align: center;
+}
+
 .post-gallery {
   .post-title + & {
     margin-top: 4em;

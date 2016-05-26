@@ -2673,6 +2673,13 @@ body:not(.page--index) .content {
   }
 }
 
+.post-notes {
+  padding-top: 6em;
+  padding-bottom: 2em;
+  max-width: 31.25em;
+  text-align: center;
+}
+
 .post-title + .post-gallery {
   margin-top: 4em;
 }
