@@ -2688,6 +2688,8 @@ body:not(.page--index) .content {
   background-color: #eceaed;
 }
 .post-gallery__item a {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
