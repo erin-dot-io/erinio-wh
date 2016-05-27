@@ -125,13 +125,11 @@
   }
 }
 
-.post-gallery__item--pano {
-  max-width: 100%;
-  @include media($phone-wide) {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.post-gallery__item--gif {
+  max-width: em(320);
 }
+
+
 
 .image-loader {
   position: absolute;

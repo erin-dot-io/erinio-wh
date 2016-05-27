@@ -2708,14 +2708,8 @@ body:not(.page--index) .content {
   }
 }
 
-.post-gallery__item--pano {
-  max-width: 100%;
-}
-@media screen and (max-width: 669px) {
-  .post-gallery__item--pano {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.post-gallery__item--gif {
+  max-width: 20em;
 }
 
 .image-loader {

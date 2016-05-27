@@ -40,11 +40,27 @@
     {% endif %}
     {% if row.images %}
       <section class="container post-section post-gallery">
-        <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
-          {% for image in row.images %}
-
+        {% if row.gifs %}
+          <div class="post-gallery__gifs">
+            {% for image in row.images %}
               {% set image_ratio = image.height / image.width * 100 %}
-
+              <figure class="post-gallery__item post-gallery__item--gif">
+                <a class="lazy-image"
+                   href="{{ image.url }}"
+                   style="padding-bottom: {{ image_ratio }}%">
+                  <div class="image-thumb--blurred">
+                    <img src="{{ image|imageSize(100, 'auto') }}">
+                  </div>
+                  <img class="image-thumb lazyload"
+                       data-src="{{ image.url }}">
+                </a>
+              </figure>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div itemscope itemtype="http://schema.org/ImageGallery" class="post-gallery__items">
+            {% for image in row.images %}
+              {% set image_ratio = image.height / image.width * 100 %}
               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="post-gallery__item{% if [image.width / 2] > image.height %} post-gallery__item--pano{% elseif image.caption %} post-gallery__item--{{ image.caption }}{% endif %}">
                 <a class="lazy-image"
                    style="padding-bottom: {{ image_ratio }}%"
@@ -80,8 +96,9 @@
                   <div class="image-loader">loading</div>
                 </a>
               </figure>
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
+        {% endif %}
       </section>
     {% endif %}
     {% if row.text and row.text_position == 'Below' %}
