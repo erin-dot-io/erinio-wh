@@ -46,13 +46,13 @@
               {% set image_ratio = image.height / image.width * 100 %}
               <figure class="post-gallery__item post-gallery__item--gif">
                 <a class="lazy-image"
-                   href="{{ image.url }}"
+                   href="{{ image|imageSize(310, 'auto') }}"
                    style="padding-bottom: {{ image_ratio }}%">
                   <div class="image-thumb--blurred">
-                    <img src="{{ image|imageSize(100, 'auto') }}">
+                    <img src="{{ image|imageSize(50, 'auto') }}">
                   </div>
                   <img class="image-thumb lazyload"
-                       data-src="{{ image.url }}">
+                       data-src="{{ image|imageSize(310, 'auto') }}">
                 </a>
               </figure>
             {% endfor %}
@@ -72,11 +72,11 @@
                     <div class="image-thumb--blurred">
                       <img src="{{ image|imageSize(100, 'auto') }}">
                     </div>
-                    <img class="image-thumb lazyload"
+                    <img class="image-thumb lazypreload"
                          data-src="{{ image|imageSize(1232, 'auto') }}"
                          data-srcset="{{ image|imageSize(616, 'auto') }} 616w,
-                                 {{ image|imageSize(1232, 'auto') }} 1232w,
-                                 {{ image|imageSize(2464, 'auto') }} 2464w"
+                                      {{ image|imageSize(1232, 'auto') }} 1232w,
+                                      {{ image|imageSize(2464, 'auto') }} 2464w"
                          data-sizes="auto"
                          itemprop="thumbnail"
                     />
@@ -84,11 +84,11 @@
                     <div class="image-thumb--blurred">
                       <img src="{{ image|imageSize(100, 'auto') }}">
                     </div>
-                    <img class="image-thumb lazyload"
+                    <img class="image-thumb lazypreload"
                          data-src="{{ image|imageSize(700, 'auto') }}"
                          data-srcset="{{ image|imageSize(380, 'auto') }} 380w,
-                                 {{ image|imageSize(700, 'auto') }} 700w,
-                                 {{ image|imageSize(1400, 'auto') }} 1400w"
+                                      {{ image|imageSize(700, 'auto') }} 700w,
+                                      {{ image|imageSize(1400, 'auto') }} 1400w"
                          data-sizes="auto"
                          itemprop="thumbnail"
                     />
